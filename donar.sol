@@ -5,13 +5,13 @@ contract donarContract {
     struct donar
     {
 
-        string name;
-        string id_number;
-        uint phone_number;
+        string firstname;
+        string lastname;
         uint age;
-        string location;
+        string gender;
+        string medical_id;
         string blood_type;
-        string organ_type;
+        string location;
 
     }
 
@@ -19,59 +19,49 @@ contract donarContract {
 
     string[] DonarsArray ;
 
-    function setDonars
-    (
-        string memory _name,
-        string memory _id_number,
-        uint _phone_number,
-        uint _age,
-        string memory _location,
-        string memory _blood_type,
-        string memory _organ_type
-    )
-
+    function addDonars(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
+                       string memory _medical_id, string memory _blood_type, string memory _location)
     public
     {
-        require ( keccak256(abi.encodePacked((donarMap[_id_number].id_number)))
-                        != keccak256(abi.encodePacked(_id_number)) );
-        donarMap[_id_number].id_number = _id_number ;
-        donarMap[_id_number].name = _name ;
-        donarMap[_id_number].phone_number = _phone_number ;
-        donarMap[_id_number].age = _age ;
-        donarMap[_id_number].location = _location ;
-        donarMap[_id_number].blood_type = _blood_type ;
-        donarMap[_id_number].organ_type = _organ_type ;
+        // Set parameters as required
+        require(bytes(_firstname).length > 0);
+        require(bytes(_lastname).length > 0);
+        require(uint(_age) > 0);
+        require(bytes(_gender).length > 0);
+        require(bytes(_medical_id).length > 0);
+        require(bytes(_blood_type).length > 0);
+        require(bytes(_location).length > 0);
 
-        DonarsArray.push(_id_number) ;
+        require ( keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)) );
+        donarMap[_medical_id].firstname = _firstname ;
+        donarMap[_medical_id].lastname = _lastname ;
+        donarMap[_medical_id].age = _age ;
+        donarMap[_medical_id].gender = _gender ;
+        donarMap[_medical_id].medical_id = _medical_id ;
+        donarMap[_medical_id].blood_type = _blood_type ;
+        donarMap[_medical_id].location = _location ;
+
+        DonarsArray.push(_medical_id) ;
     }
 
-    function getDonar(string memory _id_number) view public returns(string memory ,string memory, uint, uint, string memory, string memory, string memory)
+    function getDonar(string memory _medical_id) view public returns(string memory ,string memory, uint, string memory, string memory, string memory, string memory)
     {
         return
         (
-            donarMap[_id_number].name,
-            donarMap[_id_number].id_number,
-            donarMap[_id_number].phone_number,
-            donarMap[_id_number].age,
-            donarMap[_id_number].location,
-            donarMap[_id_number].blood_type,
-            donarMap[_id_number].organ_type
+            donarMap[_medical_id].firstname,
+            donarMap[_medical_id].lastname,
+            donarMap[_medical_id].age,
+            donarMap[_medical_id].gender,
+            donarMap[_medical_id].medical_id,
+            donarMap[_medical_id].blood_type,
+            donarMap[_medical_id].location
         );
     }
 
-    function validateDonar(string memory _id_number) view public returns(bool)
+    function validateDonar(string memory _medical_id) view public returns(bool)
     {
 
-     if (keccak256(abi.encodePacked((donarMap[_id_number].id_number))) == keccak256(abi.encodePacked(_id_number)))
-     return true ;
-     else return false ;
-
-    }
-
-    function donarEligibility(string memory _id_number) view public returns(bool)
-    {
-
-     if (keccak256(abi.encodePacked((donarMap[_id_number].id_number))) == keccak256(abi.encodePacked(_id_number)))
+     if (keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) == keccak256(abi.encodePacked(_medical_id)))
      return true ;
      else return false ;
 
