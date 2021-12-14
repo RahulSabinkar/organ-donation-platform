@@ -11,6 +11,7 @@ contract donarContract {
         string gender;
         string medical_id;
         string blood_type;
+        string organ;
         string location;
 
     }
@@ -24,6 +25,7 @@ contract donarContract {
         string gender;
         string medical_id;
         string blood_type;
+        string organ;
         string location;
 
     }
@@ -35,17 +37,18 @@ contract donarContract {
     string[] PatientArray;
 
     function addDonars(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
-                       string memory _medical_id, string memory _blood_type, string memory _location)
+                       string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
     public
     {
         // Set parameters as required
-        require(bytes(_firstname).length > 0);
-        require(bytes(_lastname).length > 0);
-        require(uint(_age) > 0);
-        require(bytes(_gender).length > 0);
-        require(bytes(_medical_id).length > 0);
-        require(bytes(_blood_type).length > 0);
-        require(bytes(_location).length > 0);
+        require(bytes(_firstname).length > 0, "No data found. Enter first name.");
+        require(bytes(_lastname).length > 0, "No data found. Enter second name.");
+        require(uint(_age) > 0, "No data found. Enter age.");
+        require(bytes(_gender).length > 0, "No data found. Enter gender.");
+        require(bytes(_medical_id).length > 0, "No data found. Enter medical ID.");
+        require(bytes(_blood_type).length > 0, "No data found. Enter blood-type.");
+        require(bytes(_organ).length > 0, "No data found. Enter organ.");
+        require(bytes(_location).length > 0, "No data found. Enter location.");
 
         require ( keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
         donarMap[_medical_id].firstname = _firstname;
@@ -54,23 +57,25 @@ contract donarContract {
         donarMap[_medical_id].gender = _gender;
         donarMap[_medical_id].medical_id = _medical_id;
         donarMap[_medical_id].blood_type = _blood_type;
+        donarMap[_medical_id].organ = _organ;
         donarMap[_medical_id].location = _location;
 
         DonarsArray.push(_medical_id);
     }
 
     function addPatients(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
-                       string memory _medical_id, string memory _blood_type, string memory _location)
+                       string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
     public
     {
         // Set parameters as required
-        require(bytes(_firstname).length > 0);
-        require(bytes(_lastname).length > 0);
-        require(uint(_age) > 0);
-        require(bytes(_gender).length > 0);
-        require(bytes(_medical_id).length > 0);
-        require(bytes(_blood_type).length > 0);
-        require(bytes(_location).length > 0);
+        require(bytes(_firstname).length > 0, "No data found. Enter first name.");
+        require(bytes(_lastname).length > 0, "No data found. Enter second name.");
+        require(uint(_age) > 0, "No data found. Enter age.");
+        require(bytes(_gender).length > 0, "No data found. Enter gender.");
+        require(bytes(_medical_id).length > 0, "No data found. Enter medical ID.");
+        require(bytes(_blood_type).length > 0, "No data found. Enter blood-type.");
+        require(bytes(_organ).length > 0, "No data found. Enter organ.");
+        require(bytes(_location).length > 0, "No data found. Enter location.");
 
         require ( keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)) );
         patientMap[_medical_id].firstname = _firstname;
@@ -79,6 +84,7 @@ contract donarContract {
         patientMap[_medical_id].gender = _gender;
         patientMap[_medical_id].medical_id = _medical_id;
         patientMap[_medical_id].blood_type = _blood_type;
+        patientMap[_medical_id].organ = _organ;
         patientMap[_medical_id].location = _location;
 
         PatientArray.push(_medical_id);
@@ -92,8 +98,8 @@ contract donarContract {
             donarMap[_medical_id].lastname,
             donarMap[_medical_id].age,
             donarMap[_medical_id].gender,
-            donarMap[_medical_id].medical_id,
             donarMap[_medical_id].blood_type,
+            donarMap[_medical_id].organ,
             donarMap[_medical_id].location
         );
     }
@@ -106,8 +112,8 @@ contract donarContract {
             patientMap[_medical_id].lastname,
             patientMap[_medical_id].age,
             patientMap[_medical_id].gender,
-            patientMap[_medical_id].medical_id,
             patientMap[_medical_id].blood_type,
+            patientMap[_medical_id].organ,
             patientMap[_medical_id].location
         );
     }
