@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Contract Demo</title>
+    <title>Donar Contract Demo</title>
 </head>
 <body>
-    <h1>Smart Contract Demo</h1>
+    <h1>Donar Contract Demo</h1>
 
     <div>
-        <button onclick="App.getData()">Get Data</button>
+        <input type="text" id="_medical_id"> 
+        <button onclick="App.getDonar()">Get Data</button>
     </div>
     <p></p>
     <div>
-        <input type="text" id="data"> 
-        <button onclick="App.setData()">Set Data</button>
+        <input type="text" id="_firstname">
+        <input type="text" id="_lastname"> 
+        <input type="text" id="_age"> 
+        <input type="text" id="_gender"> 
+        <input type="text" id="_medical_id"> 
+        <input type="text" id="_blood_type"> 
+        <input type="text" id="_organ"> 
+        <input type="text" id="_location"> 
+
+        <button onclick="App.setDonars()">Set Data</button>
     </div>
     <script src="index.js"></script>
 </body>

@@ -37,20 +37,10 @@ contract DonarContract {
     string[] DonarsArray;
     string[] PatientArray;
 
-    function addDonars(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
+    function setDonars(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
                        string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
     public
     {
-        // Set parameters as required
-        require(bytes(_firstname).length > 0, "No data found. Enter first name.");
-        require(bytes(_lastname).length > 0, "No data found. Enter second name.");
-        require(uint(_age) > 0, "No data found. Enter age.");
-        require(bytes(_gender).length > 0, "No data found. Enter gender.");
-        require(bytes(_medical_id).length > 0, "No data found. Enter medical ID.");
-        require(bytes(_blood_type).length > 0, "No data found. Enter blood-type.");
-        require(bytes(_organ).length > 0, "No data found. Enter organ.");
-        require(bytes(_location).length > 0, "No data found. Enter location.");
-
         require ( keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
         donarMap[_medical_id].firstname = _firstname;
         donarMap[_medical_id].lastname = _lastname;
@@ -64,20 +54,10 @@ contract DonarContract {
         DonarsArray.push(_medical_id);
     }
 
-    function addPatients(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
+    function setPatients(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
                        string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
     public
     {
-        // Set parameters as required
-        require(bytes(_firstname).length > 0, "No data found. Enter first name.");
-        require(bytes(_lastname).length > 0, "No data found. Enter second name.");
-        require(uint(_age) > 0, "No data found. Enter age.");
-        require(bytes(_gender).length > 0, "No data found. Enter gender.");
-        require(bytes(_medical_id).length > 0, "No data found. Enter medical ID.");
-        require(bytes(_blood_type).length > 0, "No data found. Enter blood-type.");
-        require(bytes(_organ).length > 0, "No data found. Enter organ.");
-        require(bytes(_location).length > 0, "No data found. Enter location.");
-
         require ( keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)) );
         patientMap[_medical_id].firstname = _firstname;
         patientMap[_medical_id].lastname = _lastname;
