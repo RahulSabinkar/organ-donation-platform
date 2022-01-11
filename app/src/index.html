@@ -4,27 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donar Contract Demo</title>
+    <title>Organ Donation Prototype</title>
 </head>
 <body>
-    <h1>Donar Contract Demo</h1>
-
-    <div>
-        <input type="text" id="_medical_id"> 
-        <button onclick="App.getDonar()">Get Data</button>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <h1>Register Donor</h1>
+        First Name: <input type="text" id="donorFirstName">
+        <br/><br/>
+        Last Name: <input type="text" id="donorLastName">
+        <br/><br/>
+        Age: <input type="text" id="donorAge">
+        <br/><br/>
+        Gender: <input type="radio" id="donorGender" value="male">Male
+                <input type="radio" id="donorGender" value="female">Female
+                <input type="radio" id="donorGender" value="other">Other
+        <br/><br/>
+        Medical ID: <input type="text" id="donorMedicalID">
+        <br/><br/>
+        Blood Type: <input type="text" id="donorBloodType">
+        <br/><br/>
+        Organ: <input type="text" id="donorOrgan">
+        <br/><br/>
+        Location: <input type="text" id="donorLocation">
+        <br/><br/>
+        <button onclick="App.setDonors()">Register</button>
     </div>
-    <p></p>
-    <div>
-        <input type="text" id="_firstname">
-        <input type="text" id="_lastname"> 
-        <input type="text" id="_age"> 
-        <input type="text" id="_gender"> 
-        <input type="text" id="_medical_id"> 
-        <input type="text" id="_blood_type"> 
-        <input type="text" id="_organ"> 
-        <input type="text" id="_location"> 
-
-        <button onclick="App.setDonars()">Set Data</button>
+    <br/><br/>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <h1>Search Donor</h1>
+        Medical ID: <input type="text" id="inputDonorMedicalID"> 
+        <button onclick="App.getDonor()">Search</button>
+    </div>
+    <br/><br/>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <h1>Register Patient</h1>
+        First Name: <input type="text" id="patientFirstName">
+        <br/><br/>
+        Last Name: <input type="text" id="patientLastName">
+        <br/><br/>
+        Age: <input type="text" id="patientAge">
+        <br/><br/>
+        Gender: <input type="radio" id="patientGender" value="male">Male
+                <input type="radio" id="patientGender" value="female">Female
+                <input type="radio" id="patientGender" value="other">Other
+        <br/><br/>
+        Medical ID: <input type="text" id="patientMedicalID">
+        <br/><br/>
+        Blood Type: <input type="text" id="patientBloodType">
+        <br/><br/>
+        Organ: <input type="text" id="patientOrgan">
+        <br/><br/>
+        Location: <input type="text" id="patientLocation">
+        <br/><br/>
+        <button onclick="App.setPatients()">Register</button>
+    </div>
+    <br/><br/>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <h1>Search Patient</h1>
+        Medical ID: <input type="text" id="inputPatientMedicalID"> 
+        <button onclick="App.getPatient()">Search</button>
+    </div>
+    <br/><br/>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <button onclick="App.getAllDonorIDs()">Get All Donor IDs</button>
+    </div>
+    <br/><br/>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <button onclick="App.getAllPatientIDs()">Get All Patient IDs</button>
+    </div>
+    <br/><br/>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <button onclick="App.getCountOfDonors()">Total Donors Count</button>
+    </div>
+    <br/><br/>
+    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
+        <button onclick="App.getCountOfPatients()">Total Patients Count</button>
     </div>
     <script src="index.js"></script>
 </body>

@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-contract DonarContract {
+contract DonorContract {
 
-    struct donar
+    struct donor
     {
 
         string firstname;
@@ -31,34 +31,34 @@ contract DonarContract {
 
     }
 
-    mapping ( string =>donar ) donarMap;
+    mapping ( string =>donor ) donorMap;
     mapping ( string =>patient) patientMap;
 
-    string[] DonarsArray;
+    string[] DonorsArray;
     string[] PatientArray;
 
-    function setDonars(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
+    function setdonors(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
                        string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
     public
     {
-        require ( keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
-        donarMap[_medical_id].firstname = _firstname;
-        donarMap[_medical_id].lastname = _lastname;
-        donarMap[_medical_id].age = _age;
-        donarMap[_medical_id].gender = _gender;
-        donarMap[_medical_id].medical_id = _medical_id;
-        donarMap[_medical_id].blood_type = _blood_type;
-        donarMap[_medical_id].organ = _organ;
-        donarMap[_medical_id].location = _location;
+        require ( keccak256(abi.encodePacked((donorMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
+        donorMap[_medical_id].firstname = _firstname;
+        donorMap[_medical_id].lastname = _lastname;
+        donorMap[_medical_id].age = _age;
+        donorMap[_medical_id].gender = _gender;
+        donorMap[_medical_id].medical_id = _medical_id;
+        donorMap[_medical_id].blood_type = _blood_type;
+        donorMap[_medical_id].organ = _organ;
+        donorMap[_medical_id].location = _location;
 
-        DonarsArray.push(_medical_id);
+        DonorsArray.push(_medical_id);
     }
 
     function setPatients(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
                        string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
     public
     {
-        require ( keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)) );
+        require ( keccak256(abi.encodePacked((patientMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)) );
         patientMap[_medical_id].firstname = _firstname;
         patientMap[_medical_id].lastname = _lastname;
         patientMap[_medical_id].age = _age;
@@ -71,21 +71,21 @@ contract DonarContract {
         PatientArray.push(_medical_id);
     }
 
-    function getDonar(string memory _medical_id) view public returns(string memory ,string memory, uint, string memory, string memory, string memory, string memory)
+    function getdonor(string memory _medical_id) view public returns(string memory, string memory, uint, string memory, string memory, string memory, string memory)
     {
         return
         (
-            donarMap[_medical_id].firstname,
-            donarMap[_medical_id].lastname,
-            donarMap[_medical_id].age,
-            donarMap[_medical_id].gender,
-            donarMap[_medical_id].blood_type,
-            donarMap[_medical_id].organ,
-            donarMap[_medical_id].location
+            donorMap[_medical_id].firstname,
+            donorMap[_medical_id].lastname,
+            donorMap[_medical_id].age,
+            donorMap[_medical_id].gender,
+            donorMap[_medical_id].blood_type,
+            donorMap[_medical_id].organ,
+            donorMap[_medical_id].location
         );
     }
 
-    function getPatient(string memory _medical_id) view public returns(string memory ,string memory, uint, string memory, string memory, string memory, string memory)
+    function getPatient(string memory _medical_id) view public returns(string memory, string memory, uint, string memory, string memory, string memory, string memory)
     {
         return
         (
@@ -99,10 +99,10 @@ contract DonarContract {
         );
     }
 
-    function validateDonar(string memory _medical_id) view public returns(bool)
+    function validateDonor(string memory _medical_id) view public returns(bool)
     {
 
-     if (keccak256(abi.encodePacked((donarMap[_medical_id].medical_id))) == keccak256(abi.encodePacked(_medical_id)))
+     if (keccak256(abi.encodePacked((donorMap[_medical_id].medical_id))) == keccak256(abi.encodePacked(_medical_id)))
      return true;
      else return false;
 
@@ -117,9 +117,9 @@ contract DonarContract {
 
     }
 
-    function getAllDonarIDs() view public returns(string[] memory)
+    function getAlldonorIDs() view public returns(string[] memory)
     {
-            return DonarsArray;
+            return DonorsArray;
     }
 
     function getAllPatientIDs() view public returns(string[] memory)
@@ -127,9 +127,9 @@ contract DonarContract {
             return PatientArray;
     }
 
-    function getCountOfDonars() view public returns (uint)
+    function getCountOfDonors() view public returns (uint)
     {
-        return DonarsArray.length;
+        return DonorsArray.length;
     }
 
     function getCountOfPatients() view public returns (uint)
