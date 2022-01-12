@@ -37,7 +37,7 @@ contract DonorContract {
     string[] DonorsArray;
     string[] PatientArray;
 
-    function setdonors(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
+    function setDonors(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
                        string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
     public
     {
@@ -71,7 +71,7 @@ contract DonorContract {
         PatientArray.push(_medical_id);
     }
 
-    function getdonor(string memory _medical_id) view public returns(string memory, string memory, uint, string memory, string memory, string memory, string memory)
+    function getDonor(string memory _medical_id) view public returns(string memory, string memory, uint, string memory, string memory, string memory, string memory)
     {
         return
         (
@@ -117,7 +117,7 @@ contract DonorContract {
 
     }
 
-    function getAlldonorIDs() view public returns(string[] memory)
+    function getAllDonorIDs() view public returns(string[] memory)
     {
             return DonorsArray;
     }
