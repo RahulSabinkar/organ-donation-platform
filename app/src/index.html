@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
         <link href="css/style1.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/fontawesome-all.css" rel="stylesheet">
@@ -28,21 +28,26 @@
                     <div class="col-lg-6">
                         <div class="text-container">
                             <h1>Register Donor</h1>
-       
+
                             <p>First Name: <input type="text" id="donorFirstName" placeholder="Your name.."></p><br>
                             <p>Last Name: <input type="text" id="donorLastName" placeholder="Your Last name.."></p><br>
-                            
+
                             <p>Age: <input type="text" id="donorAge"></p><br>
-                            
-                            <p>Gender: <input type="radio" id="donorGender" value="male">Male
-                            <input type="radio" id="donorGender" value="female">Female
-                            <input type="radio" id="donorGender" value="other">Other</p><br>
+
+                            <form>
+                              <label><p>Gender:</p></label>
+                                <select name="gender">
+                                  <option id="donorGender" value="male">Male</option>
+                                  <option id="donorGender" value="female">Female</option>
+                                  <option id="donorGender" value="others">Others</option>
+                                </select>
+                            </form><br><br>
 
                             <p>Medical ID: <input type="text" id="donorMedicalID"></p><br>
                             <p>Blood Type: <input type="text" id="donorBloodType"></p><br>
                             <p>Organ: <input type="text" id="donorOrgan"></p><br>
                             <p>Location: <input type="text" id="donorLocation"></p><br>
-                        <div>    
+                        <div>
                             <button type="submit" class="btn btn-primary" onclick="App.setDonors()">Register</button>
                         </div>
                         </div> <!-- end of text-container -->
@@ -51,16 +56,22 @@
                         <div class="text-container">
                             <h1>Register Patient</h1>
 
-                            <p>First Name: <input type="text" id="patientFirstName"></p>
+                            <p>First Name: <input type="text" id="patientFirstName" placeholder="Your name.."></p>
                             <br>
-                            <p>Last Name: <input type="text" id="patientLastName"></p>
+                            <p>Last Name: <input type="text" id="patientLastName" placeholder="Your Lastname.."></p>
                             <br>
                             <p>Age: <input type="text" id="patientAge"></p>
                             <br>
-                            <p>Gender: <input type="radio" id="patientGender" value="male">Male
-                            <input type="radio" id="patientGender" value="female">Female
-                            <input type="radio" id="patientGender" value="other">Other</p>
-                            <br>
+
+                            <form>
+                              <label><p>Gender:</p></label>
+                                <select name="gender">
+                                  <option id="patientGender" value="male">Male</option>
+                                  <option id="patientGender" value="female">Female</option>
+                                  <option id="patientGender" value="others">Others</option>
+                                </select>
+                            </form><br><br>
+
                             <p>Medical ID: <input type="text" id="patientMedicalID"></p>
                             <br>
                             <p>Blood Type: <input type="text" id="patientBloodType"></p>
@@ -72,7 +83,7 @@
                             <div>
                             <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
                             </div>
-                            
+
                         </div> <!-- end of image-container -->
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
@@ -80,6 +91,6 @@
         </div> <!-- end of header-content -->
     </header> <!-- end of header -->
     <!-- end of header -->
-        
+
     </body>
 </html>
