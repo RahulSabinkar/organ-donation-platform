@@ -4,7 +4,7 @@ const Web3 = require('web3');
 // Import the ABI definition of the DemoContract
 const artifact = require('../../build/contracts/DonorContract.json');
 
-const contractAddress = '0x33310d6f675c3e1149F9b62DF1F78B3B9E7E80cC';
+const contractAddress = '0x84957f35bb7e24606b00ad8BEd75F0c285a28c73';
 
 const MIN_GAS = 1000000;
 

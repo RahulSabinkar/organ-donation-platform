@@ -1,85 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organ Donation Prototype</title>
-</head>
-<body>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <h1>Register Donor</h1>
-        First Name: <input type="text" id="donorFirstName">
-        <br/><br/>
-        Last Name: <input type="text" id="donorLastName">
-        <br/><br/>
-        Age: <input type="text" id="donorAge">
-        <br/><br/>
-        Gender: <input type="radio" id="donorGender" value="male">Male
-                <input type="radio" id="donorGender" value="female">Female
-                <input type="radio" id="donorGender" value="other">Other
-        <br/><br/>
-        Medical ID: <input type="text" id="donorMedicalID">
-        <br/><br/>
-        Blood Type: <input type="text" id="donorBloodType">
-        <br/><br/>
-        Organ: <input type="text" id="donorOrgan">
-        <br/><br/>
-        Location: <input type="text" id="donorLocation">
-        <br/><br/>
-        <button onclick="App.setDonors()">Register</button>
-    </div>
-    <br/><br/>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <h1>Search Donor</h1>
-        Medical ID: <input type="text" id="inputDonorMedicalID"> 
-        <button onclick="App.getDonor()">Search</button>
-    </div>
-    <br/><br/>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <h1>Register Patient</h1>
-        First Name: <input type="text" id="patientFirstName">
-        <br/><br/>
-        Last Name: <input type="text" id="patientLastName">
-        <br/><br/>
-        Age: <input type="text" id="patientAge">
-        <br/><br/>
-        Gender: <input type="radio" id="patientGender" value="male">Male
-                <input type="radio" id="patientGender" value="female">Female
-                <input type="radio" id="patientGender" value="other">Other
-        <br/><br/>
-        Medical ID: <input type="text" id="patientMedicalID">
-        <br/><br/>
-        Blood Type: <input type="text" id="patientBloodType">
-        <br/><br/>
-        Organ: <input type="text" id="patientOrgan">
-        <br/><br/>
-        Location: <input type="text" id="patientLocation">
-        <br/><br/>
-        <button onclick="App.setPatients()">Register</button>
-    </div>
-    <br/><br/>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <h1>Search Patient</h1>
-        Medical ID: <input type="text" id="inputPatientMedicalID"> 
-        <button onclick="App.getPatient()">Search</button>
-    </div>
-    <br/><br/>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <button onclick="App.getAllDonorIDs()">Get All Donor IDs</button>
-    </div>
-    <br/><br/>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <button onclick="App.getAllPatientIDs()">Get All Patient IDs</button>
-    </div>
-    <br/><br/>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <button onclick="App.getCountOfDonors()">Total Donors Count</button>
-    </div>
-    <br/><br/>
-    <div style="text-align:center;width: 300px;margin: 0 auto;border-style:double">
-        <button onclick="App.getCountOfPatients()">Total Patients Count</button>
-    </div>
-    <script src="index.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link href="css/style1.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/fontawesome-all.css" rel="stylesheet">
+
+        <script src="index.js"></script>
+
+    </head>
+
+    <!-- start of navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="images/organ-donation.jpg" alt="Organ Donation prototype"></a>
+        </nav>
+    <!-- start of navigation-->
+
+
+    <body data-spy="scroll" data-target=".fixed-top">
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1>Register Donor</h1>
+       
+                            <p>First Name: <input type="text" id="donorFirstName" placeholder="Your name.."></p><br>
+                            <p>Last Name: <input type="text" id="donorLastName" placeholder="Your Last name.."></p><br>
+                            
+                            <p>Age: <input type="text" id="donorAge"></p><br>
+                            
+                            <p>Gender: <input type="radio" id="donorGender" value="male">Male
+                            <input type="radio" id="donorGender" value="female">Female
+                            <input type="radio" id="donorGender" value="other">Other</p><br>
+
+                            <p>Medical ID: <input type="text" id="donorMedicalID"></p><br>
+                            <p>Blood Type: <input type="text" id="donorBloodType"></p><br>
+                            <p>Organ: <input type="text" id="donorOrgan"></p><br>
+                            <p>Location: <input type="text" id="donorLocation"></p><br>
+                        <div>    
+                            <button type="submit" class="btn btn-primary" onclick="App.setDonors()">Register</button>
+                        </div>
+                        </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1>Register Patient</h1>
+
+                            <p>First Name: <input type="text" id="patientFirstName"></p>
+                            <br>
+                            <p>Last Name: <input type="text" id="patientLastName"></p>
+                            <br>
+                            <p>Age: <input type="text" id="patientAge"></p>
+                            <br>
+                            <p>Gender: <input type="radio" id="patientGender" value="male">Male
+                            <input type="radio" id="patientGender" value="female">Female
+                            <input type="radio" id="patientGender" value="other">Other</p>
+                            <br>
+                            <p>Medical ID: <input type="text" id="patientMedicalID"></p>
+                            <br>
+                            <p>Blood Type: <input type="text" id="patientBloodType"></p>
+                            <br>
+                            <p>Organ: <input type="text" id="patientOrgan"></p>
+                            <br>
+                            <p>Location: <input type="text" id="patientLocation"></p>
+                            <br>
+                            <div>
+                            <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
+                            </div>
+                            
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+        
+    </body>
 </html>
