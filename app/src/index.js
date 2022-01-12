@@ -4,7 +4,7 @@ const Web3 = require('web3');
 // Import the ABI definition of the DemoContract
 const artifact = require('../../build/contracts/DonorContract.json');
 
-const contractAddress = '0x84957f35bb7e24606b00ad8BEd75F0c285a28c73';
+const contractAddress = '0x4087239468dB429a6a7e61c6fEc1FE5Fbbe8b484';
 
 const MIN_GAS = 1000000;
 
@@ -48,8 +48,13 @@ const App = {
         const medical_id = document.getElementById('inputDonorMedicalID').value;
         await this.contractInstance.methods.getDonor(medical_id).call().then(function(result){
             console.log(result);
-            alert("First Name: "+result[0]+"Last Name: "+result[1]+"Age: "+result[2]+
-            "Gender: "+result[3]+"Blood Type: "+result[4]+"Organ: "+result[5]+"Location: "+result[6]);
+            document.getElementById("getDonorFirstName").innerHTML = "First Name: " + result[0];
+            document.getElementById("getDonorLastName").innerHTML = "Last Name: " + result[1];
+            document.getElementById("getDonorAge").innerHTML = "Age : " + result[2];
+            document.getElementById("getDonorGender").innerHTML = "Gender : " + result[3];
+            document.getElementById("getDonorBloodType").innerHTML = "Blood Type : " + result[4];
+            document.getElementById("getDonorOrgan").innerHTML = "Organ : " + result[5];
+            document.getElementById("getDonorLocation").innerHTML = "Location : " + result[6];
         });
     },
     setPatients: async function() {
@@ -74,8 +79,13 @@ const App = {
         const medical_id = document.getElementById('inputPatientMedicalID').value;
         await this.contractInstance.methods.getPatient(medical_id).call().then(function(result){
             console.log(result);
-            alert("First Name: "+result[0]+"Last Name: "+result[1]+"Age: "+result[2]+
-            "Gender: "+result[3]+"Blood Type: "+result[4]+"Organ: "+result[5]+"Location: "+result[6]);
+            document.getElementById("getPatientFirstName").innerHTML = "First Name: " + result[0];
+            document.getElementById("getPatientLastName").innerHTML = "Last Name: " + result[1];
+            document.getElementById("getPatientAge").innerHTML = "Age : " + result[2];
+            document.getElementById("getPatientGender").innerHTML = "Gender : " + result[3];
+            document.getElementById("getPatientBloodType").innerHTML = "Blood Type : " + result[4];
+            document.getElementById("getPatientOrgan").innerHTML = "Organ : " + result[5];
+            document.getElementById("getPatientLocation").innerHTML = "Location : " + result[6];
         });
     },
     getCountOfDonors: async function() {
