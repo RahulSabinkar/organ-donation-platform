@@ -1,10 +1,13 @@
 // Import Web3 JS library
 const Web3 = require('web3');
+const web3 = new Web3("HTTP://127.0.0.1:7545");
 
 // Import the ABI definition of the DemoContract
 const artifact = require('../../build/contracts/DonorContract.json');
 
-const contractAddress = '0x4087239468dB429a6a7e61c6fEc1FE5Fbbe8b484';
+//const netid = await web3.eth.net.getId()
+const deployedContract = artifact.networks[5777];
+const contractAddress = deployedContract.address;
 
 const MIN_GAS = 1000000;
 
