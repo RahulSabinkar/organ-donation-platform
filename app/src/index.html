@@ -9,12 +9,12 @@
         <link href="css/fontawesome-all.css" rel="stylesheet">
 
         <script src="index.js"></script>
-
+        <title>Organ Donation Prototype</title>
     </head>
 
     <!-- start of navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="images/organ-donation.jpg" alt="Organ Donation prototype"></a>
+            <a id="nav"class="navbar-brand logo-image" href=""><img src="images/organ-donation.jpg" alt="Organ Donation prototype"></a>
         </nav>
     <!-- start of navigation-->
 
@@ -29,25 +29,22 @@
                         <div class="text-container">
                             <h1>Register Donor</h1>
 
-                            <p>First Name: <input type="text" id="donorFirstName" placeholder="Your name.."></p><br>
-                            <p>Last Name: <input type="text" id="donorLastName" placeholder="Your Last name.."></p><br>
-
-                            <p>Age: <input type="text" id="donorAge"></p><br>
-
+                            <p>First Name: <input type="text" id="donorFirstName" placeholder="First name"></p><br>
+                            <p>Last Name: <input type="text" id="donorLastName" placeholder="Last name"></p><br>
+                            <p>Age: <input type="text" id="donorAge" placeholder="Age"></p><br>
                             <form>
                               <label><p>Gender:</p></label>
                                 <select name="gender">
-                                  <option id="donorGender" value="male">Male</option>
-                                  <option id="donorGender" value="female">Female</option>
-                                  <option id="donorGender" value="others">Others</option>
+                                  <option id="donorGender" value="Male">Male</option>
+                                  <option id="donorGender" value="Female">Female</option>
+                                  <option id="donorGender" value="Others">Others</option>
                                 </select>
                             </form><br><br>
-
-                            <p>Medical ID: <input type="text" id="donorMedicalID"></p><br>
-                            <p>Blood Type: <input type="text" id="donorBloodType"></p><br>
-                            <p>Organ: <input type="text" id="donorOrgan"></p><br>
-                            <p>Location: <input type="text" id="donorLocation"></p><br>
-                        <div>
+                            <p>Medical ID: <input type="text" id="donorMedicalID" placeholder="Donor Medical ID"></p><br>
+                            <p>Blood Type: <input type="text" id="donorBloodType" placeholder="Blood-Type"></p><br>
+                            <p>Organ: <input type="text" id="donorOrgan" placeholder="Organ"></p><br>
+                            <p>Location: <input type="text" id="donorLocation" placeholder="Location"></p><br>
+                        <div style="text-align:center">
                             <button type="submit" class="btn btn-primary" onclick="App.setDonors()">Register</button>
                         </div>
                         </div> <!-- end of text-container -->
@@ -56,36 +53,72 @@
                         <div class="text-container">
                             <h1>Register Patient</h1>
 
-                            <p>First Name: <input type="text" id="patientFirstName" placeholder="Your name.."></p>
+                            <p>First Name: <input type="text" id="patientFirstName" placeholder="First name"></p>
                             <br>
-                            <p>Last Name: <input type="text" id="patientLastName" placeholder="Your Lastname.."></p>
+                            <p>Last Name: <input type="text" id="patientLastName" placeholder="Last name"></p>
                             <br>
-                            <p>Age: <input type="text" id="patientAge"></p>
+                            <p>Age: <input type="text" id="patientAge" placeholder="Age"></p>
                             <br>
 
                             <form>
                               <label><p>Gender:</p></label>
                                 <select name="gender">
-                                  <option id="patientGender" value="male">Male</option>
-                                  <option id="patientGender" value="female">Female</option>
+                                  <option id="patientGender" value="Male">Male</option>
+                                  <option id="patientGender" value="Female">Female</option>
                                   <option id="patientGender" value="others">Others</option>
                                 </select>
                             </form><br><br>
 
-                            <p>Medical ID: <input type="text" id="patientMedicalID"></p>
+                            <p>Medical ID: <input type="text" id="patientMedicalID" placeholder="Patient Medical ID"></p>
                             <br>
-                            <p>Blood Type: <input type="text" id="patientBloodType"></p>
+                            <p>Blood Type: <input type="text" id="patientBloodType" placeholder="Blood-Type"></p>
                             <br>
-                            <p>Organ: <input type="text" id="patientOrgan"></p>
+                            <p>Organ: <input type="text" id="patientOrgan" placeholder="Organ"></p>
                             <br>
-                            <p>Location: <input type="text" id="patientLocation"></p>
+                            <p>Location: <input type="text" id="patientLocation " placeholder="Location"></p>
                             <br>
-                            <div>
+                            <div style="text-align:center">
                             <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
                             </div>
 
                         </div> <!-- end of image-container -->
                     </div> <!-- end of col -->
+
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1 style="text-align:center">Search Donor</h1>
+                            <p><input type="text" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p><br>
+                            <p id="getDonorFirstName"></p>
+                            <p id="getDonorLastName"></p>
+                            <p id="getDonorAge"></p>
+                            <p id="getDonorGender"></p>
+                            <p id="getDonorBloodType"></p>
+                            <p id="getDonorOrgan"></p>
+                            <p id="getDonorLocation"></p>
+                            <div style="text-align:center">
+                            <button type="submit" class="btn btn-primary" onclick="App.getDonor()">Search</button>
+                            </div>
+
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1 style="text-align:center">Search Patient</h1>
+                            <p><input type="text" id="inputPatientMedicalID" placeholder="Patient Medical ID"></p><br>
+                            <p id="getPatientFirstName"></p>
+                            <p id="getPatientLastName"></p>
+                            <p id="getPatientAge"></p>
+                            <p id="getPatientGender"></p>
+                            <p id="getPatientBloodType"></p>
+                            <p id="getPatientOrgan"></p>
+                            <p id="getPatientLocation"></p>
+                            <div style="text-align:center">
+                            <button type="submit" class="btn btn-primary" onclick="App.getPatient()">Search</button>
+                            </div>
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
         </div> <!-- end of header-content -->
