@@ -11,6 +11,10 @@ h1{
     font-family: 'Montserrat', sans-serif;
 }
 
+h2{
+    text-align: center;
+}
+
 body {
     max-width: 1440px;
     margin: 0 auto !important;
@@ -34,7 +38,7 @@ body {
 .navbar-custom {
     background-color: #fff;
     /*box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);*/
-    font: 600 0.875rem/0.875rem "Nunito-SemiBold";
+    font: 600 0.875rem/0.875rem 'Montserrat', sans-serif;
     transition: all 0.2s;
 }
 
@@ -44,7 +48,7 @@ body {
 }
 
 .navbar-custom .navbar-brand.logo-text {
-    font: 600 2rem/1.5rem "Nunito-SemiBold";
+    font: 600 2rem/1.5rem 'Montserrat', sans-serif;
     color: #393939;
     text-decoration: none;
 }
@@ -82,8 +86,20 @@ body {
     margin-bottom: 6rem;
     text-align: left;
     padding: 30px 30px 30px 30px;
-    background-color: rgb(19, 33, 94);
+    background-color: #005f82;
     border-radius: 20px;
+}
+
+.header .text-container-search {
+    width: 75%;
+    vertical-align: middle;
+    margin-left: 12%;
+    margin-top: 2.5rem;
+    margin-bottom: 6rem;
+    text-align: left;
+    padding: 30px 30px 30px 30px;
+    background-color: #005f82;
+    border-radius: 8.5px;
 }
 
 .header h1 {
@@ -162,11 +178,15 @@ input[type=submit]:hover {
 }
 
 .button-center{
-  text-align: right;
+  text-align: center;
 }
 
 .button-center-1{
-  text-align: left;
+  text-align: center;
+}
+
+.center-align{
+    align-content: center;
 }
 
 a:hover, a:active {
@@ -174,4 +194,8 @@ a:hover, a:active {
   border-color:  #005f82;
   background-color: #eee;
   color: white;
+}
+
+.custom-control-input:disabled ~ .custom-control-label {
+    color: #ffffff;
 }

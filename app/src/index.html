@@ -58,8 +58,9 @@
                     <div class="container">
                     <div class="row">
                       <div class="col-lg-6">
-                          <div class="text-container">
-                              <p>Search Donor</p>
+                        <div class="center-align">
+                          <div class="text-container-search">
+                              <h2>Search Donor</h2>
                               <p><input type="text-home" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p>
                               <p id="getDonorFullName"></p>
                               <p id="getDonorAge"></p>
@@ -68,17 +69,18 @@
                               <p id="getDonorOrgan"></p>
                               <p id="getDonorWeight"></p>
                               <p id="getDonorHeight"></p>
-                              <div style="text-align:center">
+                              <div class="button-center">
                               <button type="submit" class="btn btn-primary" onclick="App.getDonor()">Search</button>
                               </div>
 
                           </div> <!-- end of image-container -->
                       </div> <!-- end of col -->
+                    </div>
 
 
-                      <div class="col-lg-6">
-                          <div class="text-container">
-                              <p>Search Patient</p>
+                      <div class="col-md-6">
+                          <div class="text-container-search">
+                              <h2>Search Patient</h2>
                               <p><input type="text" id="inputPatientMedicalID" placeholder="Patient Medical ID"></p>
                               <p id="getPatientFullName"></p>
                               <p id="getPatientAge"></p>
@@ -87,7 +89,7 @@
                               <p id="getPatientOrgan"></p>
                               <p id="getPatientWeight"></p>
                               <p id="getPatientHeight"></p>
-                              <div style="text-align:center">
+                              <div class="button-center">
                               <button type="submit" class="btn btn-primary" onclick="App.getPatient()">Search</button>
                               </div>
                           </div> <!-- end of image-container -->

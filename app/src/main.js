@@ -112,6 +112,7 @@ const App = {
         const donorIDs = await this.contractInstance.methods.getAllDonorIDs().call();
         let donor;
 
+        /*Table Section*/
         function generateTableHead(table, data) {
             let thead = table.createTHead();
             let row = thead.insertRow();

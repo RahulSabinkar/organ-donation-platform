@@ -58,7 +58,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #ffffff;
   text-align: left;
   background-color: #fff;
 }
@@ -3599,7 +3599,9 @@ input[type="button"].btn-block {
 }
 
 .custom-control {
-  position: relative;
+  float: left;
+  padding-right: 2rem;
+  position: static;
   display: block;
   min-height: 1.5rem;
   padding-left: 1.5rem;
@@ -3638,7 +3640,7 @@ input[type="button"].btn-block {
 }
 
 .custom-control-input:disabled ~ .custom-control-label {
-  color: #6c757d;
+  color: #ffffff;
 }
 
 .custom-control-input:disabled ~ .custom-control-label::before {

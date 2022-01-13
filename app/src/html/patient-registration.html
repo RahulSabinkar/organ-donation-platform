@@ -17,7 +17,7 @@
 
     <!-- start of navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <a id="nav"class="navbar-brand logo-image" href="../index.html"><img src="images/organ-donation.jpg" alt="Organ Donation prototype"></a>
+            <a id="nav"class="navbar-brand logo-image" href="../index.html"><img src="../images/organ-donation.jpg" alt="Organ Donation prototype"></a>
         </nav>
     <!-- end of navigation-->
 
@@ -36,6 +36,7 @@
   
                               <p>Full Name: <input type="text" id="patientFullName" placeholder="Full name"></p>
                               <p>Age: <input type="text" id="patientAge" placeholder="Age"></p>
+
                               <form>
                                 <label><p>Gender:</p></label>
                                   <select name="gender" id="patientGender">
@@ -43,8 +44,8 @@
                                     <option value="Female">Female</option>
                                     <option value="Others">Others</option>
                                   </select>
-                              </form><br>
-  
+                              </form>
+                              <br>
                               <p>Medical ID: <input type="text" id="patientMedicalID" placeholder="Patient Medical ID"></p>
                               <form>
                                 <label><p>Blood Type:</p></label>
@@ -63,7 +64,7 @@
                               <p>Weight (kg): <input type="text" id="patientWeight" placeholder="Weight"></p>
                               <p>Height (cm): <input type="text" id="patientHeight" placeholder="Height"></p>
   
-                          <div style="text-align:center">
+                          <div class="button-center">
                               <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
                           </div>
                           </div> <!-- end of text-container -->
