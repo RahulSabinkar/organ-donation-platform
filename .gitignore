@@ -1,3 +1,4 @@
 */node_modules/
 */package-lock.json
-build/contracts/*
+build/contracts/DonorContract.json
+build/contracts/Migrations.json
