@@ -106,6 +106,90 @@ const App = {
     getAllPatientIDs: async function() {
         const data = await this.contractInstance.methods.getAllPatientIDs().call();
         alert('Data is ' + data);
+    },
+    viewDonors: async function() {
+        const donorCount = await this.contractInstance.methods.getCountOfDonors().call();
+        const donorIDs = await this.contractInstance.methods.getAllDonorIDs().call();
+        let donor;
+
+        function generateTableHead(table, data) {
+            let thead = table.createTHead();
+            let row = thead.insertRow();
+            for (let key of data) {
+                let th = document.createElement("th");
+                let text = document.createTextNode(key);
+                th.appendChild(text);
+                row.appendChild(th);
+            }
+        }
+        function generateTable(table, data) {
+            for (let element of data) {
+                let row = table.insertRow();
+                for (key in element) {
+                let cell = row.insertCell();
+                let text = document.createTextNode(element[key]);
+                cell.appendChild(text);
+                }
+            }
+        }
+
+        let table = document.querySelector("table");
+
+        for (let i=0; i<donorCount; i++) {
+            await this.contractInstance.methods.getDonor(donorIDs[i]).call().then(function(result) {
+                console.log(result);
+                donor = [
+                    { FirstName: result[0], LastName: result[1], Age: result[2], Gender: result[3], BloodType: result[4], Organ: result[5], Location: result[6]},
+                ]; 
+
+                let data = Object.keys(donor[0]);
+                if (i==0)
+                    generateTableHead(table, data);
+                generateTable(table, donor);   
+            });
+        }
+    },
+    viewPatients: async function() {
+        const patientCount = await this.contractInstance.methods.getCountOfPatients().call();
+        const patientIDs = await this.contractInstance.methods.getAllPatientIDs().call();
+        let patient;
+
+        function generateTableHead(table, data) {
+            let thead = table.createTHead();
+            let row = thead.insertRow();
+            for (let key of data) {
+                let th = document.createElement("th");
+                let text = document.createTextNode(key);
+                th.appendChild(text);
+                row.appendChild(th);
+            }
+        }
+        function generateTable(table, data) {
+            for (let element of data) {
+                let row = table.insertRow();
+                for (key in element) {
+                let cell = row.insertCell();
+                let text = document.createTextNode(element[key]);
+                cell.appendChild(text);
+                }
+            }
+        }
+
+        let table = document.querySelector("table");
+
+        for (let i=0; i<patientCount; i++) {
+            await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result) {
+                console.log(result);
+                patient = [
+                    { FirstName: result[0], LastName: result[1], Age: result[2], Gender: result[3], BloodType: result[4], Organ: result[5], Location: result[6]},
+                ]; 
+
+                let data = Object.keys(patient[0]);
+                if (i==0)
+                    generateTableHead(table, data);
+                generateTable(table, patient);   
+            });
+        }
     }
     /* 
     transplantMatch: async function() {
