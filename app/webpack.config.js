@@ -14,6 +14,7 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/html/patient-registration.html", to: "patient-registration.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/view-donors.html", to: "view-donors.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/view-patients.html", to: "view-patients.html" }]),
+    new CopyWebpackPlugin([{ from: "./src/html/transplant-matching.html", to: "transplant-matching.html" }]),
     new CopyWebpackPlugin([{ from: "./src/css/bootstrap.css", to: "css/bootstrap.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/styles.css", to: "css/styles.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/fontawesome-all.css", to: "css/fontawesome-all.css" }]),
