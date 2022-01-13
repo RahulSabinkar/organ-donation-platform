@@ -3,8 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-        <link href="css/style1.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/fontawesome-all.css" rel="stylesheet">
 
@@ -14,9 +17,9 @@
 
     <!-- start of navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <a id="nav"class="navbar-brand logo-image" href=""><img src="images/organ-donation.jpg" alt="Organ Donation prototype"></a>
+            <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="images/organ-donation.jpg" alt="Organ Donation prototype"></a>
         </nav>
-    <!-- start of navigation-->
+    <!-- end of navigation-->
 
 
     <body data-spy="scroll" data-target=".fixed-top">
@@ -25,99 +28,72 @@
         <div class="header-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="text-container">
-                            <h1>Register Donor</h1>
 
-                            <p>First Name: <input type="text" id="donorFirstName" placeholder="First name"></p><br>
-                            <p>Last Name: <input type="text" id="donorLastName" placeholder="Last name"></p><br>
-                            <p>Age: <input type="text" id="donorAge" placeholder="Age"></p><br>
-                            <form>
-                              <label><p>Gender:</p></label>
-                                <select name="gender">
-                                  <option id="donorGender" value="Male">Male</option>
-                                  <option id="donorGender" value="Female">Female</option>
-                                  <option id="donorGender" value="Others">Others</option>
-                                </select>
-                            </form><br><br>
-                            <p>Medical ID: <input type="text" id="donorMedicalID" placeholder="Donor Medical ID"></p><br>
-                            <p>Blood Type: <input type="text" id="donorBloodType" placeholder="Blood-Type"></p><br>
-                            <p>Organ: <input type="text" id="donorOrgan" placeholder="Organ"></p><br>
-                            <p>Location: <input type="text" id="donorLocation" placeholder="Location"></p><br>
-                        <div style="text-align:center">
-                            <button type="submit" class="btn btn-primary" onclick="App.setDonors()">Register</button>
+                    <div class="col-lg-6">
+                      <div class="container">
+                        <div class="button-center">
+                            <a href="donor-registration.html" class="button-main"><h2>Register Donor</h2></a>
+                        </div><br>
+                      </div>
+                      <div class="container">
+                        <div class="button-center">
+                            <a href="#" class="button-main-1"><h2>View Donors</h2></a>
                         </div>
-                        </div> <!-- end of text-container -->
-                    </div> <!-- end of col -->
-                    <div class="col-lg-6">
-                        <div class="text-container">
-                            <h1>Register Patient</h1>
-
-                            <p>First Name: <input type="text" id="patientFirstName" placeholder="First name"></p>
-                            <br>
-                            <p>Last Name: <input type="text" id="patientLastName" placeholder="Last name"></p>
-                            <br>
-                            <p>Age: <input type="text" id="patientAge" placeholder="Age"></p>
-                            <br>
-
-                            <form>
-                              <label><p>Gender:</p></label>
-                                <select name="gender">
-                                  <option id="patientGender" value="Male">Male</option>
-                                  <option id="patientGender" value="Female">Female</option>
-                                  <option id="patientGender" value="others">Others</option>
-                                </select>
-                            </form><br><br>
-
-                            <p>Medical ID: <input type="text" id="patientMedicalID" placeholder="Patient Medical ID"></p>
-                            <br>
-                            <p>Blood Type: <input type="text" id="patientBloodType" placeholder="Blood-Type"></p>
-                            <br>
-                            <p>Organ: <input type="text" id="patientOrgan" placeholder="Organ"></p>
-                            <br>
-                            <p>Location: <input type="text" id="patientLocation " placeholder="Location"></p>
-                            <br>
-                            <div style="text-align:center">
-                            <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
-                            </div>
-
-                        </div> <!-- end of image-container -->
-                    </div> <!-- end of col -->
+                      </div>
+                    </div><br>
 
                     <div class="col-lg-6">
-                        <div class="text-container">
-                            <h1 style="text-align:center">Search Donor</h1>
-                            <p><input type="text" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p><br>
-                            <p id="getDonorFirstName"></p>
-                            <p id="getDonorLastName"></p>
-                            <p id="getDonorAge"></p>
-                            <p id="getDonorGender"></p>
-                            <p id="getDonorBloodType"></p>
-                            <p id="getDonorOrgan"></p>
-                            <p id="getDonorLocation"></p>
-                            <div style="text-align:center">
-                            <button type="submit" class="btn btn-primary" onclick="App.getDonor()">Search</button>
-                            </div>
+                      <div class="container">
+                        <div class="button-center-1">
+                              <a href="patient-registration.html" class="button-main"><h2>Register Patients</h2></a>
+                        </div>
+                      </div><br>
+                      <div class="container">
+                        <div class="button-center-1">
+                              <a href="#" class="button-main-1"><h2>View Patients</h2></a>
+                        </div>
+                      </div>
+                    </div><br>
 
-                        </div> <!-- end of image-container -->
-                    </div> <!-- end of col -->
+                    <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6">
+                          <div class="text-container">
+                              <p>Search Donor</p>
+                              <p><input type="text-home" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p>
+                              <p id="getDonorFirstName"></p>
+                              <p id="getDonorLastName"></p>
+                              <p id="getDonorAge"></p>
+                              <p id="getDonorGender"></p>
+                              <p id="getDonorBloodType"></p>
+                              <p id="getDonorOrgan"></p>
+                              <p id="getDonorLocation"></p>
+                              <div style="text-align:center">
+                              <button type="submit" class="btn btn-primary" onclick="App.getDonor()">Search</button>
+                              </div>
 
-                    <div class="col-lg-6">
-                        <div class="text-container">
-                            <h1 style="text-align:center">Search Patient</h1>
-                            <p><input type="text" id="inputPatientMedicalID" placeholder="Patient Medical ID"></p><br>
-                            <p id="getPatientFirstName"></p>
-                            <p id="getPatientLastName"></p>
-                            <p id="getPatientAge"></p>
-                            <p id="getPatientGender"></p>
-                            <p id="getPatientBloodType"></p>
-                            <p id="getPatientOrgan"></p>
-                            <p id="getPatientLocation"></p>
-                            <div style="text-align:center">
-                            <button type="submit" class="btn btn-primary" onclick="App.getPatient()">Search</button>
-                            </div>
-                        </div> <!-- end of image-container -->
-                    </div> <!-- end of col -->
+                          </div> <!-- end of image-container -->
+                      </div> <!-- end of col -->
+
+
+                      <div class="col-lg-6">
+                          <div class="text-container">
+                              <p>Search Patient</p>
+                              <p><input type="text" id="inputPatientMedicalID" placeholder="Patient Medical ID"></p>
+                              <p id="getPatientFirstName"></p>
+                              <p id="getPatientLastName"></p>
+                              <p id="getPatientAge"></p>
+                              <p id="getPatientGender"></p>
+                              <p id="getPatientBloodType"></p>
+                              <p id="getPatientOrgan"></p>
+                              <p id="getPatientLocation"></p>
+                              <div style="text-align:center">
+                              <button type="submit" class="btn btn-primary" onclick="App.getPatient()">Search</button>
+                              </div>
+                          </div> <!-- end of image-container -->
+                      </div> <!-- end of col -->
+                    </div> <!-- end of row-->
+                  </div>
 
                 </div> <!-- end of row -->
             </div> <!-- end of container -->

@@ -10,8 +10,10 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([{ from: "./src/index.html", to: "index.html" }]),
+    new CopyWebpackPlugin([{ from: "./src/donor-registration.html", to: "donor-registration.html" }]),
+    new CopyWebpackPlugin([{ from: "./src/patient-registration.html", to: "patient-registration.html" }]),
     new CopyWebpackPlugin([{ from: "./src/css/bootstrap.css", to: "css/bootstrap.css" }]),
-    new CopyWebpackPlugin([{ from: "./src/css/style1.css", to: "css/style1.css" }]),
+    new CopyWebpackPlugin([{ from: "./src/css/styles.css", to: "css/styles.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/fontawesome-all.css", to: "css/fontawesome-all.css" }]),
     new CopyWebpackPlugin([{ from: "./src/images/organ-donation.jpg", to: "images/organ-donation.jpg" }]),
   ],
