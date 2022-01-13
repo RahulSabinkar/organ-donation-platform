@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <link href="../css/styles.css" rel="stylesheet">
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/fontawesome-all.css" rel="stylesheet">
+
+        <script src="../main.js"></script>
+        <title>Organ Donation Prototype</title>
+    </head>
+
+    <!-- start of navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <a id="nav"class="navbar-brand logo-image" href="../index.html"><img src="images/organ-donation.jpg" alt="Organ Donation prototype"></a>
+        </nav>
+    <!-- end of navigation-->
+
+
+    <body data-spy="scroll" data-target=".fixed-top">
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="text-container">
+  
+                              <h1>Register Patient</h1>
+  
+                              <p>First Name: <input type="text" id="patientFirstName" placeholder="First name"></p>
+                              <p>Last Name: <input type="text" id="patientLastName" placeholder="Last name"></p>
+                              <p>Age: <input type="text" id="patientAge" placeholder="Age"></p>
+                              <form>
+                                <label><p>Gender:</p></label>
+                                  <select name="gender">
+                                    <option id="patientGender" >Select Gender</option>
+                                    <option id="patientGender" value="Male">Male</option>
+                                    <option id="patientGender" value="Female">Female</option>
+                                    <option id="patientGender" value="Others">Others</option>
+                                  </select>
+                              </form><br>
+  
+                              <p>Medical ID: <input type="text" id="patientMedicalID" placeholder="Patient Medical ID"></p>
+                              <p>Blood Type: <input type="text" id="patientBloodType" placeholder="Blood-Type"></p>
+                              <p>Organ: <input type="text" id="patientOrgan" placeholder="Organ"></p>
+                              <p>Location: <input type="text" id="patientLocation" placeholder="Location"></p>
+  
+                          <div style="text-align:center">
+                              <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
+                          </div>
+                          </div> <!-- end of text-container -->
+                      </div> <!-- end of col -->
+
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+    </body>
+</html>

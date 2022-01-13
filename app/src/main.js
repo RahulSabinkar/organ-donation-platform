@@ -107,6 +107,29 @@ const App = {
         const data = await this.contractInstance.methods.getAllPatientIDs().call();
         alert('Data is ' + data);
     }
+    /* 
+    transplantMatch: async function() {
+        var patient = contractInstance.methods.getAllPatientIDs().call();
+        var donor = contractInstance.methods.getAllDonorIDs().call();
+        var patientMax = contractInstance.methods.getCountOfPatients().call();
+
+        for (var i=0; i<= patientMax; i++) {
+            var patientbloodtype = contractInstance.methods.getPatient(patient[i]).call().then(function(result){result[4];});
+            var patientorgan = contractInstance.methods.getPatient(patient[i]).call().then(function(result){result[5];});
+
+            for (var j=0; j<=contractInstance.methods.getCountOfDonors().call(); j++) {
+                var donorbloodtype = contractInstance.methods.getPatient(donor[j]).call().then(function(result){result[4];});
+                var donororgan = contractInstance.methods.getPatient(donor[j]).call().then(function(result){result[5];});
+                if (patientbloodtype==donorbloodtype&&patientorgan==donororgan) {
+                    // write patient[i] matches donor[j]
+                    // pop.donor[j]: remove that medical ID from donor[j] array
+
+                    break;
+                }
+            }
+        }
+    } 
+    */
 }
 
 window.App = App;
