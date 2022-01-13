@@ -30,20 +30,20 @@ const App = {
     },
 
     setDonors: async function() {
-        const firstname = document.getElementById('donorFirstName').value;
-        const lastname = document.getElementById('donorLastName').value;
+        const fullname = document.getElementById('donorFullName').value;
         const age = document.getElementById('donorAge').value;
         const gender = document.getElementById('donorGender').value;
         const medical_id = document.getElementById('donorMedicalID').value;
         const blood_type = document.getElementById('donorBloodType').value;
         const organ = document.getElementById('donorOrgan').value;
-        const location = document.getElementById('donorLocation').value;
+        const weight = document.getElementById('donorWeight').value;
+        const height = document.getElementById('donorHeight').value;
 
-        console.log(firstname, lastname, age, gender, medical_id, blood_type, organ, location);
-        const gas = await this.contractInstance.methods.setDonors(firstname, lastname, age, gender, medical_id, blood_type, organ, location).estimateGas({
+        console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
+        const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
             from: this.accounts[0]
         });
-        await this.contractInstance.methods.setDonors(firstname, lastname, age, gender, medical_id, blood_type, organ, location).send({
+        await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
             from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
         });
     },
@@ -51,30 +51,30 @@ const App = {
         const medical_id = document.getElementById('inputDonorMedicalID').value;
         await this.contractInstance.methods.getDonor(medical_id).call().then(function(result){
             console.log(result);
-            document.getElementById("getDonorFirstName").innerHTML = "First Name: " + result[0];
-            document.getElementById("getDonorLastName").innerHTML = "Last Name: " + result[1];
-            document.getElementById("getDonorAge").innerHTML = "Age : " + result[2];
-            document.getElementById("getDonorGender").innerHTML = "Gender : " + result[3];
-            document.getElementById("getDonorBloodType").innerHTML = "Blood Type : " + result[4];
-            document.getElementById("getDonorOrgan").innerHTML = "Organ : " + result[5];
-            document.getElementById("getDonorLocation").innerHTML = "Location : " + result[6];
+            document.getElementById("getDonorFullName").innerHTML = "First Name: " + result[0];
+            document.getElementById("getDonorAge").innerHTML = "Age: " + result[1];
+            document.getElementById("getDonorGender").innerHTML = "Gender: " + result[2];
+            document.getElementById("getDonorBloodType").innerHTML = "Blood Type: " + result[3];
+            document.getElementById("getDonorOrgan").innerHTML = "Organ: " + result[4];
+            document.getElementById("getDonorWeight").innerHTML = "Weight: " + result[5];
+            document.getElementById("getDonorHeight").innerHTML = "Height: " + result[6];
         });
     },
     setPatients: async function() {
-        const firstname = document.getElementById('patientFirstName').value;
-        const lastname = document.getElementById('patientLastName').value;
+        const fullname = document.getElementById('patientFullName').value;
         const age = document.getElementById('patientAge').value;
         const gender = document.getElementById('patientGender').value;
         const medical_id = document.getElementById('patientMedicalID').value;
         const blood_type = document.getElementById('patientBloodType').value;
         const organ = document.getElementById('patientOrgan').value;
-        const location = document.getElementById('patientLocation').value;        
+        const weight = document.getElementById('patientWeight').value;        
+        const height = document.getElementById('patientHeight').value;        
 
-        console.log(firstname, lastname, age, gender, medical_id, blood_type, organ, location);
-        const gas = await this.contractInstance.methods.setPatients(firstname, lastname, age, gender, medical_id, blood_type, organ, location).estimateGas({
+        console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
+        const gas = await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
             from: this.accounts[0]
         });
-        await this.contractInstance.methods.setPatients(firstname, lastname, age, gender, medical_id, blood_type, organ, location).send({
+        await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
             from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
         });
     },
@@ -82,13 +82,13 @@ const App = {
         const medical_id = document.getElementById('inputPatientMedicalID').value;
         await this.contractInstance.methods.getPatient(medical_id).call().then(function(result){
             console.log(result);
-            document.getElementById("getPatientFirstName").innerHTML = "First Name: " + result[0];
-            document.getElementById("getPatientLastName").innerHTML = "Last Name: " + result[1];
-            document.getElementById("getPatientAge").innerHTML = "Age : " + result[2];
-            document.getElementById("getPatientGender").innerHTML = "Gender : " + result[3];
-            document.getElementById("getPatientBloodType").innerHTML = "Blood Type : " + result[4];
-            document.getElementById("getPatientOrgan").innerHTML = "Organ : " + result[5];
-            document.getElementById("getPatientLocation").innerHTML = "Location : " + result[6];
+            document.getElementById("getPatientFullName").innerHTML = "Full Name: " + result[0];
+            document.getElementById("getPatientAge").innerHTML = "Age: " + result[1];
+            document.getElementById("getPatientGender").innerHTML = "Gender: " + result[2];
+            document.getElementById("getPatientBloodType").innerHTML = "Blood Type: " + result[3];
+            document.getElementById("getPatientOrgan").innerHTML = "Organ: " + result[4];
+            document.getElementById("getPatientWeight").innerHTML = "Weight: " + result[5];
+            document.getElementById("getPatientHeight").innerHTML = "Height: " + result[6];
         });
     },
     getCountOfDonors: async function() {
@@ -139,7 +139,7 @@ const App = {
             await this.contractInstance.methods.getDonor(donorIDs[i]).call().then(function(result) {
                 console.log(result);
                 donor = [
-                    { FirstName: result[0], LastName: result[1], Age: result[2], Gender: result[3], BloodType: result[4], Organ: result[5], Location: result[6]},
+                    { Index: i+1, FullName: result[0], Age: result[1], Gender: result[2], MedicalID: donorIDs[i], BloodType: result[3], Organ: result[4], Weight: result[5], Height: result[6]},
                 ]; 
 
                 let data = Object.keys(donor[0]);
@@ -181,7 +181,7 @@ const App = {
             await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result) {
                 console.log(result);
                 patient = [
-                    { FirstName: result[0], LastName: result[1], Age: result[2], Gender: result[3], BloodType: result[4], Organ: result[5], Location: result[6]},
+                    { Index: i+1, FullName: result[0], Age: result[1], Gender: result[2], MedicalID: patientIDs[i], BloodType: result[3], Organ: result[4], Weight: result[5], Height: result[6]},
                 ]; 
 
                 let data = Object.keys(patient[0]);
@@ -190,14 +190,14 @@ const App = {
                 generateTable(table, patient);   
             });
         }
-    }
-    /* 
-    transplantMatch: async function() {
-        var patient = contractInstance.methods.getAllPatientIDs().call();
-        var donor = contractInstance.methods.getAllDonorIDs().call();
-        var patientMax = contractInstance.methods.getCountOfPatients().call();
+    },
 
-        for (var i=0; i<= patientMax; i++) {
+/*     transplantMatch: async function() {
+        var patientIDs = contractInstance.methods.getAllPatientIDs().call();
+        var donorIDs = contractInstance.methods.getAllDonorIDs().call();
+        var patientCount = contractInstance.methods.getCountOfPatients().call();
+
+        for (var i=0; i<= patientCount; i++) {
             var patientbloodtype = contractInstance.methods.getPatient(patient[i]).call().then(function(result){result[4];});
             var patientorgan = contractInstance.methods.getPatient(patient[i]).call().then(function(result){result[5];});
 
@@ -212,8 +212,8 @@ const App = {
                 }
             }
         }
-    } 
-    */
+    } */
+
 }
 
 window.App = App;

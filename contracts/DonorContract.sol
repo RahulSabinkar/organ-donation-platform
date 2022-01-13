@@ -5,97 +5,93 @@ contract DonorContract {
 
     struct donor
     {
-
-        string firstname;
-        string lastname;
+        string fullname;
         uint age;
         string gender;
         string medical_id;
         string blood_type;
         string organ;
-        string location;
-
+        uint weight;
+        uint height;
     }
 
     struct patient
     {
-
-        string firstname;
-        string lastname;
+        string fullname;
         uint age;
         string gender;
         string medical_id;
         string blood_type;
         string organ;
-        string location;
-
+        uint weight;
+        uint height;
     }
 
     mapping ( string =>donor ) donorMap;
     mapping ( string =>patient) patientMap;
 
     string[] DonorsArray;
-    string[] PatientArray;
+    string[] PatientsArray;
 
-    function setDonors(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
-                       string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
+    function setDonors(string memory _fullname, uint _age, string memory _gender, string memory _medical_id,
+                       string memory _blood_type, string memory _organ, uint _weight, uint _height)
     public
     {
         require ( keccak256(abi.encodePacked((donorMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
-        donorMap[_medical_id].firstname = _firstname;
-        donorMap[_medical_id].lastname = _lastname;
+        donorMap[_medical_id].fullname = _fullname;
         donorMap[_medical_id].age = _age;
         donorMap[_medical_id].gender = _gender;
         donorMap[_medical_id].medical_id = _medical_id;
         donorMap[_medical_id].blood_type = _blood_type;
         donorMap[_medical_id].organ = _organ;
-        donorMap[_medical_id].location = _location;
+        donorMap[_medical_id].weight = _weight;
+        donorMap[_medical_id].height = _height;
 
         DonorsArray.push(_medical_id);
     }
 
-    function setPatients(string memory _firstname, string memory _lastname, uint _age, string memory _gender,
-                       string memory _medical_id, string memory _blood_type, string memory _organ, string memory _location)
+    function setPatients(string memory _fullname, uint _age, string memory _gender, string memory _medical_id,
+                       string memory _blood_type, string memory _organ, uint _weight, uint _height)
     public
     {
-        require ( keccak256(abi.encodePacked((patientMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)) );
-        patientMap[_medical_id].firstname = _firstname;
-        patientMap[_medical_id].lastname = _lastname;
+        require ( keccak256(abi.encodePacked((donorMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
+        patientMap[_medical_id].fullname = _fullname;
         patientMap[_medical_id].age = _age;
         patientMap[_medical_id].gender = _gender;
         patientMap[_medical_id].medical_id = _medical_id;
         patientMap[_medical_id].blood_type = _blood_type;
         patientMap[_medical_id].organ = _organ;
-        patientMap[_medical_id].location = _location;
+        patientMap[_medical_id].weight = _weight;
+        patientMap[_medical_id].height = _height;
 
-        PatientArray.push(_medical_id);
+        PatientsArray.push(_medical_id);
     }
 
-    function getDonor(string memory _medical_id) view public returns(string memory, string memory, uint, string memory, string memory, string memory, string memory)
+    function getDonor(string memory _medical_id) view public returns(string memory, uint, string memory, string memory, string memory, uint, uint)
     {
         return
         (
-            donorMap[_medical_id].firstname,
-            donorMap[_medical_id].lastname,
+            donorMap[_medical_id].fullname,
             donorMap[_medical_id].age,
             donorMap[_medical_id].gender,
             donorMap[_medical_id].blood_type,
             donorMap[_medical_id].organ,
-            donorMap[_medical_id].location
+            donorMap[_medical_id].weight,
+            donorMap[_medical_id].height
         );
     }
 
-    function getPatient(string memory _medical_id) view public returns(string memory, string memory, uint, string memory, string memory, string memory, string memory)
+    function getPatient(string memory _medical_id) view public returns(string memory, uint, string memory, string memory, string memory, uint, uint)
     {
         return
         (
-            patientMap[_medical_id].firstname,
-            patientMap[_medical_id].lastname,
+            patientMap[_medical_id].fullname,
             patientMap[_medical_id].age,
             patientMap[_medical_id].gender,
             patientMap[_medical_id].blood_type,
             patientMap[_medical_id].organ,
-            patientMap[_medical_id].location
+            patientMap[_medical_id].weight,
+            patientMap[_medical_id].height
         );
     }
 
@@ -124,7 +120,7 @@ contract DonorContract {
 
     function getAllPatientIDs() view public returns(string[] memory)
     {
-            return PatientArray;
+            return PatientsArray;
     }
 
     function getCountOfDonors() view public returns (uint)
@@ -134,7 +130,7 @@ contract DonorContract {
 
     function getCountOfPatients() view public returns (uint)
     {
-        return PatientArray.length;
+        return PatientsArray.length;
     }
 
 }

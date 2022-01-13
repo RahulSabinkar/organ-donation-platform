@@ -34,23 +34,34 @@
   
                               <h1>Register Patient</h1>
   
-                              <p>First Name: <input type="text" id="patientFirstName" placeholder="First name"></p>
-                              <p>Last Name: <input type="text" id="patientLastName" placeholder="Last name"></p>
+                              <p>Full Name: <input type="text" id="patientFullName" placeholder="Full name"></p>
                               <p>Age: <input type="text" id="patientAge" placeholder="Age"></p>
                               <form>
                                 <label><p>Gender:</p></label>
-                                  <select name="gender">
-                                    <option id="patientGender" >Select Gender</option>
-                                    <option id="patientGender" value="Male">Male</option>
-                                    <option id="patientGender" value="Female">Female</option>
-                                    <option id="patientGender" value="Others">Others</option>
+                                  <select name="gender" id="patientGender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
                                   </select>
                               </form><br>
   
                               <p>Medical ID: <input type="text" id="patientMedicalID" placeholder="Patient Medical ID"></p>
-                              <p>Blood Type: <input type="text" id="patientBloodType" placeholder="Blood-Type"></p>
+                              <form>
+                                <label><p>Blood Type:</p></label>
+                                  <select name="bloodtype" id="patientBloodType">
+                                    <option value="A-">A-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="O+">O+</option>
+                                  </select>
+                              </form><br>
                               <p>Organ: <input type="text" id="patientOrgan" placeholder="Organ"></p>
-                              <p>Location: <input type="text" id="patientLocation" placeholder="Location"></p>
+                              <p>Weight (kg): <input type="text" id="patientWeight" placeholder="Weight"></p>
+                              <p>Height (cm): <input type="text" id="patientHeight" placeholder="Height"></p>
   
                           <div style="text-align:center">
                               <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
