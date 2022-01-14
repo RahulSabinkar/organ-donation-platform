@@ -62,13 +62,19 @@ const App = {
         const weight = document.getElementById('donorWeight').value;
         const height = document.getElementById('donorHeight').value;
 
-        console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
-        const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
-            from: this.accounts[0]
-        });
-        await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
-            from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
-        })
+        const validate = await this.contractInstance.methods.validateDonor(medical_id).call();
+        if (!validate) {        
+            console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
+            const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
+                from: this.accounts[0]
+            });
+            await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
+                from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
+            })
+        }
+        else {
+            document.getElementById("alertMessage").innerHTML = "Medical ID already exists!";
+        }
     },
     getDonor: async function() {
         const medical_id = document.getElementById('inputDonorMedicalID').value;
