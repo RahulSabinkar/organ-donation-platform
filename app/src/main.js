@@ -180,42 +180,59 @@ const App = {
     },
 
     transplantMatch: async function() {
-        var patientIDs = await this.contractInstance.methods.getAllPatientIDs().call();
-        var donorIDs = await this.contractInstance.methods.getAllDonorIDs().call();
         var patientCount = await this.contractInstance.methods.getCountOfPatients().call();
         var donorCount = await this.contractInstance.methods.getCountOfDonors().call();
+        var patientIDs = await this.contractInstance.methods.getAllPatientIDs().call();
+        var donorIDs = [''];
+        await this.contractInstance.methods.getAllDonorIDs().call().then(function(result){
+            for (let i=0; i<donorCount; i++) {
+                donorIDs[i] = result[i];
+            }
+        });
         let match;
+        console.log("Patient Count: " + patientCount);
+        console.log("Donor Count: " + donorCount);
 
-        let flag = true;
+        let once = true;
 
         for (var i=0; i<patientCount; i++) {
-            var patientbloodtype;
+            console.log("In Patient loop");
+            var patientname;
+            var patientbloodtype;            
             var patientorgan;
             await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result){
+                patientname = result[0];
                 patientbloodtype=result[3];
                 patientorgan=result[4];
             });
             for (var j=0; j<donorCount; j++) {
+                console.log("In Donor loop");
+                var donorname;
                 var donorbloodtype;
                 var donororgan;
                 await this.contractInstance.methods.getDonor(donorIDs[j]).call().then(function(result){
+                    donorname = result[0];
                     donorbloodtype = result[3];
                     donororgan = result[4];
                 });
                 if (patientbloodtype==donorbloodtype && patientorgan==donororgan) {
-                    // write patientIDs[i] matches donor[j]
                     match = [
-                        { PatientID: patientIDs[i], DonorID: donorIDs[j] },
+                        { "Patient Name": patientname, "Patient Organ": patientorgan, "Patient ID": patientIDs[i],"": "<-->", "Donor ID": donorIDs[j], "Donor Organ": donororgan, "Donor Name": donorname},
                     ];
 
                     let data = Object.keys(match[0]);
-                    if (flag){
+                    if (once){
                         generateTableHead(table, data);
-                        flag = false;
+                        once = false;
                     }
                     generateTable(table, match);
-                    // pop.donorIDs[j]: remove that medical ID from donorIDs[j] array
-                    [donorIDs[j], donorIDs[donorCount]] = [donorIDs[donorCount], donorIDs[j]];
+                    console.log(donorIDs);
+
+                    let temp = donorIDs[j];
+                    donorIDs[j] = donorIDs[donorCount-1];
+                    donorIDs[donorCount-1] = temp;
+
+                    console.log(donorIDs);
                     donorCount--;
                     break;
                 }
