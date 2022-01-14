@@ -12,7 +12,6 @@
         <link href="../css/bootstrap.css" rel="stylesheet">
         <link href="../css/fontawesome-all.css" rel="stylesheet">
 
-        <script src="../main.js"></script>
         <title>Donors Database</title>    
     </head>
 
@@ -24,25 +23,25 @@
 
         
         <body data-spy="scroll" data-target=".fixed-top">
-            <div class="button-center">
-                <button type="submit" class="btn btn-primary" onclick="App.viewDonors()">Load</button>
-            </div>
             <header id="header" class="header">
                 <div class="header-content">
                     <div class="container">
                         <div class="row">
-            <div class="col-12">
-                                            
-                <table class="table-view">
-                    <!-- here goes our data! -->
-                </table>   
-                  
-            </div>
+                            <div class="col-12">
+                                                            
+                                <table class="table-view">
+                                    <!-- here goes our data! -->
+                                </table>   
+                                
+                            </div>
                         </div> <!-- end of row -->
                     </div> <!-- end of container -->
                 </div> <!-- end of header-content -->
             </header> <!-- end of header -->
             <!-- end of header -->
         </body>
-    <script src="../main.js"></script>
+        <script src="../main.js"></script>
+        <script>
+            window.onload = App.viewDonors();
+        </script>
 </html>

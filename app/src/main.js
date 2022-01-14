@@ -5,11 +5,34 @@ const web3 = new Web3("HTTP://127.0.0.1:7545");
 // Import the ABI definition of the DemoContract
 const artifact = require('../../build/contracts/DonorContract.json');
 
-//const netid = await web3.eth.net.getId()
+// const netid = await web3.eth.net.getId()
 const deployedContract = artifact.networks[5777];
 const contractAddress = deployedContract.address;
 
 const MIN_GAS = 1000000;
+
+function generateTableHead(table, data) {
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    for (let key of data) {
+        let th = document.createElement("th");
+        let text = document.createTextNode(key);
+        th.appendChild(text);
+        row.appendChild(th);
+    }
+}
+function generateTable(table, data) {
+    for (let element of data) {
+        let row = table.insertRow();
+        for (key in element) {
+        let cell = row.insertCell();
+        let text = document.createTextNode(element[key]);
+        cell.appendChild(text);
+        }
+    }
+}
+
+let table = document.querySelector("table");
 
 const App = {
     web3: null,
@@ -45,7 +68,7 @@ const App = {
         });
         await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
             from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
-        });
+        })
     },
     getDonor: async function() {
         const medical_id = document.getElementById('inputDonorMedicalID').value;
@@ -108,33 +131,14 @@ const App = {
         alert('Data is ' + data);
     },
     viewDonors: async function() {
+        this.accounts = await web3.eth.getAccounts();
+        this.contractInstance = new web3.eth.Contract(
+            artifact.abi,
+            contractAddress
+        );
         const donorCount = await this.contractInstance.methods.getCountOfDonors().call();
         const donorIDs = await this.contractInstance.methods.getAllDonorIDs().call();
         let donor;
-
-        /*Table Section*/
-        function generateTableHead(table, data) {
-            let thead = table.createTHead();
-            let row = thead.insertRow();
-            for (let key of data) {
-                let th = document.createElement("th");
-                let text = document.createTextNode(key);
-                th.appendChild(text);
-                row.appendChild(th);
-            }
-        }
-        function generateTable(table, data) {
-            for (let element of data) {
-                let row = table.insertRow();
-                for (key in element) {
-                let cell = row.insertCell();
-                let text = document.createTextNode(element[key]);
-                cell.appendChild(text);
-                }
-            }
-        }
-
-        let table = document.querySelector("table");
 
         for (let i=0; i<donorCount; i++) {
             await this.contractInstance.methods.getDonor(donorIDs[i]).call().then(function(result) {
@@ -151,32 +155,14 @@ const App = {
         }
     },
     viewPatients: async function() {
+        this.accounts = await web3.eth.getAccounts();
+        this.contractInstance = new web3.eth.Contract(
+            artifact.abi,
+            contractAddress
+        );
         const patientCount = await this.contractInstance.methods.getCountOfPatients().call();
         const patientIDs = await this.contractInstance.methods.getAllPatientIDs().call();
         let patient;
-
-        function generateTableHead(table, data) {
-            let thead = table.createTHead();
-            let row = thead.insertRow();
-            for (let key of data) {
-                let th = document.createElement("th");
-                let text = document.createTextNode(key);
-                th.appendChild(text);
-                row.appendChild(th);
-            }
-        }
-        function generateTable(table, data) {
-            for (let element of data) {
-                let row = table.insertRow();
-                for (key in element) {
-                let cell = row.insertCell();
-                let text = document.createTextNode(element[key]);
-                cell.appendChild(text);
-                }
-            }
-        }
-
-        let table = document.querySelector("table");
 
         for (let i=0; i<patientCount; i++) {
             await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result) {
@@ -199,29 +185,6 @@ const App = {
         var patientCount = await this.contractInstance.methods.getCountOfPatients().call();
         var donorCount = await this.contractInstance.methods.getCountOfDonors().call();
         let match;
-
-        function generateTableHead(table, data) {
-            let thead = table.createTHead();
-            let row = thead.insertRow();
-            for (let key of data) {
-                let th = document.createElement("th");
-                let text = document.createTextNode(key);
-                th.appendChild(text);
-                row.appendChild(th);
-            }
-        }
-        function generateTable(table, data) {
-            for (let element of data) {
-                let row = table.insertRow();
-                for (key in element) {
-                let cell = row.insertCell();
-                let text = document.createTextNode(element[key]);
-                cell.appendChild(text);
-                }
-            }
-        }
-
-        let table = document.querySelector("table");
 
         let flag = true;
 
