@@ -24,6 +24,9 @@ body {
 
 .col-12 {
     text-align: -webkit-center;
+    padding: 10px;
+    background-color: rgb(194, 196, 190);
+    border-radius: 10px;
 }
 
 /*div{
@@ -209,20 +212,33 @@ a:hover, a:active {
     
 }
 table {
-    background-color: #005f82;
+    
     border-collapse: collapse;
     width: 100%;
 }
 
 td, th {
-    background-color: #005f82;
+    
+    background-color: #247ba3;
     color: #ffffff;
     border: 1px solid #1b0c0c;
-    text-align: left;
-    padding: 10px;
+    text-align: center;
+    padding: 15px;
+}
+
+th{
+    background-color: #005f82;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 tr:nth-child(even) {
     background-color: #005f82;
     
 }
+
+.table-responsive {
+    overflow-x:auto;
+}
+

@@ -140,7 +140,7 @@ const App = {
             await this.contractInstance.methods.getDonor(donorIDs[i]).call().then(function(result) {
                 console.log(result);
                 donor = [
-                    { Index: i+1, FullName: result[0], Age: result[1], Gender: result[2], MedicalID: donorIDs[i], BloodType: result[3], Organ: result[4], Weight: result[5], Height: result[6]},
+                    { Index: i+1, "Full Name": result[0], Age: result[1], Gender: result[2], "Medical ID": donorIDs[i], "Blood-Type": result[3], Organ: result[4], Weight: result[5], Height: result[6]},
                 ];
 
                 let data = Object.keys(donor[0]);
