@@ -12,6 +12,7 @@ h1{
 }
 
 h2{
+    color: white;
     text-align: center;
 }
 
@@ -158,7 +159,7 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-.button-main {
+/* .button-main {
   width: 22rem;
   background-color: #005f82;
   border: none;
@@ -186,7 +187,7 @@ input[type=submit]:hover {
   font-size: 32px;
   margin: 4px 2px;
   cursor: pointer;
-}
+}*/
 
 .button-center{
   text-align: center;
@@ -200,11 +201,17 @@ input[type=submit]:hover {
     align-content: center;
 }
 
-a:hover, a:active {
+/* a:hover, a:active {
   border: 5px;
   border-color:  #005f82;
-  background-color: #eee;
-  color: white;
+  background-color: #0c4155;
+  
+} */
+
+
+.btn:hover {
+  color: #212529;
+  text-decoration: none;
 }
 
 .custom-control-input:disabled ~ .custom-control-label {
