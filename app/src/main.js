@@ -67,8 +67,8 @@ const App = {
         const medical_id = document.getElementById('patientMedicalID').value;
         const blood_type = document.getElementById('patientBloodType').value;
         const organ = document.getElementById('patientOrgan').value;
-        const weight = document.getElementById('patientWeight').value;        
-        const height = document.getElementById('patientHeight').value;        
+        const weight = document.getElementById('patientWeight').value;
+        const height = document.getElementById('patientHeight').value;
 
         console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
         const gas = await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
@@ -141,12 +141,12 @@ const App = {
                 console.log(result);
                 donor = [
                     { Index: i+1, FullName: result[0], Age: result[1], Gender: result[2], MedicalID: donorIDs[i], BloodType: result[3], Organ: result[4], Weight: result[5], Height: result[6]},
-                ]; 
+                ];
 
                 let data = Object.keys(donor[0]);
                 if (i==0)
                     generateTableHead(table, data);
-                generateTable(table, donor);   
+                generateTable(table, donor);
             });
         }
     },
@@ -183,37 +183,82 @@ const App = {
                 console.log(result);
                 patient = [
                     { Index: i+1, FullName: result[0], Age: result[1], Gender: result[2], MedicalID: patientIDs[i], BloodType: result[3], Organ: result[4], Weight: result[5], Height: result[6]},
-                ]; 
+                ];
 
                 let data = Object.keys(patient[0]);
                 if (i==0)
                     generateTableHead(table, data);
-                generateTable(table, patient);   
+                generateTable(table, patient);
             });
         }
     },
 
-/*     transplantMatch: async function() {
-        var patientIDs = contractInstance.methods.getAllPatientIDs().call();
-        var donorIDs = contractInstance.methods.getAllDonorIDs().call();
-        var patientCount = contractInstance.methods.getCountOfPatients().call();
+    transplantMatch: async function() {
+        var patientIDs = await this.contractInstance.methods.getAllPatientIDs().call();
+        var donorIDs = await this.contractInstance.methods.getAllDonorIDs().call();
+        var patientCount = await this.contractInstance.methods.getCountOfPatients().call();
+        var donorCount = await this.contractInstance.methods.getCountOfDonors().call();
+        let match;
 
-        for (var i=0; i<= patientCount; i++) {
-            var patientbloodtype = contractInstance.methods.getPatient(patient[i]).call().then(function(result){result[4];});
-            var patientorgan = contractInstance.methods.getPatient(patient[i]).call().then(function(result){result[5];});
+        function generateTableHead(table, data) {
+            let thead = table.createTHead();
+            let row = thead.insertRow();
+            for (let key of data) {
+                let th = document.createElement("th");
+                let text = document.createTextNode(key);
+                th.appendChild(text);
+                row.appendChild(th);
+            }
+        }
+        function generateTable(table, data) {
+            for (let element of data) {
+                let row = table.insertRow();
+                for (key in element) {
+                let cell = row.insertCell();
+                let text = document.createTextNode(element[key]);
+                cell.appendChild(text);
+                }
+            }
+        }
 
-            for (var j=0; j<=contractInstance.methods.getCountOfDonors().call(); j++) {
-                var donorbloodtype = contractInstance.methods.getPatient(donor[j]).call().then(function(result){result[4];});
-                var donororgan = contractInstance.methods.getPatient(donor[j]).call().then(function(result){result[5];});
-                if (patientbloodtype==donorbloodtype&&patientorgan==donororgan) {
-                    // write patient[i] matches donor[j]
-                    // pop.donor[j]: remove that medical ID from donor[j] array
+        let table = document.querySelector("table");
 
+        let flag = true;
+
+        for (var i=0; i<patientCount; i++) {
+            var patientbloodtype;
+            var patientorgan;
+            await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result){
+                patientbloodtype=result[3];
+                patientorgan=result[4];
+            });
+            for (var j=0; j<donorCount; j++) {
+                var donorbloodtype;
+                var donororgan;
+                await this.contractInstance.methods.getDonor(donorIDs[j]).call().then(function(result){
+                    donorbloodtype = result[3];
+                    donororgan = result[4];
+                });
+                if (patientbloodtype==donorbloodtype && patientorgan==donororgan) {
+                    // write patientIDs[i] matches donor[j]
+                    match = [
+                        { PatientID: patientIDs[i], DonorID: donorIDs[j] },
+                    ];
+
+                    let data = Object.keys(match[0]);
+                    if (flag){
+                        generateTableHead(table, data);
+                        flag = false;
+                    }
+                    generateTable(table, match);
+                    // pop.donorIDs[j]: remove that medical ID from donorIDs[j] array
+                    [donorIDs[j], donorIDs[donorCount]] = [donorIDs[donorCount], donorIDs[j]];
+                    donorCount--;
                     break;
                 }
             }
         }
-    } */
+    }
 
 }
 
