@@ -22,6 +22,10 @@ body {
     font-family: 'Montserrat', sans-serif !important;
 }
 
+.col-12 {
+    text-align: -webkit-center;
+}
+
 /*div{
     text-align:center;
     width: 600px;
@@ -198,4 +202,25 @@ a:hover, a:active {
 
 .custom-control-input:disabled ~ .custom-control-label {
     color: #ffffff;
+}
+
+.table-view{
+    color: #005f82;
+    
+}
+table {
+    
+    border-collapse: collapse;
+    width: 60%;
+}
+
+td, th {
+    color: #005f82;
+    border: 1px solid #1b0c0c;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffff;
 }

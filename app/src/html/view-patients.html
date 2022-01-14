@@ -21,13 +21,27 @@
 </nav>
 <!-- end of navigation-->
 
-<body>
-    <div style="text-align:center">
+<body data-spy="scroll" data-target=".fixed-top">
+    <div class="button-center">
         <button type="submit" class="btn btn-primary" onclick="App.viewPatients()">Load</button>
     </div>
-<table>
-<!-- here goes our data! -->
-</table>
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+    <div class="col-12">
+                   
+                    
+                                    
+        <table class="table-view">
+                                <!-- here goes our data! -->
+        </table>     
+    </div>
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
 </body>
 <script src="../main.js"></script>
 </html>
