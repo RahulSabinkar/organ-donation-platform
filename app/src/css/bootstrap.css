@@ -2391,7 +2391,31 @@ textarea.form-control {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /* transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+}
+.btn-custom{
+  width: 80%;
+  background-color: #005f82;
+  color: #fff;
+  padding: 32px 50px;
+}
+
+.btn-custom-1{
+  width: 40%;
+  background-color: #005f82;
+  color: #fff;
+  padding: 32px 50px;
+}
+
+.btn-custom:hover{
+  background-color: #103f50;
+  color: white;  
+}
+
+.btn-custom-1:hover{
+  background-color: #103f50;
+  color: white;
+  
 }
 
 @media (prefers-reduced-motion: reduce) {
