@@ -62,7 +62,25 @@ const App = {
         const weight = document.getElementById('donorWeight').value;
         const height = document.getElementById('donorHeight').value;
 
+        //function checkValues(fullname, age, gender, medical_id, blood_type, organ, weight, height){
+/*             if (fullname.length=0)
+                document.getElementById("donorValuesCheck").innerHTML = "Enter your name";
+            else if (age.length=0)
+                document.getElementById("donorValuesCheck").innerHTML = "Enter your age";
+            else if (age>18)
+                document.getElementById("donorValuesCheck").innerHTML = "You must be over 18 to register";
+            else if(medical_id.length=0)
+                document.getElementById("donorValuesCheck").innerHTML = "Enter your Medical ID";
+            else if(organ.length=0)
+                document.getElementById("donorValuesCheck").innerHTML = "Enter organ name";
+            else if(weight.length=0)
+                document.getElementById("donorValuesCheck").innerHTML = "Enter your weight";
+            else if(height.length=0)
+                document.getElementById("donorValuesCheck").innerHTML = "Enter your height"; */
+        //}
+
         const validate = await this.contractInstance.methods.validateDonor(medical_id).call();
+
         if (!validate) {        
             console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
             const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
@@ -71,23 +89,42 @@ const App = {
             await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
                 from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
             })
+            document.getElementById("donorConfirmationCheck").innerHTML = "Success!";
+            document.getElementById("donorValidateCheck").innerHTML = null;
+            document.getElementById("donorValuesCheck").innerHTML = null;
         }
         else {
-            document.getElementById("alertMessage").innerHTML = "Medical ID already exists!";
+            document.getElementById("donorValidateCheck").innerHTML = "Medical ID already exists!";
+            document.getElementById("donorConfirmationCheck").innerHTML = null;
+            document.getElementById("donorValuesCheck").innerHTML = null;
         }
     },
     getDonor: async function() {
         const medical_id = document.getElementById('inputDonorMedicalID').value;
-        await this.contractInstance.methods.getDonor(medical_id).call().then(function(result){
-            console.log(result);
-            document.getElementById("getDonorFullName").innerHTML = "First Name: " + result[0];
-            document.getElementById("getDonorAge").innerHTML = "Age: " + result[1];
-            document.getElementById("getDonorGender").innerHTML = "Gender: " + result[2];
-            document.getElementById("getDonorBloodType").innerHTML = "Blood Type: " + result[3];
-            document.getElementById("getDonorOrgan").innerHTML = "Organ: " + result[4];
-            document.getElementById("getDonorWeight").innerHTML = "Weight: " + result[5];
-            document.getElementById("getDonorHeight").innerHTML = "Height: " + result[6];
-        });
+
+        const validate = await this.contractInstance.methods.validateDonor(medical_id).call();
+
+        if (validate) {
+            await this.contractInstance.methods.getDonor(medical_id).call().then(function(result){
+                console.log(result);
+                document.getElementById("getDonorFullName").innerHTML = "First Name: " + result[0];
+                document.getElementById("getDonorAge").innerHTML = "Age: " + result[1];
+                document.getElementById("getDonorGender").innerHTML = "Gender: " + result[2];
+                document.getElementById("getDonorBloodType").innerHTML = "Blood Type: " + result[3];
+                document.getElementById("getDonorOrgan").innerHTML = "Organ: " + result[4];
+                document.getElementById("getDonorWeight").innerHTML = "Weight: " + result[5];
+                document.getElementById("getDonorHeight").innerHTML = "Height: " + result[6];
+            });
+        }
+        else {
+            document.getElementById("getDonorFullName").innerHTML = "Medical ID does not exist!";
+            document.getElementById("getDonorAge").innerHTML = null;
+            document.getElementById("getDonorGender").innerHTML = null;
+            document.getElementById("getDonorBloodType").innerHTML = null;
+            document.getElementById("getDonorOrgan").innerHTML = null;
+            document.getElementById("getDonorWeight").innerHTML = null;
+            document.getElementById("getDonorHeight").innerHTML = null;
+        }
     },
     setPatients: async function() {
         const fullname = document.getElementById('patientFullName').value;
@@ -99,26 +136,51 @@ const App = {
         const weight = document.getElementById('patientWeight').value;
         const height = document.getElementById('patientHeight').value;
 
-        console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
-        const gas = await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
-            from: this.accounts[0]
-        });
-        await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
-            from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
-        });
+        const validate = await this.contractInstance.methods.validatePatient(medical_id).call();
+
+        if (!validate) {   
+            console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
+            const gas = await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
+                from: this.accounts[0]
+            });
+            await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
+                from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
+            });
+            document.getElementById("patientConfirmationCheck").innerHTML = "Success!";
+            document.getElementById("patientValidateCheck").innerHTML = null;
+            document.getElementById("patientValuesCheck").innerHTML = null;
+        }
+        else {
+            document.getElementById("patientValidateCheck").innerHTML = "Medical ID already exists!";
+            document.getElementById("patientConfirmationCheck").innerHTML = null;
+            document.getElementById("patientValuesCheck").innerHTML = null;
+        }
     },
     getPatient: async function() {
         const medical_id = document.getElementById('inputPatientMedicalID').value;
-        await this.contractInstance.methods.getPatient(medical_id).call().then(function(result){
-            console.log(result);
-            document.getElementById("getPatientFullName").innerHTML = "Full Name: " + result[0];
-            document.getElementById("getPatientAge").innerHTML = "Age: " + result[1];
-            document.getElementById("getPatientGender").innerHTML = "Gender: " + result[2];
-            document.getElementById("getPatientBloodType").innerHTML = "Blood Type: " + result[3];
-            document.getElementById("getPatientOrgan").innerHTML = "Organ: " + result[4];
-            document.getElementById("getPatientWeight").innerHTML = "Weight: " + result[5];
-            document.getElementById("getPatientHeight").innerHTML = "Height: " + result[6];
-        });
+        const validate = await this.contractInstance.methods.validatePatient(medical_id).call();
+
+        if (validate) {
+            await this.contractInstance.methods.getPatient(medical_id).call().then(function(result){
+                console.log(result);
+                document.getElementById("getPatientFullName").innerHTML = "Full Name: " + result[0];
+                document.getElementById("getPatientAge").innerHTML = "Age: " + result[1];
+                document.getElementById("getPatientGender").innerHTML = "Gender: " + result[2];
+                document.getElementById("getPatientBloodType").innerHTML = "Blood Type: " + result[3];
+                document.getElementById("getPatientOrgan").innerHTML = "Organ: " + result[4];
+                document.getElementById("getPatientWeight").innerHTML = "Weight: " + result[5];
+                document.getElementById("getPatientHeight").innerHTML = "Height: " + result[6];
+            });
+        }
+        else {
+            document.getElementById("getPatientFullName").innerHTML = "Medical ID does not exist!";
+            document.getElementById("getPatientAge").innerHTML = null;
+            document.getElementById("getPatientGender").innerHTML = null;
+            document.getElementById("getPatientBloodType").innerHTML = null;
+            document.getElementById("getPatientOrgan").innerHTML = null;
+            document.getElementById("getPatientWeight").innerHTML = null;
+            document.getElementById("getPatientHeight").innerHTML = null;
+        }
     },
     getCountOfDonors: async function() {
         const data = await this.contractInstance.methods.getCountOfDonors().call();

@@ -16,9 +16,9 @@
     </head>
 
     <!-- start of navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <a id="nav"class="navbar-brand logo-image" href="../index.html"><img src="../images/organ-donation.jpg" alt="Organ Donation prototype"></a>
-        </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a id="nav"class="navbar-brand logo-image" href="../index.html"><img src="../images/organ-donation.jpg" alt="Organ Donation prototype"></a>
+    </nav>
     <!-- end of navigation-->
 
 
@@ -32,43 +32,58 @@
                     <div class="col-sm-6 col-md-6">
                         <div class="text-container">
   
-                              <h1>Register Patient</h1>
+                            <h1>Register Patient</h1>
   
-                              <p>Full Name: <input type="text" id="patientFullName" placeholder="Full name"></p>
-                              <p>Age: <input type="text" id="patientAge" placeholder="Age"></p>
+                            <p>Full Name: <input type="text" id="patientFullName" placeholder="Full name"></p>
+                            <p>Age: <input type="text" id="patientAge" placeholder="Age"></p>
 
-                              <form>
+                            <form>
                                 <label><p>Gender:</p></label>
-                                  <select name="gender" id="patientGender">
+                                <select name="gender" id="patientGender">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Others">Others</option>
-                                  </select>
-                              </form>
-                              <br>
-                              <p>Medical ID: <input type="text" id="patientMedicalID" placeholder="Patient Medical ID"></p>
-                              <form>
+                                </select>
+                            </form>
+                            <br>
+                            <p>Medical ID: <input type="text" id="patientMedicalID" placeholder="Patient Medical ID"></p>
+                            <form>
                                 <label><p>Blood Type:</p></label>
-                                  <select name="bloodtype" id="patientBloodType">
-                                    <option value="A-">A-</option>
-                                    <option value="A+">A+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="B+">B+</option>
+                                <select name="bloodtype" id="patientBloodType">
+                                <option value="A-">A-</option>
+                                <option value="A+">A+</option>
+                                <option value="B-">B-</option>
+                                <option value="B+">B+</option>
                                     <option value="AB-">AB-</option>
                                     <option value="AB+">AB+</option>
                                     <option value="O-">O-</option>
                                     <option value="O+">O+</option>
-                                  </select>
-                              </form><br>
-                              <p>Organ: <input type="text" id="patientOrgan" placeholder="Organ"></p>
-                              <p>Weight (kg): <input type="text" id="patientWeight" placeholder="Weight"></p>
-                              <p>Height (cm): <input type="text" id="patientHeight" placeholder="Height"></p>
-  
-                          <div class="button-center">
-                              <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
-                          </div>
-                          </div> <!-- end of text-container -->
-                      </div> <!-- end of col -->
+                                </select>
+                            </form><br>
+                            <form>
+                                <label><p>Organ:</p></label>
+                                <select name="organ" id="patientOrgan">
+                                    <option value="Left Kidney">Left Kidney</option>
+                                    <option value="Right Kidney">Right Kidney</option>
+                                    <option value="Left Lung">Left Lung</option>
+                                    <option value="Right Lung">Right Lung</option>
+                                    <option value="Liver">Liver</option>
+                                    <option value="Heart">Heart</option>
+                                    <option value="Pancreas">Pancreas</option>
+                                    <option value="Intestine">Intestine</option>
+                                </select>
+                            </form><br>
+                            <p>Weight (kg): <input type="text" id="patientWeight" placeholder="Weight"></p>
+                            <p>Height (cm): <input type="text" id="patientHeight" placeholder="Height"></p>
+    
+                            <div class="button-center">
+                                <p id="patientValidateCheck"></p>
+                                <p id="patientConfirmationCheck"></p>
+                                <p id="patientValuesCheck"></p>
+                                <button type="submit" class="btn btn-primary" onclick="App.setPatients()">Register</button>
+                            </div>
+                        </div> <!-- end of text-container -->
+                    </div> <!-- end of col -->
 
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
