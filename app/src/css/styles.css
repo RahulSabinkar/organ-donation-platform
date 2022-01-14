@@ -25,8 +25,12 @@ body {
 .col-12 {
     text-align: -webkit-center;
     padding: 10px;
-    background-color: rgb(194, 196, 190);
+    /* background-color: rgb(194, 196, 190); */
     border-radius: 10px;
+}
+
+.col-6 {
+    float: left;
 }
 
 /*div{
