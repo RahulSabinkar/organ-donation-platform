@@ -209,18 +209,20 @@ a:hover, a:active {
     
 }
 table {
-    
+    background-color: #005f82;
     border-collapse: collapse;
-    width: 60%;
+    width: 100%;
 }
 
 td, th {
-    color: #005f82;
+    background-color: #005f82;
+    color: #ffffff;
     border: 1px solid #1b0c0c;
     text-align: left;
-    padding: 8px;
+    padding: 10px;
 }
 
 tr:nth-child(even) {
-    background-color: #ffffff;
+    background-color: #005f82;
+    
 }
