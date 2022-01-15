@@ -33,21 +33,21 @@
 
                             <h1>Register Donor</h1>
 
-                            <p>Full Name: <input type="text" id="donorFullName" placeholder="Full name"></p>
-                            <p>Age: <input type="text" id="donorAge" placeholder="Age"></p>
+                            <p>Full Name: <input type="text" id="DonorFullName" placeholder="Full name"></p>
+                            <p>Age: <input type="text" id="DonorAge" placeholder="Age"></p>
                             <form>
                               <label><p>Gender:</p></label>
-                                <select name="gender" id="donorGender">
+                                <select name="gender" id="DonorGender">
                                   <option value="Male">Male</option>
                                   <option value="Female">Female</option>
                                   <option value="Others">Others</option>
                                 </select>
                             </form><br>
 
-                            <p>Medical ID: <input type="text" id="donorMedicalID" placeholder="Donor Medical ID"></p>
+                            <p>Medical ID: <input type="text" id="DonorMedicalID" placeholder="Donor Medical ID"></p>
                             <form>
                                 <label><p>Blood Type:</p></label>
-                                    <select name="bloodtype" id="donorBloodType">
+                                    <select name="bloodtype" id="DonorBloodType">
                                     <option value="A-">A-</option>
                                     <option value="A+">A+</option>
                                     <option value="B-">B-</option>
@@ -60,7 +60,7 @@
                             </form><br>
                             <form>
                                 <label><p>Organ:</p></label>
-                                <select name="organ" id="donorOrgan">
+                                <select name="organ" id="DonorOrgan">
                                     <option value="Left Kidney">Left Kidney</option>
                                     <option value="Right Kidney">Right Kidney</option>
                                     <option value="Left Lung">Left Lung</option>
@@ -71,14 +71,14 @@
                                     <option value="Intestine">Intestine</option>
                                 </select>
                             </form><br>
-                            <p>Weight (kg): <input type="text" id="donorWeight" placeholder="Weight"></p>
-                            <p>Height (cm): <input type="text" id="donorHeight" placeholder="Height"></p>
+                            <p>Weight (kg): <input type="text" id="DonorWeight" placeholder="Weight"></p>
+                            <p>Height (cm): <input type="text" id="DonorHeight" placeholder="Height"></p>
 
                             <div class="button-center">
-                                <p id="donorValidateCheck"></p>
-                                <p id="donorConfirmationCheck"></p>
-                                <p id="donorValuesCheck"></p>
-                                <button type="submit" class="btn btn-primary" onclick="App.setDonors()">Register</button>
+                                <p id="DonorValidateCheck"></p>
+                                <p id="DonorConfirmationCheck"></p>
+                                <p id="DonorValuesCheck"></p>
+                                <button type="submit" class="btn btn-primary" onclick="App.register('Donor')">Register</button>
                             </div>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
