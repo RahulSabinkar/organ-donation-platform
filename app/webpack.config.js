@@ -18,7 +18,9 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/css/bootstrap.css", to: "css/bootstrap.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/styles.css", to: "css/styles.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/fontawesome-all.css", to: "css/fontawesome-all.css" }]),
-    new CopyWebpackPlugin([{ from: "./src/images/organ-donation.jpg", to: "images/organ-donation.jpg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/organ-donation-logo.svg", to: "images/organ-donation-logo.svg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/organ-donation-logo-new.svg", to: "images/organ-donation-logo-new.svg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/logo-new-final.svg", to: "images/logo-new-final.svg" }]),
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
 };
