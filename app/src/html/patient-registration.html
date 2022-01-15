@@ -11,13 +11,15 @@
         <link href="../css/bootstrap.css" rel="stylesheet">
         <link href="../css/fontawesome-all.css" rel="stylesheet">
 
+        <link rel="icon" href="images/organ-donation-logo-new.svg">
+
         <script src="../main.js"></script>
         <title>Patient Registration</title>
     </head>
 
     <!-- start of navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <a id="nav"class="navbar-brand logo-image" href="../index.html"><img src="../images/organ-donation.jpg" alt="Organ Donation prototype"></a>
+        <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="images/logo-new-final.svg" alt="Organ Donation prototype"></a>
     </nav>
     <!-- end of navigation-->
 
@@ -29,8 +31,8 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-sm-6 col-md-6">
-                        <div class="text-container">
+                    <div class="col-12 col-sm-12 col-md-12">
+                        <div id="center-form" class="text-container">
   
                             <h1>Register Patient</h1>
   
@@ -38,7 +40,7 @@
                             <p>Age: <input type="text" id="PatientAge" placeholder="Age"></p>
 
                             <form>
-                                <label><p>Gender:</p></label>
+                                <label>Gender:</label>
                                 <select name="gender" id="PatientGender">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -48,7 +50,7 @@
                             <br>
                             <p>Medical ID: <input type="text" id="PatientMedicalID" placeholder="Patient Medical ID"></p>
                             <form>
-                                <label><p>Blood Type:</p></label>
+                                <label>Blood Type:</label>
                                 <select name="bloodtype" id="PatientBloodType">
                                 <option value="A-">A-</option>
                                 <option value="A+">A+</option>
@@ -61,7 +63,7 @@
                                 </select>
                             </form><br>
                             <form>
-                                <label><p>Organ:</p></label>
+                                <label>Organ:</label>
                                 <select name="organ" id="PatientOrgan">
                                     <option value="Left Kidney">Left Kidney</option>
                                     <option value="Right Kidney">Right Kidney</option>
