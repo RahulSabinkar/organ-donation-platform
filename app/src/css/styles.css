@@ -16,6 +16,10 @@ h2 {
   text-align: center;
 }
 
+html{
+  background-color: #87ceeb;
+}
+
 body {
   max-width: 1440px;
   margin: 0 auto !important;
@@ -63,7 +67,7 @@ body {
 }
 
 .navbar-custom .navbar-brand.logo-image img {
-  width: 18.4rem;
+  width: 28.4rem;
   height: 8.5rem;
 }
 
@@ -87,6 +91,14 @@ body {
   margin-bottom: 0;
 }
 
+.navbar-expand-lg{
+  background-color: #87ceeb;
+}
+
+img{
+  margin-left: 50px;
+}
+
 /*********************/
 /*    04. Header     */
 /*********************/
@@ -95,6 +107,7 @@ body {
 }
 
 .header .header-content {
+  background-color: #87ceeb;
   padding-top: 2rem;
   padding-bottom: 4rem;
   text-align: center;
@@ -272,8 +285,8 @@ tr {
 } */
 
 tr:hover {
-    background-color: #1080a8;
-    color: #ffffff;
+    background-color: rgb(212, 212, 212);
+    color: #000000;
 }
 
 .table-responsive {
