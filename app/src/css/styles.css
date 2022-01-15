@@ -1,37 +1,37 @@
-p{
-    color: #fff;
+p {
+  color: #fff;
 }
-.p-grey{
+.p-grey {
   color: grey;
 }
 
-h1{
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
-h2{
-    color: white;
-    text-align: center;
+h2 {
+  color: white;
+  text-align: center;
 }
 
 body {
-    max-width: 1440px;
-    margin: 0 auto !important;
-    float: none !important;
-    font-family: 'Montserrat', sans-serif !important;
+  max-width: 1440px;
+  margin: 0 auto !important;
+  float: none !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .col-12 {
-    text-align: -webkit-center;
-    padding: 10px;
-    /* background-color: rgb(194, 196, 190); */
-    border-radius: 10px;
+  text-align: -webkit-center;
+  padding: 10px;
+  /* background-color: rgb(194, 196, 190); */
+  border-radius: 10px;
 }
 
 .col-6 {
-    float: left;
+  float: left;
 }
 
 /*div{
@@ -48,26 +48,26 @@ body {
 /*     03. Navigation     */
 /**************************/
 .navbar-custom {
-    background-color: #fff;
-    /*box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);*/
-    font: 600 0.875rem/0.875rem 'Montserrat', sans-serif;
-    transition: all 0.2s;
+  background-color: #fff;
+  /*box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);*/
+  font: 600 0.875rem/0.875rem "Montserrat", sans-serif;
+  transition: all 0.2s;
 }
 
 .navbar-custom .navbar-brand.logo-image img {
-    width: 18.4rem;
-    height: 8.5rem;
+  width: 18.4rem;
+  height: 8.5rem;
 }
 
 .navbar-custom .navbar-brand.logo-text {
-    font: 600 2rem/1.5rem 'Montserrat', sans-serif;
-    color: #393939;
-    text-decoration: none;
+  font: 600 2rem/1.5rem "Montserrat", sans-serif;
+  color: #393939;
+  text-decoration: none;
 }
 
 .navbar-custom .navbar-nav {
-    margin-top: 0.75rem;
-    margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 /* .navbar-custom {
@@ -75,88 +75,90 @@ body {
 }*/
 
 .navbar-custom .navbar-nav {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /*********************/
 /*    04. Header     */
 /*********************/
 .header {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .header .header-content {
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-    text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  text-align: center;
 }
 
 /*content of the page*/
 .header .text-container {
-    margin-top: 1.5rem;
-    margin-bottom: 6rem;
-    text-align: left;
-    padding: 30px 30px 30px 30px;
-    background-color: #005f82;
-    border-radius: 20px;
+  margin-top: 1.5rem;
+  margin-bottom: 6rem;
+  text-align: left;
+  padding: 30px 30px 30px 30px;
+  background-color: #005f82;
+  border-radius: 20px;
 }
 
 .header .text-container-search {
-    width: 75%;
-    vertical-align: middle;
-    margin-left: 12%;
-    margin-top: 2.5rem;
-    margin-bottom: 6rem;
-    text-align: left;
-    padding: 30px 30px 30px 30px;
-    background-color: #005f82;
-    border-radius: 8.5px;
+  width: 75%;
+  vertical-align: middle;
+  margin-left: 12%;
+  margin-top: 2.5rem;
+  margin-bottom: 6rem;
+  text-align: left;
+  padding: 30px 30px 30px 30px;
+  background-color: #005f82;
+  border-radius: 8.5px;
 }
 
 .header h1 {
-    margin-bottom: 1.125rem;
-    font-size: 2.5rem;
-    line-height: 3.125rem;
+  margin-bottom: 1.125rem;
+  font-size: 2.5rem;
+  line-height: 3.125rem;
 }
 
 .header .p-large {
-    margin-bottom: 1.875rem;
+  margin-bottom: 1.875rem;
 }
 
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-input[type=text-home], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+input[type="text-home"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+input[type="submit"] {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
+input[type="submit"]:hover {
+  background-color: #45a049;
 }
 
 /* .button-main {
@@ -189,16 +191,21 @@ input[type=submit]:hover {
   cursor: pointer;
 }*/
 
-.button-center{
+.btn-primary {
+  padding-top: 10px;
+  width: 60%;
+}
+
+.button-center {
   text-align: center;
 }
 
-.button-center-1{
+.button-center-1 {
   text-align: center;
 }
 
-.center-align{
-    align-content: center;
+.center-align {
+  align-content: center;
 }
 
 /* a:hover, a:active {
@@ -208,14 +215,13 @@ input[type=submit]:hover {
   
 } */
 
-
 .btn:hover {
   color: #212529;
   text-decoration: none;
 }
 
 .custom-control-input:disabled ~ .custom-control-label {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 table {
@@ -263,6 +269,5 @@ tr:hover {
 }
 
 .table-responsive {
-    overflow-x:auto;
+  overflow-x: auto;
 }
-
