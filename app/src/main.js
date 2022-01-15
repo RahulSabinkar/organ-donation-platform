@@ -62,41 +62,49 @@ const App = {
         const weight = document.getElementById('donorWeight').value;
         const height = document.getElementById('donorHeight').value;
 
-        //function checkValues(fullname, age, gender, medical_id, blood_type, organ, weight, height){
-/*             if (fullname.length=0)
-                document.getElementById("donorValuesCheck").innerHTML = "Enter your name";
-            else if (age.length=0)
-                document.getElementById("donorValuesCheck").innerHTML = "Enter your age";
-            else if (age>18)
-                document.getElementById("donorValuesCheck").innerHTML = "You must be over 18 to register";
-            else if(medical_id.length=0)
-                document.getElementById("donorValuesCheck").innerHTML = "Enter your Medical ID";
-            else if(organ.length=0)
-                document.getElementById("donorValuesCheck").innerHTML = "Enter organ name";
-            else if(weight.length=0)
-                document.getElementById("donorValuesCheck").innerHTML = "Enter your weight";
-            else if(height.length=0)
-                document.getElementById("donorValuesCheck").innerHTML = "Enter your height"; */
-        //}
+        let checkValues = false;
 
-        const validate = await this.contractInstance.methods.validateDonor(medical_id).call();
+        if (fullname=="")
+            document.getElementById("donorValuesCheck").innerHTML = "Enter your name";
+        else if (age.length==0)
+            document.getElementById("donorValuesCheck").innerHTML = "Enter your age";
+        else if (age<18)
+            document.getElementById("donorValuesCheck").innerHTML = "You must be over 18 to register";
+        else if(medical_id.length==0)
+            document.getElementById("donorValuesCheck").innerHTML = "Enter your Medical ID";
+        else if(organ.length==0)
+            document.getElementById("donorValuesCheck").innerHTML = "Enter organ name";
+        else if(weight.length==0)
+            document.getElementById("donorValuesCheck").innerHTML = "Enter your weight";
+        else if(weight<20 || weight>200)
+            document.getElementById("donorValuesCheck").innerHTML = "Enter proper weight";
+        else if(height.length==0)
+            document.getElementById("donorValuesCheck").innerHTML = "Enter your height";
+        else if(height<54 || height>272)
+            document.getElementById("donorValuesCheck").innerHTML = "Enter proper height";
+        else
+            checkValues = true;
+        
+        if (checkValues) {
+            const validate = await this.contractInstance.methods.validateDonor(medical_id).call();
 
-        if (!validate) {        
-            console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
-            const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
-                from: this.accounts[0]
-            });
-            await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
-                from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
-            })
-            document.getElementById("donorConfirmationCheck").innerHTML = "Success!";
-            document.getElementById("donorValidateCheck").innerHTML = null;
-            document.getElementById("donorValuesCheck").innerHTML = null;
-        }
-        else {
-            document.getElementById("donorValidateCheck").innerHTML = "Medical ID already exists!";
-            document.getElementById("donorConfirmationCheck").innerHTML = null;
-            document.getElementById("donorValuesCheck").innerHTML = null;
+            if (!validate) {        
+                console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
+                const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
+                    from: this.accounts[0]
+                });
+                await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
+                    from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
+                })
+                document.getElementById("donorConfirmationCheck").innerHTML = "Success!";
+                document.getElementById("donorValidateCheck").innerHTML = null;
+                document.getElementById("donorValuesCheck").innerHTML = null;
+            }
+            else {
+                document.getElementById("donorValidateCheck").innerHTML = "Medical ID already exists!";
+                document.getElementById("donorConfirmationCheck").innerHTML = null;
+                document.getElementById("donorValuesCheck").innerHTML = null;
+            }
         }
     },
     getDonor: async function() {
@@ -136,24 +144,53 @@ const App = {
         const weight = document.getElementById('patientWeight').value;
         const height = document.getElementById('patientHeight').value;
 
-        const validate = await this.contractInstance.methods.validatePatient(medical_id).call();
+        let checkValues = false;
 
-        if (!validate) {   
-            console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
-            const gas = await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
-                from: this.accounts[0]
-            });
-            await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
-                from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
-            });
-            document.getElementById("patientConfirmationCheck").innerHTML = "Success!";
-            document.getElementById("patientValidateCheck").innerHTML = null;
-            document.getElementById("patientValuesCheck").innerHTML = null;
+        if (fullname=="")
+            document.getElementById("patientValuesCheck").innerHTML = "Enter your name";
+        else if (age.length==0)
+            document.getElementById("patientValuesCheck").innerHTML = "Enter your age";
+        else if (age<18)
+            document.getElementById("patientValuesCheck").innerHTML = "You must be over 18 to register";
+        else if(medical_id.length==0)
+            document.getElementById("patientValuesCheck").innerHTML = "Enter your Medical ID";
+        else if(organ.length==0)
+            document.getElementById("patientValuesCheck").innerHTML = "Enter organ name";
+        else if(weight.length==0)
+            document.getElementById("patientValuesCheck").innerHTML = "Enter your weight";
+        else if(weight<20 || weight>200)
+            document.getElementById("patientValuesCheck").innerHTML = "Enter proper weight";
+        else if(height.length==0)
+            document.getElementById("patientValuesCheck").innerHTML = "Enter your height";
+        else if(height<54 || height>272)
+            document.getElementById("patientValuesCheck").innerHTML = "Enter proper height";
+        else 
+            checkValues = true;
+
+        if (checkValues) {
+            const validate = await this.contractInstance.methods.validatePatient(medical_id).call();
+
+            if (!validate) {   
+                console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
+                const gas = await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
+                    from: this.accounts[0]
+                });
+                await this.contractInstance.methods.setPatients(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
+                    from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
+                });
+                document.getElementById("patientConfirmationCheck").innerHTML = "Success!";
+                document.getElementById("patientValidateCheck").innerHTML = null;
+                document.getElementById("patientValuesCheck").innerHTML = null;
+            }
+            else {
+                document.getElementById("patientValidateCheck").innerHTML = "Medical ID already exists!";
+                document.getElementById("patientConfirmationCheck").innerHTML = null;
+                document.getElementById("patientValuesCheck").innerHTML = null;
+            }
         }
         else {
-            document.getElementById("patientValidateCheck").innerHTML = "Medical ID already exists!";
             document.getElementById("patientConfirmationCheck").innerHTML = null;
-            document.getElementById("patientValuesCheck").innerHTML = null;
+            document.getElementById("patientValidateCheck").innerHTML = null;
         }
     },
     getPatient: async function() {
@@ -248,6 +285,7 @@ const App = {
     },
 
     transplantMatch: async function() {
+        document.getElementById("transplantTable").innerHTML = null;
         var patientCount = await this.contractInstance.methods.getCountOfPatients().call();
         var donorCount = await this.contractInstance.methods.getCountOfDonors().call();
         var patientIDs = await this.contractInstance.methods.getAllPatientIDs().call();
@@ -285,7 +323,7 @@ const App = {
                 });
                 if (patientbloodtype==donorbloodtype && patientorgan==donororgan) {
                     match = [
-                        { "Patient Name": patientname, "Patient Organ": patientorgan, "Patient ID": patientIDs[i],"": "<-->", "Donor ID": donorIDs[j], "Donor Organ": donororgan, "Donor Name": donorname},
+                        { "Patient Name": patientname, "Patient Organ": patientorgan, "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donororgan, "Donor Name": donorname},
                     ];
 
                     let data = Object.keys(match[0]);

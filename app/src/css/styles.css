@@ -218,35 +218,48 @@ input[type=submit]:hover {
     color: #ffffff;
 }
 
-.table-view{
-    color: #005f82;
-    
-}
 table {
-    
     border-collapse: collapse;
     width: 100%;
 }
 
-td, th {
-    
-    background-color: #247ba3;
-    color: #ffffff;
-    border: 1px solid #1b0c0c;
+td {
+/*     border: 1px solid #1b0c0c; */
+    border: 1px solid #00000069;
     text-align: center;
     padding: 15px;
 }
 
-th{
+th {
     background-color: #005f82;
+    color: #ffffff;
+    border: 1px solid #00000069;
     text-align: center;
+    padding: 15px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-tr:nth-child(even) {
+tr {
+/*     background-color: #247ba3;
+    color: #ffffff; */
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+}
+
+/* tr:nth-child(even) {
     background-color: #005f82;
-    
+} */
+
+/* tr:hover {
+    background-color: #2c8bb8;
+    color: #ffffff;
+} */
+
+tr:hover {
+    background-color: #1080a8;
+    color: #ffffff;
 }
 
 .table-responsive {
