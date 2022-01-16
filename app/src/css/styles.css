@@ -1,20 +1,22 @@
-p {
-  color: #fff;
-}
-.p-grey {
-  color: grey;
-}
+/* Template: Organ DOnation Prototype
+   Author: Sai Manikanta, Rahul Sabinkar
+   Created: January 2022
+   Description: Master CSS file
+*/
 
-h1 {
-  color: rgb(255, 255, 255);
-  text-align: center;
-  font-family: "Montserrat", sans-serif;
-}
+/*****************************************
+Table Of Contents:
 
-h2 {
-  color: white;
-  text-align: center;
-}
+01. General Styles
+02. Navigation
+03. Header
+04. Forms
+05. Tables View
+******************************************/
+
+/**************************/
+/*  01. General Styles    */
+/**************************/
 
 html{
   background-color: #87ceeb;
@@ -38,6 +40,29 @@ body {
   float: left;
 }
 
+p {
+  color: #fff;
+}
+.p-grey {
+  color: grey;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+h3{
+  color: #fff;
+  /* font-weight: bold !important; */
+}
+
 #center-form{
     width: 55%;
 }
@@ -46,18 +71,9 @@ body {
     width: 45%;
 }
 
-/*div{
-    text-align:center;
-    width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-    border-radius: 10pt;
-    background-color: rgb(44, 58, 248);
-    color: rgb(255, 232, 232);
-}*/
 
 /**************************/
-/*     03. Navigation     */
+/*     02. Navigation     */
 /**************************/
 .navbar-custom {
   background-color: #fff;
@@ -82,10 +98,6 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* .navbar-custom {
-    padding: 0.25rem 1.5rem 0.2rem 2rem;
-}*/
-
 .navbar-custom .navbar-nav {
   margin-top: 0;
   margin-bottom: 0;
@@ -100,7 +112,7 @@ img{
 }
 
 /*********************/
-/*    04. Header     */
+/*    03. Header     */
 /*********************/
 .header {
   background-color: #fff;
@@ -145,6 +157,10 @@ img{
   margin-bottom: 1.875rem;
 }
 
+/*********************/
+/*   04. Forms       */
+/*********************/
+
 input[type="text"],
 select {
   width: 100%;
@@ -182,36 +198,6 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-/* .button-main {
-  width: 22rem;
-  background-color: #005f82;
-  border: none;
-  border-radius: 7.5px;
-  color: white;
-  padding: 32px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 32px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button-main-1 {
-  width: 22rem;
-  background-color: #005f82;
-  border: none;
-  border-radius: 7.5px;
-  color: white;
-  padding: 32px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 32px;
-  margin: 4px 2px;
-  cursor: pointer;
-}*/
-
 .btn-primary {
   padding-top: 10px;
   width: 60%;
@@ -229,12 +215,7 @@ input[type="submit"]:hover {
   align-content: center;
 }
 
-/* a:hover, a:active {
-  border: 5px;
-  border-color:  #005f82;
-  background-color: #0c4155;
-  
-} */
+
 
 .btn:hover {
   color: #212529;
@@ -244,6 +225,10 @@ input[type="submit"]:hover {
 .custom-control-input:disabled ~ .custom-control-label {
   color: #ffffff;
 }
+
+/*********************/
+/*  05. Table view   */
+/*********************/
 
 table {
     border-collapse: collapse;
@@ -268,21 +253,10 @@ th {
 }
 
 tr {
-/*     background-color: #247ba3;
-    color: #ffffff; */
     background-color: #ffffff;
     color: black;
     text-align: center;
 }
-
-/* tr:nth-child(even) {
-    background-color: #005f82;
-} */
-
-/* tr:hover {
-    background-color: #2c8bb8;
-    color: #ffffff;
-} */
 
 tr:hover {
     background-color: rgb(212, 212, 212);
