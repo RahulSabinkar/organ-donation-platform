@@ -12,7 +12,6 @@
         <link href="../css/fontawesome-all.css" rel="stylesheet">
         <link rel="icon" href="images/organ-donation-logo-new.svg">
 
-        <script src="../main.js"></script>
         <title>Donor Registration</title>
     </head>
 
@@ -79,30 +78,28 @@
                                 <button type="submit" class="btn btn-primary" onclick="App.register('Donor')">Register</button>
                             </div>                            
                         </div> <!-- end of text-container -->
-                        
-                            <div>
-                                <div class="alert success">
-                                    <span class="closebtn">&times;</span>
-                                    <p id="DonorConfirmationCheck"></p> <!-- success -->                                
-                                </div>
-
-                                <div class="alert danger">
-                                    <span class="closebtn">&times;</span>
-                                    <p id="DonorValidateCheck"></p> <!-- danger -->                             
-                                </div>
-
-                                <div class="alert warning">
-                                    <span class="closebtn">&times;</span>
-                                    <p id="DonorValuesCheck"></p> <!--  -->                            
-                                </div>
-                            </div>
-
+                        <div class="alert warning">
+                            <span class="closebtn">&times;</span>
+                            <p id="DonorInputCheck"></p> <!-- warning -->                            
+                        </div>
                     </div> <!-- end of col -->
-
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
         </div> <!-- end of header-content -->
     </header> <!-- end of header -->
     <!-- end of header -->
     </body>
+    <script src="../main.js"></script>
+    <script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.opacity = "0";
+                setTimeout(function(){ div.style.display = "none"; }, 600);
+            }
+        }
+    </script>
 </html>

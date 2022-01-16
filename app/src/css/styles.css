@@ -268,23 +268,22 @@ tr:hover {
 }
 
 /*********************/
-/*    06. ALerts     */
+/*    06. Alerts     */
 /*********************/
 
 .alert {
   width: 50%;
-  display:block;
   padding: 20px;
-  background-color: #f44336;
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
   margin-bottom: 15px;
 }
 
-.alert.success {background-color: #04AA6D;}
-.alert.info {background-color: #2196F3;}
-.alert.warning {background-color: #ff9800;}
+.alert.warning {
+  background: #ff9800;
+  display: none;
+}
 
 .closebtn {
   margin-left: 15px;
@@ -305,19 +304,19 @@ tr:hover {
 /*     02. Preloader     */
 /*************************/
 .spinner-wrapper {
-	position: fixed;
-  z-index: -1;
-	top: 0;
+  display: flex;
+  align-content: center;
+/* 	top: 0;
 	right: 0;
 	bottom: 0;
-	left: 0;
+	left: 0; */
 /* 	background: #fff; */
 }
 
 .spinner {
-	position: absolute;
-	top: 50%; /* centers the loading animation vertically one the screen */
-	left: 50%; /* centers the loading animation horizontally one the screen */
+/* 	position: absolute; */
+	/* top: 50%; */ /*  centers the loading animation vertically one the screen */
+	/* left: 50%; */ /* centers the loading animation horizontally one the screen */
 	width: 3.75rem;
 	height: 1.25rem;
 	margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */

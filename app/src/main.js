@@ -34,29 +34,36 @@ function generateTable(table, data) {
 
 let table = document.querySelector("table");
 
+function showWarning(user, message, color) {
+    let userid = user+"InputCheck";
+    var warning = document.querySelector(".alert.warning");
+    warning.style.background = color;
+    document.getElementById(userid).innerHTML = message;
+    warning.style.opacity = "100";
+    warning.style.display = "block";
+}
+
 function checkInputValues(user, fullname, age, medical_id, organ, weight, height){
-    let userid = user+"ValuesCheck";
-    console.log(userid);
+    var color = "#ff9800"
     if (fullname=="")
-        document.getElementById(userid).innerHTML = "Enter your name";
+        showWarning(user, "Enter your name", color);
     else if (age.length==0)
-        document.getElementById(userid).innerHTML = "Enter your age";
+        showWarning(user, "Enter your age", color);
     else if (age<18)
-        document.getElementById(userid).innerHTML = "You must be over 18 to register";
-    else if(medical_id.length==0)
-        document.getElementById(userid).innerHTML = "Enter your Medical ID";
-    else if(organ.length==0)
-        document.getElementById(userid).innerHTML = "Enter organ name";
-    else if(weight.length==0)
-        document.getElementById(userid).innerHTML = "Enter your weight";
-    else if(weight<20 || weight>200)
-        document.getElementById(userid).innerHTML = "Enter proper weight";
-    else if(height.length==0)
-        document.getElementById(userid).innerHTML = "Enter your height";
-    else if(height<54 || height>272)
-        document.getElementById(userid).innerHTML = "Enter proper height";
+        showWarning(user, "You must be over 18 to register", color);
+    else if (medical_id.length == 0)
+         showWarning(user, "Enter your Medical ID", color);
+    else if (organ.length == 0)
+        showWarning(user, "Enter organ name", color);
+    else if (weight.length == 0)
+        showWarning(user, "Enter your weight", color);
+    else if (weight < 20 || weight > 200)
+        showWarning(user, "Enter proper weight", color);
+    else if (height.length == 0)
+        showWarning(user, "Enter your height", color);
+    else if (height < 54 || height > 272)
+        showWarning(user, "Enter proper height", color);
     else {
-        document.getElementById(userid).innerHTML = null;
         return true;
     }
 }
@@ -87,6 +94,19 @@ function clearSearchValues(user){
     document.getElementById("get"+user+"Height").innerHTML = null;
 }
 
+function closeAlert(){
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+    }
+}
+
 const App = {
     web3: null,
     contractInstance: null,
@@ -107,7 +127,6 @@ const App = {
 
     register: async function(user) {
         console.log(user);
-        clearCheckValues(user);
         const fullname = document.getElementById(user+'FullName').value;
         const age = document.getElementById(user+'Age').value;
         const gender = document.getElementById(user+'Gender').value;
@@ -120,6 +139,7 @@ const App = {
         let checkedValues = false;
         checkedValues = checkInputValues(user, fullname, age, medical_id, organ, weight, height);
         console.log("Values Checked");
+        var warning = document.querySelector(".alert.warning");
         if (checkedValues) {
             let validate;
             if (user=="Donor") {
@@ -137,17 +157,15 @@ const App = {
                     this.setDonor(fullname, age, gender, medical_id, blood_type, organ, weight, height);
                 else if (user=="Patient") 
                     this.setPatient(fullname, age, gender, medical_id, blood_type, organ, weight, height);
-                document.getElementById(user+"ConfirmationCheck").innerHTML = "Registration Successful!";
-                document.getElementById(user+"ValidateCheck").innerHTML = null;
+                showWarning(user, "Registration Successful!", "#04AA6D");
+                setTimeout(function(){
+                    warning.style.opacity = "0";
+                    setTimeout(function(){ warning.style.display = "none"; }, 1200);
+                }, 5000);
             }
             else {
-                document.getElementById(user+"DonorValidateCheck").innerHTML = "Medical ID already exists!";
-                document.getElementById(user+"DonorConfirmationCheck").innerHTML = null;
+                showWarning(user, "Medical ID already exists!", "#f44336");
             }
-        }
-        else {
-            document.getElementById(user+"ConfirmationCheck").innerHTML = null;
-            document.getElementById(user+"ValidateCheck").innerHTML = null;
         }
     },
 
