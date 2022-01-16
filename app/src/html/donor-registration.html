@@ -30,10 +30,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12">
+                        <h3>Register to be an organ donor</h3>
                         <div id="center-form" class="text-container">
-
-                            <h1>Register Donor</h1>
-
+                            
                             <p>Full Name: <input type="text" id="DonorFullName" placeholder="Full name"></p>
                             <p>Age: <input type="text" id="DonorAge" placeholder="Age"></p>
                             <form>
@@ -76,12 +75,28 @@
                             <p>Height (cm): <input type="text" id="DonorHeight" placeholder="Height"></p>
 
                             <div class="button-center">
-                                <p id="DonorValidateCheck"></p>
-                                <p id="DonorConfirmationCheck"></p>
-                                <p id="DonorValuesCheck"></p>
+                                
                                 <button type="submit" class="btn btn-primary" onclick="App.register('Donor')">Register</button>
-                            </div>
+                            </div>                            
                         </div> <!-- end of text-container -->
+                        
+                            <div>
+                                <div class="alert success">
+                                    <span class="closebtn">&times;</span>
+                                    <p id="DonorConfirmationCheck"></p> <!-- success -->                                
+                                </div>
+
+                                <div class="alert danger">
+                                    <span class="closebtn">&times;</span>
+                                    <p id="DonorValidateCheck"></p> <!-- danger -->                             
+                                </div>
+
+                                <div class="alert warning">
+                                    <span class="closebtn">&times;</span>
+                                    <p id="DonorValuesCheck"></p> <!--  -->                            
+                                </div>
+                            </div>
+
                     </div> <!-- end of col -->
 
                 </div> <!-- end of row -->

@@ -16,24 +16,40 @@
 
         <script src="../main.js"></script>
         <title>Transplant Match</title>
-    </head>
+    </head>     
 
-        <!-- start of navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="../images/logo-final-1.svg" alt="Organ Donation prototype"></a>
-        </nav>
-        <!-- end of navigation-->
-
-        
         <body data-spy="scroll" data-target=".fixed-top">
+
+            <div class="spinner-wrapper">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>    
+            
+            <!-- start of navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+                <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="../images/logo-final-1.svg" alt="Organ Donation prototype"></a>
+            </nav>
+            <!-- end of navigation-->
+
             <header id="header" class="header">
                 <div class="header-content">
                     <div class="container">
                         <div class="row">
+                            <div class="col-sm-6 col-sm-col-6">
+                                <h3>Patients List</h3>
+                            </div>
+                            <div class="col-sm-6 col-sm-col-6">
+                                <h3>Donors List</h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-sm-12 col-md-12">
-                                <div class="button-center">
-                                    <button type="submit" class="btn btn-success" onclick="App.transplantMatch()">Match</button>
-                                 </div><br><br>
+                                
+                                </div>                               
                                 <div class="table-responsive">
                                     <table class="table-view" id="transplantTable">
                                         <!-- here goes our data! -->
@@ -47,4 +63,7 @@
             <!-- end of header -->
         </body>
     <script src="../main.js"></script>
+    <script>
+        window.onload = App.transplantMatch();
+    </script>
 </html>

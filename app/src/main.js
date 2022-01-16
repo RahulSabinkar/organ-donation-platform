@@ -233,6 +233,8 @@ const App = {
                 generateTable(table, Donor);
             });
         }
+        const spinner = document.querySelector(".spinner");
+        spinner.style.display = "none";
     },
 
     viewPatients: async function() {
@@ -258,9 +260,16 @@ const App = {
                 generateTable(table, patient);
             });
         }
+        const spinner = document.querySelector(".spinner");
+        spinner.style.display = "none";
     },
 
     transplantMatch: async function() {
+        this.accounts = await web3.eth.getAccounts();
+        this.contractInstance = new web3.eth.Contract(
+            artifact.abi,
+            contractAddress
+        );
         document.getElementById("transplantTable").innerHTML = null;
         var patientCount = await this.contractInstance.methods.getCountOfPatients().call();
         var donorCount = await this.contractInstance.methods.getCountOfDonors().call();
@@ -320,6 +329,8 @@ const App = {
                 }
             }
         }
+        const spinner = document.querySelector(".spinner");
+        spinner.style.display = "none";
     }
 
 }
