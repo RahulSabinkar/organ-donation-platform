@@ -84,7 +84,7 @@
                             </div>
                         </div> <!-- end of text-container -->
                         <div class="alert warning">
-                            <span class="closebtn">&times;</span>
+                            <span class="closebtn" onclick="App.closeAlert();">&times;</span>
                             <p id="PatientInputCheck"></p> <!-- warning -->                            
                         </div>
                     </div> <!-- end of col -->
@@ -96,16 +96,4 @@
     <!-- end of header -->
 
     </body>
-    <script>
-        var close = document.getElementsByClassName("closebtn");
-        var i;
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function(){
-                var div = this.parentElement;
-                div.style.opacity = "0";
-                setTimeout(function(){ div.style.display = "none"; }, 600);
-            }
-        }
-    </script>
 </html>

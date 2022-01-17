@@ -68,12 +68,6 @@ function checkInputValues(user, fullname, age, medical_id, organ, weight, height
     }
 }
 
-function clearCheckValues(user){
-    document.getElementById(user+"ValuesCheck").innerHTML = null;
-    document.getElementById(user+"ValidateCheck").innerHTML = null;
-    document.getElementById(user+"ConfirmationCheck").innerHTML = null;
-}
-
 function assignSearchValues(result, user){
     document.getElementById("get"+user+"FullName").innerHTML = "First Name: " + result[0];
     document.getElementById("get"+user+"Age").innerHTML = "Age: " + result[1];
@@ -94,19 +88,6 @@ function clearSearchValues(user){
     document.getElementById("get"+user+"Height").innerHTML = null;
 }
 
-function closeAlert(){
-    var close = document.getElementsByClassName("closebtn");
-    var i;
-
-    for (i = 0; i < close.length; i++) {
-    close[i].onclick = function(){
-        var div = this.parentElement;
-        div.style.opacity = "0";
-        setTimeout(function(){ div.style.display = "none"; }, 600);
-    }
-    }
-}
-
 const App = {
     web3: null,
     contractInstance: null,
@@ -123,6 +104,12 @@ const App = {
             artifact.abi,
             contractAddress
         );
+    },
+
+    closeAlert: async function (){
+        var alert = document.querySelector(".alert.warning");
+        alert.style.opacity = "0";
+        setTimeout(function(){ alert.style.display = "none"; }, 600);
     },
 
     register: async function(user) {

@@ -11,6 +11,7 @@
         <link href="../css/bootstrap.css" rel="stylesheet">
         <link href="../css/fontawesome-all.css" rel="stylesheet">
         <link rel="icon" href="images/organ-donation-logo-new.svg">
+        <script src="../main.js"></script>
 
         <title>Donor Registration</title>
     </head>
@@ -35,11 +36,11 @@
                             <p>Full Name: <input type="text" id="DonorFullName" placeholder="Full name"></p>
                             <p>Age: <input type="text" id="DonorAge" placeholder="Age"></p>
                             <form>
-                              <label>Gender:</label>
+                                <label>Gender:</label>
                                 <select name="gender" id="DonorGender">
-                                  <option value="Female">Female</option>
-                                  <option value="Male">Male</option>
-                                  <option value="Others">Others</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
                                 </select>
                             </form><br>
 
@@ -74,12 +75,11 @@
                             <p>Height (cm): <input type="text" id="DonorHeight" placeholder="Height"></p>
 
                             <div class="button-center">
-                                
                                 <button type="submit" class="btn btn-primary" onclick="App.register('Donor')">Register</button>
                             </div>                            
                         </div> <!-- end of text-container -->
                         <div class="alert warning">
-                            <span class="closebtn">&times;</span>
+                            <span class="closebtn" onclick="App.closeAlert();">&times;</span>
                             <p id="DonorInputCheck"></p> <!-- warning -->                            
                         </div>
                     </div> <!-- end of col -->
@@ -89,17 +89,4 @@
     </header> <!-- end of header -->
     <!-- end of header -->
     </body>
-    <script src="../main.js"></script>
-    <script>
-        var close = document.getElementsByClassName("closebtn");
-        var i;
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function(){
-                var div = this.parentElement;
-                div.style.opacity = "0";
-                setTimeout(function(){ div.style.display = "none"; }, 600);
-            }
-        }
-    </script>
 </html>
