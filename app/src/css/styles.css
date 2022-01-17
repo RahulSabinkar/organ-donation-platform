@@ -11,6 +11,8 @@ Table Of Contents:
 03. Header
 04. Forms
 05. Tables View
+06. Alerts
+07. Preloader
 ******************************************/
 
 /**************************/
@@ -42,6 +44,7 @@ body {
 p {
   color: #fff;
 }
+
 .p-grey {
   color: grey;
 }
@@ -273,25 +276,26 @@ tr:hover {
 
 .alert {
   width: 50%;
-  padding: 20px;
+  
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
-  margin-bottom: 15px;
 }
 
 .alert.warning {
+  /* padding: 1px; */
   background: #ff9800;
   display: none;
+  padding: 20px 0px 0px 0px;
 }
 
 .closebtn {
-  margin-left: 15px;
+  padding: 12px;
   color: white;
   font-weight: bold;
   float: right;
   font-size: 22px;
-  line-height: 20px;
+  line-height: 0px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -301,26 +305,12 @@ tr:hover {
 }
 
 /*************************/
-/*     02. Preloader     */
+/*     07. Preloader     */
 /*************************/
-.spinner-wrapper {
-  display: flex;
-  align-content: center;
-/* 	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0; */
-/* 	background: #fff; */
-}
 
 .spinner {
-/* 	position: absolute; */
-	/* top: 50%; */ /*  centers the loading animation vertically one the screen */
-	/* left: 50%; */ /* centers the loading animation horizontally one the screen */
-	width: 3.75rem;
-	height: 1.25rem;
-	margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */
-	text-align: center;
+  align-content: -webkit-right;
+  /* position: fixed; */
 }
 
 .spinner > div {
@@ -329,6 +319,7 @@ tr:hover {
 	height: 1rem;
 	border-radius: 100%;
 	background-color: #0079a8;
+  text-align: center;
 	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
