@@ -10,7 +10,7 @@ contract DonorContract {
         string gender;
         string medical_id;
         string blood_type;
-        string organ;
+        string[] organ;
         uint weight;
         uint height;
     }
@@ -22,7 +22,7 @@ contract DonorContract {
         string gender;
         string medical_id;
         string blood_type;
-        string organ;
+        string[] organ;
         uint weight;
         uint height;
     }
@@ -34,7 +34,7 @@ contract DonorContract {
     string[] PatientsArray;
 
     function setDonors(string memory _fullname, uint _age, string memory _gender, string memory _medical_id,
-                       string memory _blood_type, string memory _organ, uint _weight, uint _height)
+                       string memory _blood_type, string[] memory _organ, uint _weight, uint _height)
     public
     {
         require ( keccak256(abi.encodePacked((donorMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
@@ -51,7 +51,7 @@ contract DonorContract {
     }
 
     function setPatients(string memory _fullname, uint _age, string memory _gender, string memory _medical_id,
-                       string memory _blood_type, string memory _organ, uint _weight, uint _height)
+                       string memory _blood_type, string[] memory _organ, uint _weight, uint _height)
     public
     {
         require ( keccak256(abi.encodePacked((donorMap[_medical_id].medical_id))) != keccak256(abi.encodePacked(_medical_id)));
@@ -67,7 +67,7 @@ contract DonorContract {
         PatientsArray.push(_medical_id);
     }
 
-    function getDonor(string memory _medical_id) view public returns(string memory, uint, string memory, string memory, string memory, uint, uint)
+    function getDonor(string memory _medical_id) view public returns(string memory, uint, string memory, string memory, string[] memory, uint, uint)
     {
         return
         (
@@ -81,7 +81,7 @@ contract DonorContract {
         );
     }
 
-    function getPatient(string memory _medical_id) view public returns(string memory, uint, string memory, string memory, string memory, uint, uint)
+    function getPatient(string memory _medical_id) view public returns(string memory, uint, string memory, string memory, string[] memory, uint, uint)
     {
         return
         (
