@@ -54,7 +54,7 @@ function checkInputValues(user, fullname, age, medical_id, organ, weight, height
     else if (medical_id.length == 0)
          showWarning(user, "Enter your Medical ID", color);
     else if (organ.length == 0)
-        showWarning(user, "Enter organ name", color);
+        showWarning(user, "Enter organ(s)", color);
     else if (weight.length == 0)
         showWarning(user, "Enter your weight", color);
     else if (weight < 20 || weight > 200)
@@ -119,7 +119,12 @@ const App = {
         const gender = document.getElementById(user+'Gender').value;
         const medical_id = document.getElementById(user+'MedicalID').value;
         const blood_type = document.getElementById(user+'BloodType').value;
-        const organ = document.getElementById(user+'Organ').value;
+        let checkboxes = document.querySelectorAll("input[name='Organ']:checked");
+        let organ = [];
+        checkboxes.forEach((checkbox) => {
+            organ.push(checkbox.value);
+        });
+        alert(organ);
         const weight = document.getElementById(user+'Weight').value;
         const height = document.getElementById(user+'Height').value;
 
@@ -160,7 +165,8 @@ const App = {
         const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
             from: this.accounts[0]
         });
-        await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
+        await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height
+        ).send({
             from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
         })
     },
@@ -269,6 +275,12 @@ const App = {
         spinner.style.display = "none";
     },
 
+    // getDonor: async function(j) {
+    //     let array;
+    //     await this.contractInstance.methods.getDonor(donorIDs[j]).call().then(function(result){array = result});
+    //     return array;
+    // },
+
     transplantMatch: async function() {
         this.accounts = await web3.eth.getAccounts();
         this.contractInstance = new web3.eth.Contract(
@@ -301,38 +313,38 @@ const App = {
                 patientbloodtype=result[3];
                 patientorgan=result[4];
             });
-            for (var j=0; j<donorCount; j++) {
-                console.log("In Donor loop");
-                var donorname;
-                var donorbloodtype;
+                for (var j=0; j<donorCount; j++) {
+                    console.log("In Donor loop");
+                    var donorname;
+                    var donorbloodtype;
                 var donororgan;
                 await this.contractInstance.methods.getDonor(donorIDs[j]).call().then(function(result){
                     donorname = result[0];
                     donorbloodtype = result[3];
-                    donororgan = result[4];
-                });
-                if (patientbloodtype==donorbloodtype && patientorgan==donororgan) {
-                    match = [
-                        { "Patient Name": patientname, "Patient Organ": patientorgan, "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donororgan, "Donor Name": donorname},
-                    ];
-
-                    let data = Object.keys(match[0]);
-                    if (once){
-                        generateTableHead(table, data);
-                        once = false;
-                    }
-                    generateTable(table, match);
-                    console.log(donorIDs);
-
-                    let temp = donorIDs[j];
-                    donorIDs[j] = donorIDs[donorCount-1];
-                    donorIDs[donorCount-1] = temp;
-
-                    console.log(donorIDs);
-                    donorCount--;
-                    break;
+                        donororgan = result[4];
+                    });
+                        if (patientbloodtype==donorbloodtype && patientorgan==donororgan) {
+                            match = [
+                                { "Patient Name": patientname, "Patient Organ": patientorgan, "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donororgan, "Donor Name": donorname},
+                            ];
+        
+                            let data = Object.keys(match[0]);
+                            if (once){
+                                generateTableHead(table, data);
+                                once = false;
+                            }
+                            generateTable(table, match);
+                            console.log(donorIDs);
+            
+                            let temp = donorIDs[j];
+                            donorIDs[j] = donorIDs[donorCount-1];
+                            donorIDs[donorCount-1] = temp;
+            
+                            console.log(donorIDs);
+                            donorCount--;
+                            break;
+                        }
                 }
-            }
         }
         const spinner = document.querySelector(".spinner");
         spinner.style.display = "none";
