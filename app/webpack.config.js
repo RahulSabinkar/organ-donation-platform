@@ -29,6 +29,7 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/images/home-slider-image.jpg", to: "images/home-slider-image.jpg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/home-slider-image-1.jpg", to: "images/home-slider-image-1.jpg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/home-slider-image-2.jpg", to: "images/home-slider-image-2.jpg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/home-slider-image-3.jpg", to: "images/home-slider-image-3.jpg" }]),
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
 };

@@ -15,6 +15,8 @@ body{
     color: #4a4a4a;
     text-align: center;
     padding: 0px 0px 10px 0px;
+    font-weight: 700;
+    font-size: 3rem;
 }
 
 header{
@@ -58,11 +60,10 @@ nav ul li{
 
 nav ul li a{
     color: #005f82;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 17px;
+    font-weight: 700;
     padding: 7px 12px;
     border-radius: 4px;
-    text-transform: uppercase;
     
 }
 
@@ -95,8 +96,17 @@ a.active,a:hover{
     left: 8.4%;
 }
 
+.btn-lg{
+    padding: 15px 30px 15px 30px;
+    font-weight: 600;
+}
+
 .container-bg{
     background-color: #d5ecf5;
+    padding: 25px 25px 50px 25px;
+}
+
+.container-bg-1{
     padding: 25px 25px 50px 25px;
 }
 
@@ -115,11 +125,13 @@ a.active,a:hover{
 .content-box h3{
     padding: 0px 25px 0px 25px;
     text-align: center;
+    font-weight: 600;
 }
 
 .content-box p{
     padding: 0px 25px 0px 25px;
     text-align: center;
+    font-weight: 600;
 }
 
 footer{
@@ -153,4 +165,5 @@ footer{
     justify-content: center;
     align-items: center;
     padding: 25px;
+    font-weight: 300;
 }
