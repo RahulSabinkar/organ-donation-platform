@@ -1,5 +1,4 @@
 
-
 *{
     padding: 0;
     margin: 0;
@@ -16,9 +15,18 @@ header{
     background-color: #94e1ff;
 }
 
+#header {
+    overflow: visible;
+    position: relative;    
+}
+
 #logo{
     height: 5rem;
-    padding: 28px 50px 0 50px;
+    padding: 28px 50px 0 50px;    
+}
+
+#logo-hover{
+    
 }
 
 /* #primary-nav{
@@ -33,7 +41,7 @@ nav{
 
 nav ul{
     float: right;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 nav ul li{
@@ -49,12 +57,13 @@ nav ul li a{
     padding: 7px 12px;
     border-radius: 4px;
     text-transform: uppercase;
-    text-decoration: none;
+    
 }
 
 a.active,a:hover{
     background: #fff;
     transition: .5s;
+    text-decoration: none;
 }
 
 /* ul {
@@ -62,13 +71,21 @@ a.active,a:hover{
     margin: 0;
     padding: 0;
 } */
-
-.col-md-12 {
-    flex: 0 0 auto;
+#slider{
+    overflow: hidden;
     width: 100%;
-  }
+}
 
-img{
-    
+/* #slider figure{
+    position: relative;
+    width: 80%;
+    margin: 0;
+    left: 0;
+} */
+
+#header-btn{
+    position: absolute;
+    top: 66%;
+    left: 8.4%;
 }
 
