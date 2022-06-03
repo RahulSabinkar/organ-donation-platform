@@ -34,6 +34,51 @@ function generateTable(table, data) {
 
 let table = document.querySelector("table");
 
+
+function selectRow() {
+    var table = document.getElementById('pending-table');
+    var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].style.fontWeight = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "#aad7ec";
+            rowSelected.style.fontWeight = 800;
+            rowSelected.className += " selected";
+
+            var row_value = [];
+            for (var i= 0; i < rowSelected.cells.length; i++) {
+                row_value[i] = rowSelected.cells[i].innerHTML;
+            }
+            console.log("Selected row: "+row_value);
+            document.getElementById("getPledgeFullName").innerHTML =  row_value[1];
+            document.getElementById("getPledgeAge").innerHTML =  row_value[2];
+            document.getElementById("getPledgeGender").innerHTML = row_value[3];
+            document.getElementById("getPledgeMedicalID").innerHTML = row_value[4];
+            document.getElementById("getPledgeBloodType").innerHTML =  row_value[5];
+            document.getElementById("getPledgeOrgan").innerHTML = row_value[6];
+            document.getElementById("getPledgeWeight").innerHTML =  row_value[7];
+            document.getElementById("getPledgeHeight").innerHTML =  row_value[8];
+            document.getElementById("PledgeMessage").innerHTML = null;
+        
+            var textcontainer = document.getElementById("text-hidden");
+            textcontainer.className = 'text-container-search';
+        }
+    }
+}
+
 function showWarning(user, message, color) {
     let userid = user+"InputCheck";
     var warning = document.querySelector(".alert.warning");
@@ -166,6 +211,16 @@ const App = {
         }
     },
 
+    forwardPledge: async function() {
+        const medical_id = document.getElementById('getPledgeMedicalID').innerHTML;
+        console.log(medical_id);
+        await this.contractInstance.methods.getPledge(medical_id).call().then(function(result) {
+            console.log(result);
+            App.setDonor(result[0], result[1], result[2], medical_id, result[3], result[4], result[5], result[6]);
+        });
+        document.getElementById("PledgeMessage").innerHTML = "Registration Successful!";
+    },
+
     setPledge: async function(fullname, age, gender, medical_id, blood_type, organ, weight, height) {
         const gas = await this.contractInstance.methods.setPledge(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
             from: this.accounts[0]
@@ -234,6 +289,47 @@ const App = {
                 clearSearchValues(user);
             }
         }
+    },
+
+    verifyPledges: async function() {
+        this.accounts = await web3.eth.getAccounts();
+        this.contractInstance = new web3.eth.Contract(
+            artifact.abi,
+            contractAddress
+        );
+        const PledgeCount = await this.contractInstance.methods.getCountOfPledges().call();
+        const PledgeIDs = await this.contractInstance.methods.getAllPledgeIDs().call();
+        let Pledge;
+        let tableCreated = false;
+        let initialTableGeneration = true;
+
+        for (let i=0; i<PledgeCount; i++) {
+            var validate = await this.contractInstance.methods.validateDonor(PledgeIDs[i]).call();
+
+            if (!validate) {
+                tableCreated = true;
+                await this.contractInstance.methods.getPledge(PledgeIDs[i]).call().then(function(result) {
+                    console.log(result);
+                    Pledge = [
+                        { Index: i+1, "Full Name": result[0], Age: result[1], Gender: result[2], "Medical ID": PledgeIDs[i], "Blood-Type": result[3], Organ: result[4], Weight: result[5], Height: result[6]},
+                    ];
+    
+                    let data = Object.keys(Pledge[0]);
+                    if (initialTableGeneration){
+                        generateTableHead(table, data);
+                        initialTableGeneration = false;
+                    }
+                    generateTable(table, Pledge);
+                });
+            }
+        }
+        if (tableCreated) {
+            selectRow();
+        } else {
+            document.getElementById("pending-table-message").innerHTML = "No pending pledges found!";
+        }
+        const spinner = document.querySelector(".spinner");
+        spinner.style.display = "none";
     },
 
     viewPledges: async function() {

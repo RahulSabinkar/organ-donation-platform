@@ -158,6 +158,19 @@ img{
   border-radius: 8.5px;
 }
 
+.text-container-search.hidden {
+  width: 75%;
+  vertical-align: middle;
+  margin-left: 12%;
+  margin-top: 2.5rem;
+  margin-bottom: 6rem;
+  text-align: left;
+  padding: 30px 30px 30px 30px;
+  background-color: #005f82;
+  border-radius: 8.5px;
+  visibility: hidden;
+}
+
 .header h1 {
   margin-bottom: 1.125rem;
   font-size: 2.5rem;
