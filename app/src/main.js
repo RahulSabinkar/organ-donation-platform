@@ -133,7 +133,11 @@ const App = {
         var warning = document.querySelector(".alert.warning");
         if (checkedValues) {
             let validate;
-            if (user=="Donor") {
+            if (user=="Pledge") {
+                validate = await this.contractInstance.methods.validatePledge(medical_id).call();
+                console.log(validate);
+            }
+            else if (user=="Donor") {
                 validate = await this.contractInstance.methods.validateDonor(medical_id).call();
                 console.log(validate);
             }
@@ -144,7 +148,9 @@ const App = {
 
             if (!validate) {        
                 console.log(fullname, age, gender, medical_id, blood_type, organ, weight, height);
-                if (user=="Donor")
+                if (user=="Pledge")
+                    this.setPledge(fullname, age, gender, medical_id, blood_type, organ, weight, height);
+                else if (user=="Donor")
                     this.setDonor(fullname, age, gender, medical_id, blood_type, organ, weight, height);
                 else if (user=="Patient") 
                     this.setPatient(fullname, age, gender, medical_id, blood_type, organ, weight, height);
@@ -158,6 +164,16 @@ const App = {
                 showWarning(user, "Medical ID already exists!", "#f44336");
             }
         }
+    },
+
+    setPledge: async function(fullname, age, gender, medical_id, blood_type, organ, weight, height) {
+        const gas = await this.contractInstance.methods.setPledge(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
+            from: this.accounts[0]
+        });
+        await this.contractInstance.methods.setPledge(fullname, age, gender, medical_id, blood_type, organ, weight, height
+        ).send({
+            from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
+        })
     },
 
     setDonor: async function(fullname, age, gender, medical_id, blood_type, organ, weight, height) {
@@ -218,6 +234,33 @@ const App = {
                 clearSearchValues(user);
             }
         }
+    },
+
+    viewPledges: async function() {
+        this.accounts = await web3.eth.getAccounts();
+        this.contractInstance = new web3.eth.Contract(
+            artifact.abi,
+            contractAddress
+        );
+        const PledgeCount = await this.contractInstance.methods.getCountOfPledges().call();
+        const PledgeIDs = await this.contractInstance.methods.getAllPledgeIDs().call();
+        let Pledge;
+
+        for (let i=0; i<PledgeCount; i++) {
+            await this.contractInstance.methods.getPledge(PledgeIDs[i]).call().then(function(result) {
+                console.log(result);
+                Pledge = [
+                    { Index: i+1, "Full Name": result[0], Age: result[1], Gender: result[2], "Medical ID": PledgeIDs[i], "Blood-Type": result[3], Organ: result[4], Weight: result[5], Height: result[6]},
+                ];
+
+                let data = Object.keys(Pledge[0]);
+                if (i==0)
+                    generateTableHead(table, data);
+                generateTable(table, Pledge);
+            });
+        }
+        const spinner = document.querySelector(".spinner");
+        spinner.style.display = "none";
     },
 
     viewDonors: async function() {
