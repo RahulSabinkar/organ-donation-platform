@@ -124,7 +124,6 @@ const App = {
         checkboxes.forEach((checkbox) => {
             organ.push(checkbox.value);
         });
-        alert(organ);
         const weight = document.getElementById(user+'Weight').value;
         const height = document.getElementById(user+'Height').value;
 
@@ -275,12 +274,6 @@ const App = {
         spinner.style.display = "none";
     },
 
-    // getDonor: async function(j) {
-    //     let array;
-    //     await this.contractInstance.methods.getDonor(donorIDs[j]).call().then(function(result){array = result});
-    //     return array;
-    // },
-
     transplantMatch: async function() {
         this.accounts = await web3.eth.getAccounts();
         this.contractInstance = new web3.eth.Contract(
@@ -297,54 +290,75 @@ const App = {
                 donorIDs[i] = result[i];
             }
         });
+
+        let donor = [];
+        for (let i=0; i<donorCount; i++) {
+            await this.contractInstance.methods.getDonor(donorIDs[i]).call().then(function(result){
+                let organsArr = [];
+                let temp = result[4];
+                for (let o=0; o<temp.length; o++) {
+                    organsArr[o] = temp[o];
+                }
+                donorObj = { ID: donorIDs[i], name: result[0], bloodtype: result[3], organs: organsArr, organcount: organsArr.length };
+                donor[i] = donorObj;
+            });
+        }
+        console.log(donor);
+
         let match;
         console.log("Patient Count: " + patientCount);
         console.log("Donor Count: " + donorCount);
 
-        let once = true;
+        let initialTableGeneration = true;
 
         for (var i=0; i<patientCount; i++) {
-            console.log("In Patient loop");
             var patientname;
             var patientbloodtype;            
-            var patientorgan;
+            var patientorgans;
             await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result){
                 patientname = result[0];
                 patientbloodtype=result[3];
-                patientorgan=result[4];
+                patientorgans=result[4];
             });
+            console.log("Checking patient: "+patientname);
+            for (var poi=0; poi < patientorgans.length; poi++) {
+                console.log("Checking patient organ: "+patientorgans[poi]);
                 for (var j=0; j<donorCount; j++) {
-                    console.log("In Donor loop");
-                    var donorname;
-                    var donorbloodtype;
-                var donororgan;
-                await this.contractInstance.methods.getDonor(donorIDs[j]).call().then(function(result){
-                    donorname = result[0];
-                    donorbloodtype = result[3];
-                        donororgan = result[4];
-                    });
-                        if (patientbloodtype==donorbloodtype && patientorgan==donororgan) {
+                    let matchedOrgan = false;
+                    console.log("Checking donor: "+donor[j].name);
+                    console.log("Organ count: "+donor[j].organcount);
+                    for (let doi=0; doi < donor[j].organcount; doi++) {
+                        console.log("Checking donor organ: "+donor[j].organs[doi])
+                        if (patientbloodtype==donor[j].bloodtype && patientorgans[poi]==donor[j].organs[doi]) {
+                            matchedOrgan = true;
+                            console.log("Matched: "+patientname+" "+patientorgans[poi]+"<->"+donor[j].name+" "+donor[j].organs[doi]);
                             match = [
-                                { "Patient Name": patientname, "Patient Organ": patientorgan, "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donororgan, "Donor Name": donorname},
+                                { "Patient Name": patientname, "Patient Organ": patientorgans[poi], "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donor[j].organs[doi], "Donor Name": donor[j].name},
                             ];
         
                             let data = Object.keys(match[0]);
-                            if (once){
+                            if (initialTableGeneration){
                                 generateTableHead(table, data);
-                                once = false;
+                                initialTableGeneration = false;
                             }
                             generateTable(table, match);
-                            console.log(donorIDs);
-            
-                            let temp = donorIDs[j];
-                            donorIDs[j] = donorIDs[donorCount-1];
-                            donorIDs[donorCount-1] = temp;
-            
-                            console.log(donorIDs);
-                            donorCount--;
+                            
+                            // Removing marked donor organ
+                            donor[j].organs[doi] = donor[j].organs[donor[j].organcount-1];
+                            donor[j].organs.pop();
+                            donor[j].organcount--;
                             break;
                         }
+                    }
+                    if (donor[j].organcount == 0) {
+                        donor[j] = donor[donorCount-1];
+                        donorCount--;
+                    }
+                    if (matchedOrgan) {
+                        break;
+                    }
                 }
+            }
         }
         const spinner = document.querySelector(".spinner");
         spinner.style.display = "none";
