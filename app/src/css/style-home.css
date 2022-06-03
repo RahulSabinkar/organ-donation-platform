@@ -134,6 +134,67 @@ a.active,a:hover{
     font-weight: 600;
 }
 
+.accordian{
+    max-width: 1200px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #005f82;
+}
+
+.accordian_label,
+.accordian_content{
+    padding: 14px 20px;
+}
+
+.accordian_label{
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: backgorund 0.1s;
+}
+
+.accordian_label:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.accordian_label::after{
+    content: "";
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right: 20px;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="110" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF;" /></svg>');
+    background-size: contain;
+    transition: transform 0.4s;
+}
+
+.accordian_content{
+    background: #d5ecf5;
+    color: #005f82;
+    padding: 15px 65px 15px 65px;
+    line-height: 1.6;
+    font-size: 1em;
+    font-weight: 600;
+    display: none;
+}
+
+.accordian_input{
+    display: none;
+}
+
+.accordian_input:checked ~ .accordian_content{
+    display: block;
+
+}
+
+.accordian_input:checked ~ .accordian_label::after{
+    transform: translateY(-50%) rotate(0.5turn);
+}
+
 footer{
     height: 300px;
     background-color: #005f82;
