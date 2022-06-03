@@ -54,7 +54,7 @@ function checkInputValues(user, fullname, age, medical_id, organ, weight, height
     else if (medical_id.length == 0)
          showWarning(user, "Enter your Medical ID", color);
     else if (organ.length == 0)
-        showWarning(user, "Enter organ name", color);
+        showWarning(user, "Enter organ(s)", color);
     else if (weight.length == 0)
         showWarning(user, "Enter your weight", color);
     else if (weight < 20 || weight > 200)
@@ -119,7 +119,11 @@ const App = {
         const gender = document.getElementById(user+'Gender').value;
         const medical_id = document.getElementById(user+'MedicalID').value;
         const blood_type = document.getElementById(user+'BloodType').value;
-        const organ = document.getElementById(user+'Organ').value;
+        let checkboxes = document.querySelectorAll("input[name='Organ']:checked");
+        let organ = [];
+        checkboxes.forEach((checkbox) => {
+            organ.push(checkbox.value);
+        });
         const weight = document.getElementById(user+'Weight').value;
         const height = document.getElementById(user+'Height').value;
 
@@ -160,7 +164,8 @@ const App = {
         const gas = await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).estimateGas({
             from: this.accounts[0]
         });
-        await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height).send({
+        await this.contractInstance.methods.setDonors(fullname, age, gender, medical_id, blood_type, organ, weight, height
+        ).send({
             from: this.accounts[0], gas: Math.max(gas, MIN_GAS)
         })
     },
@@ -285,52 +290,73 @@ const App = {
                 donorIDs[i] = result[i];
             }
         });
+
+        let donor = [];
+        for (let i=0; i<donorCount; i++) {
+            await this.contractInstance.methods.getDonor(donorIDs[i]).call().then(function(result){
+                let organsArr = [];
+                let temp = result[4];
+                for (let o=0; o<temp.length; o++) {
+                    organsArr[o] = temp[o];
+                }
+                donorObj = { ID: donorIDs[i], name: result[0], bloodtype: result[3], organs: organsArr, organcount: organsArr.length };
+                donor[i] = donorObj;
+            });
+        }
+        console.log(donor);
+
         let match;
         console.log("Patient Count: " + patientCount);
         console.log("Donor Count: " + donorCount);
 
-        let once = true;
+        let initialTableGeneration = true;
 
         for (var i=0; i<patientCount; i++) {
-            console.log("In Patient loop");
             var patientname;
             var patientbloodtype;            
-            var patientorgan;
+            var patientorgans;
             await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result){
                 patientname = result[0];
                 patientbloodtype=result[3];
-                patientorgan=result[4];
+                patientorgans=result[4];
             });
-            for (var j=0; j<donorCount; j++) {
-                console.log("In Donor loop");
-                var donorname;
-                var donorbloodtype;
-                var donororgan;
-                await this.contractInstance.methods.getDonor(donorIDs[j]).call().then(function(result){
-                    donorname = result[0];
-                    donorbloodtype = result[3];
-                    donororgan = result[4];
-                });
-                if (patientbloodtype==donorbloodtype && patientorgan==donororgan) {
-                    match = [
-                        { "Patient Name": patientname, "Patient Organ": patientorgan, "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donororgan, "Donor Name": donorname},
-                    ];
-
-                    let data = Object.keys(match[0]);
-                    if (once){
-                        generateTableHead(table, data);
-                        once = false;
+            console.log("Checking patient: "+patientname);
+            for (var poi=0; poi < patientorgans.length; poi++) {
+                console.log("Checking patient organ: "+patientorgans[poi]);
+                for (var j=0; j<donorCount; j++) {
+                    let matchedOrgan = false;
+                    console.log("Checking donor: "+donor[j].name);
+                    console.log("Organ count: "+donor[j].organcount);
+                    for (let doi=0; doi < donor[j].organcount; doi++) {
+                        console.log("Checking donor organ: "+donor[j].organs[doi])
+                        if (patientbloodtype==donor[j].bloodtype && patientorgans[poi]==donor[j].organs[doi]) {
+                            matchedOrgan = true;
+                            console.log("Matched: "+patientname+" "+patientorgans[poi]+"<->"+donor[j].name+" "+donor[j].organs[doi]);
+                            match = [
+                                { "Patient Name": patientname, "Patient Organ": patientorgans[poi], "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donor[j].organs[doi], "Donor Name": donor[j].name},
+                            ];
+        
+                            let data = Object.keys(match[0]);
+                            if (initialTableGeneration){
+                                generateTableHead(table, data);
+                                initialTableGeneration = false;
+                            }
+                            generateTable(table, match);
+                            
+                            // Removing marked donor organ
+                            donor[j].organs[doi] = donor[j].organs[donor[j].organcount-1];
+                            donor[j].organs.pop();
+                            donor[j].organcount--;
+                            break;
+                        }
                     }
-                    generateTable(table, match);
-                    console.log(donorIDs);
-
-                    let temp = donorIDs[j];
-                    donorIDs[j] = donorIDs[donorCount-1];
-                    donorIDs[donorCount-1] = temp;
-
-                    console.log(donorIDs);
-                    donorCount--;
-                    break;
+                    if (donor[j].organcount == 0) {
+                        donor[j] = donor[donorCount-1];
+                        donorCount--;
+                    }
+                    if (matchedOrgan) {
+                        break;
+                    }
                 }
             }
         }

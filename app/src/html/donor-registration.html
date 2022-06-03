@@ -30,7 +30,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12">
-                        <h3>Register to be an organ donor</h3>
+                        <h3>Register an organ donor</h3>
                         <div id="center-form" class="text-container">
                             
                             <p>Full Name: <input type="text" id="DonorFullName" placeholder="Full name"></p>
@@ -59,18 +59,43 @@
                                     </select>
                             </form><br>
                             <form>
-                                <label>Organ:</label>
-                                <select name="organ" id="DonorOrgan">
-                                    <option value="Left Kidney">Left Kidney</option>
-                                    <option value="Right Kidney">Right Kidney</option>
-                                    <option value="Left Lung">Left Lung</option>
-                                    <option value="Right Lung">Right Lung</option>
-                                    <option value="Liver">Liver</option>
-                                    <option value="Heart">Heart</option>
-                                    <option value="Pancreas">Pancreas</option>
-                                    <option value="Intestine">Intestine</option>
-                                </select>
-                            </form><br>
+                                <div id="checkbox">
+                                    <label>Organ(s):</label>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Left Kidney">
+                                        <label for="">Left Kidney</label>
+                                    </div>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Right Kidney">
+                                        <label for="">Right Kidney</label>
+                                    </div>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Left Lung">
+                                        <label for="">Left Lung</label>
+                                    </div>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Right Lung">
+                                        <label for="">Right Lung</label>
+                                    </div>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Liver">
+                                        <label for="">Liver</label>
+                                    </div>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Heart">
+                                        <label for="">Heart</label>
+                                    </div>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Pancreas">
+                                        <label for="">Pancreas</label>
+                                    </div>
+                                    <div id="group">
+                                        <input type="checkbox" name="Organ" value="Intestine">
+                                        <label for="">Intestine</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
                             <p>Weight (kg): <input type="text" id="DonorWeight" placeholder="Weight"></p>
                             <p>Height (cm): <input type="text" id="DonorHeight" placeholder="Height"></p>
 
