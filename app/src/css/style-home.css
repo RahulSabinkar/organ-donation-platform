@@ -26,6 +26,7 @@ body{
 
 header{
     background-color: #94e1ff;
+    height: 110px;
 }
 
 #header {
@@ -35,7 +36,7 @@ header{
 
 #logo{
     height: 5rem;
-    padding: 28px 50px 0 50px;
+    padding: 28px 50px 0px 50px;
 }
 
 img#logo:hover{
@@ -48,7 +49,7 @@ img#logo:hover{
 
 nav{
     background-color: #94e1ff;
-    height: 100px;
+    height: 80px;
     width: 100%;
 }
 
@@ -65,7 +66,7 @@ nav ul li{
 
 nav ul li a{
     color: #005f82;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     padding: 7px 12px;
     border-radius: 4px;
@@ -81,7 +82,6 @@ a.active,a:hover{
 a.hover:hover{
     background: none;
     color: #fff;
-    padding: 0px;
 }
 
 
@@ -104,8 +104,8 @@ a.hover:hover{
 
 #header-btn{
     position: absolute;
-    top: 57%;
-    left: 17%;
+    top: 52%;
+    left: 12.5%;
 }
 
 .btn.btn-pledge{
@@ -234,6 +234,7 @@ footer{
 }
 
 .footer-text{
+    color: #fff;
     display: flex;
     text-align: center;
     align-items: center;
@@ -244,10 +245,11 @@ footer{
 }
 
 #copyright{
+    color: #fff;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
+    /* padding: 25px; */
     font-weight: 300;
 }

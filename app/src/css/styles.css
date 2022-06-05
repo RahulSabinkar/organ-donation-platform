@@ -75,6 +75,10 @@ h3 {
   position: relative;    
 }
 
+.row.center-btn{
+  justify-content: center;
+}
+
 nav{
   background-color: #94e1ff;
   height: 100px;
@@ -145,7 +149,7 @@ img.nav-logo{
 
 .search{
   display: flex;
-  width: 325px;
+  width: 310px;
   background: #005f82;
   padding: 20px;
   border-radius: 12px;
@@ -167,7 +171,7 @@ img.nav-logo{
   font-weight: 600;
 }
 
-.col-md-6.container-1{
+.col-md-4.container-1{
   display: flex;
   align-items: flex-end;
   flex-direction: column;
@@ -175,7 +179,7 @@ img.nav-logo{
   align-content: center;
 }
 
-.col-md-6.container-2{
+.col-md-4.container-2{
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -183,18 +187,30 @@ img.nav-logo{
   align-content: center;
 }
 
+.left-content.width{
+  display: block;
+  width: 100%;
+}
+
+.right-content.width{
+  display: block;
+  width: 100%;
+}
+
 .btn-primary.custom{
+  display: block;
+  width: 100%;
   background-color: #005f82;
   border: none;
   font-size: 1.5em;
   font-weight: 600;
   padding: 20px;
-  width: 50%;
-  margin: 5px;
+  margin: 3px;
 }
 
 .btn-primary.custom.custom-tm{
-  width: 25%;  
+  display: block;
+  width: 100%; 
 }
 
 .btn-primary.custom:hover{
@@ -202,6 +218,7 @@ img.nav-logo{
 }
 
 .btn-primary.search{
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -273,10 +290,6 @@ input[type="submit"]:hover {
 
 .btn-warning.btn-1:hover{
   color: #fff;
-  background-color: #005f82;
-}
-
-.btn-warning.btn-1:checked{
   background-color: #005f82;
 }
 
