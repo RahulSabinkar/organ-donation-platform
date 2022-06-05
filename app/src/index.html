@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
         <link href="css/styles.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -14,105 +14,126 @@
         <link rel="icon" href="images/organ-donation-logo-new.svg">
 
         <script src="main.js"></script>
-        <title>Organ Donation Prototype</title>
+        <title>Organ Donation Platform</title>
     </head>
 
-    <!-- start of navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="images/logo-final-1.svg" alt="Organ Donation prototype"></a>
-        <button class="btn btn-sm btn-warning btn-1">
-            <a href="homepage.html"><p>Homepage</p></a>
-        </button>
-    </nav>
-    <!-- end of navigation-->
+    <body>
+        <!-- start of navigation-->      
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <a href="index.html"><img class="nav-logo" src="images/logo-final-1.svg" alt="Organ Donation platform"></a>
+                        <ul>
+                            <li>
+                                <button class="btn btn-sm btn-primary homepage">
+                                    <a class="hover" href="homepage.html">Homepage</a>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- end of navigation-->
 
-
-    <body data-spy="scroll" data-target=".fixed-top">
-    <!-- Header -->
-    <header id="header" class="header">
-        <div class="header-content">
+        <!-- Header -->
+        <header>        
             <div class="container">
-                <div class="row">
-              
-                    <div class="col-sm-6 col-md-6">
-                        <div>
-                            <a href="donor-registration.html" class="btn btn-custom"><h2>Register Donor</h2></a>
-                        </div>
+                <div class="row">              
+                    <div class="col-md-6">
+                        <div class="left-content">
+                            <button class="btn btn-lg btn-primary custom">
+                                <a href="donor-registration.html">Register Donor</a>
+                            </button>
                         <br>                    
-                        <div>
-                            <a href="view-donors.html" class="btn btn-custom"><h2>View Donors</h2></a>
-                        </div><br>
-                        <div>
-                            <a href="verify-pledges.html" class="btn btn-custom"><h2>Verify Pledges</h2></a>
+                        
+                            <button class="btn btn-lg btn-primary custom">
+                                <a href="view-donors.html">View Donors</a>
+                            </button>
+                        <br>
+                        
+                            <button class="btn btn-lg btn-primary custom">
+                                <a href="verify-pledges.html">Verify Pledges</a>
+                            </button>
                         </div>
                     </div>     
                       
-                    <div class="col-sm-6 col-md-6">
-                        <div>
-                            <a href="patient-registration.html" class="btn btn-custom"><h2>Register Patient</h2></a>
-                        </div>
-                        <br>                 
-                        <div>
-                            <a href="view-patients.html" class="btn btn-custom"><h2>View Patients</h2></a>
-                        </div><br>
-                        <div>
-                            <a href="view-pledges.html" class="btn btn-custom"><h2>View Pledges</h2></a>
-                        </div>
-                    </div>
-                    
-                    <!-- <div class="col-sm-6 col-md-6">
-                        <div>
-                            <a href="verify-pledges.html" class="btn btn-custom"><h2>Verify Pledges</h2></a>
-                        </div>                
-                        <div>
-                            <a href="view-pledges.html" class="btn btn-custom"><h2>View Pledges</h2></a>
-                        </div>
-                    </div> -->
-                </div><br>       
 
-                <div class="col-sm-12 col-md-12">
-                    <a href="transplant-matching.html" class="btn btn-custom-1"><h2>Transplant Match</h2></a>
-                </div>
-                   
-                <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                        <div class="text-container-search">
-                            <h2>Search Donor</h2>
-                            <p><input type="text-home" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p>
-                            <p id="getDonorFullName"></p>
-                            <p id="getDonorAge"></p>
-                            <p id="getDonorGender"></p>
-                            <p id="getDonorBloodType"></p>
-                            <p id="getDonorOrgan"></p>
-                            <p id="getDonorWeight"></p>
-                            <p id="getDonorHeight"></p>
-                            <div class="button-center">
-                                <p id="searchDonorCheck"></p>
-                                <button type="submit" class="btn btn-primary" onclick="App.search('Donor')">Search</button>
+                    <div class="col-md-6">
+                        <div class="right-content">
+                            <button class="btn btn-lg btn-primary custom">
+                                <a href="patient-registration.html">Register Patient</a>
+                            </button>
+                        <br>                    
+                        
+                            <button class="btn btn-lg btn-primary custom">
+                                <a href="view-patients.html">View Patients</a>
+                            </button>
+                        <br>
+                        
+                            <button class="btn btn-lg btn-primary custom">
+                                <a href="view-pledges.html">View Pledges</a>
+                            </button>
+                        </div>
+                    </div>                    
+                </div>   <br>    
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="transplant-btn">
+                                <button class="btn btn-lg btn-primary custom custom-tm">
+                                    <a href="transplant-matching.html"">Transplant Match</a>
+                                </button>
                             </div>
-                        </div> <!-- end of image-container -->
+                        </div>
                     </div>
-                    <div class="col-sm-6 col-md-6">
-                        <div class="text-container-search">
-                            <h2>Search Patient</h2>
-                            <p><input type="text" id="inputPatientMedicalID" placeholder="Patient Medical ID"></p>
-                            <p id="getPatientFullName"></p>
-                            <p id="getPatientAge"></p>
-                            <p id="getPatientGender"></p>
-                            <p id="getPatientBloodType"></p>
-                            <p id="getPatientOrgan"></p>
-                            <p id="getPatientWeight"></p>
-                            <p id="getPatientHeight"></p>
-                            <div class="button-center">
-                                <p id="searchPatientCheck"></p>
-                                <button type="submit" class="btn btn-primary" onclick="App.search('Patient')">Search</button>
+                </div><br>
+
+            </header> <!-- end of header -->
+                   
+                <main>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 container-1">
+                                <div class="search">
+                                    <h2>Search Donor</h2>
+                                    <p><input type="text-home" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p>
+                                    <p id="getDonorFullName"></p>
+                                    <p id="getDonorAge"></p>
+                                    <p id="getDonorGender"></p>
+                                    <p id="getDonorBloodType"></p>
+                                    <p id="getDonorOrgan"></p>
+                                    <p id="getDonorWeight"></p>
+                                    <p id="getDonorHeight"></p>
+                                    <p id="searchDonorCheck"></p>
+                                    <button type="submit" class="btn btn-primary search" onclick="App.search('Donor')">Search</button>
+                                        
+                                </div> <!-- end of image-container -->
                             </div>
-                        </div> <!-- end of image-container -->
-                    </div> <!-- end of col -->
-                </div> <!-- end of row-->
-            </div> <!-- end of container -->
-        </div> <!-- end of header-content -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
+                                <div class="col-md-6 container-2">
+                                    <div class="search">
+                                        <h2>Search Patient</h2>
+                                        <p><input type="text" id="inputPatientMedicalID" placeholder="Patient Medical ID"></p>
+                                        <p id="getPatientFullName"></p>
+                                        <p id="getPatientAge"></p>
+                                        <p id="getPatientGender"></p>
+                                        <p id="getPatientBloodType"></p>
+                                        <p id="getPatientOrgan"></p>
+                                        <p id="getPatientWeight"></p>
+                                        <p id="getPatientHeight"></p>                                        
+                                        <p id="searchPatientCheck"></p>
+                                        <button type="submit" class="btn btn-primary search" onclick="App.search('Patient')">Search</button>
+                                    </div>
+                                </div> <!-- end of image-container -->
+                            </div> <!-- end of col -->
+                        </div> <!-- end of row-->
+                    </div> <!-- end of container -->
+                </main>
+
+                <footer>
+
+                </footer>
     </body>
 </html>

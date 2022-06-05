@@ -104,8 +104,8 @@ a.hover:hover{
 
 #header-btn{
     position: absolute;
-    top: 66%;
-    left: 8.4%;
+    top: 57%;
+    left: 17%;
 }
 
 .btn.btn-pledge{
@@ -158,7 +158,7 @@ a.hover:hover{
 }
 
 .accordian{
-    max-width: 1200px;
+    max-width: 1440px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #005f82;
