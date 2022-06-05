@@ -7,6 +7,11 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
 body{
     font-family: montserrat;
 }
@@ -30,11 +35,11 @@ header{
 
 #logo{
     height: 5rem;
-    padding: 28px 50px 0 50px;    
+    padding: 28px 50px 0 50px;
 }
 
-#logo-hover{
-    
+img#logo:hover{
+    background: #94e1ff;
 }
 
 /* #primary-nav{
@@ -73,6 +78,13 @@ a.active,a:hover{
     text-decoration: none;
 }
 
+a.hover:hover{
+    background: none;
+    color: #fff;
+    padding: 0px;
+}
+
+
 /* ul {
     list-style: none;
     margin: 0;
@@ -94,6 +106,17 @@ a.active,a:hover{
     position: absolute;
     top: 66%;
     left: 8.4%;
+}
+
+.btn.btn-pledge{
+    font-weight: 600;
+    color: #fff;
+    padding: 5px 10px 5px 10px;
+    background-color: #005f82;
+}
+
+.btn.btn-pledge:hover{
+    background-color: #0079a8;
 }
 
 .btn-lg{

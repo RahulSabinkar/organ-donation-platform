@@ -240,6 +240,27 @@ input[type="submit"]:hover {
 }
 
 
+.btn-warning.btn-1{
+  font-size: 24px;
+  color: #fff;
+  background-color: #0079a8;
+  border-color: #ffffff00;
+  position: relative;
+  border-radius: 8px;
+  transform: translateX(350%);
+  padding: 15px 15px 0px 15px ;
+  margin: 0;
+}
+
+.btn-warning.btn-1:hover{
+  color: #fff;
+  background-color: #005f82;
+}
+
+.btn-warning.btn-1:checked{
+  background-color: #005f82;
+}
+
 
 .btn:hover {
   color: #212529;
