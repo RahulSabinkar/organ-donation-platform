@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
         <link href="../css/styles.css" rel="stylesheet">
         <link href="../css/bootstrap.css" rel="stylesheet">
@@ -16,37 +16,39 @@
         <title>Donor Pledge</title>
     </head>
 
-    <!-- start of navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <a id="nav" class="navbar-brand logo-image" href="index.html"><img src="../images/logo-final-1.svg" alt="Organ Donation prototype"></a>
-    </nav>
-    <!-- end of navigation-->
-
-
-    <body data-spy="scroll" data-target=".fixed-top">
-    <!-- Header -->
-    <header id="header" class="header">
-        <div class="header-content">
+    <body>
+        <!-- start of navigation-->
+        <header>
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-12">
-                        <h3>Pledge as an organ donor</h3>
-                        <div id="center-form" class="text-container">
-                            
-                            <p>Full Name: <input type="text" id="PledgeFullName" placeholder="Full name"></p>
+                    <div class="col-12">
+                        <nav>
+                            <a href="index.html"><img class="nav-logo"  src="../images/logo-final-1.svg" alt="Organ Donation platform"></a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- end of navigation-->
+
+        <main>
+            <div class="container">
+                <div class="row center-btn">
+                    <h3>Pledge as an organ donor</h3>
+                    <div class="col-md-4 form-bg">
+                        <p>Full Name: <input type="text" id="PledgeFullName" placeholder="Full name"></p>
                             <p>Age: <input type="text" id="PledgeAge" placeholder="Age"></p>
                             <form>
-                                <label>Gender:</label>
+                                <label><p>Gender:</p></label>
                                 <select name="gender" id="PledgeGender">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Others">Others</option>
                                 </select>
                             </form><br>
-
                             <p>Medical ID: <input type="text" id="PledgeMedicalID" placeholder="Donor Medical ID"></p>
                             <form>
-                                <label>Blood Type:</label>
+                                <label><p>Blood Type:</p></label>
                                     <select name="bloodtype" id="PledgeBloodType">
                                     <option value="A-">A-</option>
                                     <option value="A+">A+</option>
@@ -60,7 +62,7 @@
                             </form><br>
                             <form>
                                 <div id="checkbox">
-                                    <label>Organ(s):</label>
+                                    <label><p>Organ(s):</p></label>
                                     <div id="group">
                                         <input type="checkbox" name="Organ" value="Left Kidney">
                                         <label for="">Left Kidney</label>
@@ -94,24 +96,30 @@
                                         <label for="">Intestine</label>
                                     </div>
                                 </div>
-                            </form>
-                            <br>
+                            </form><br>
+
                             <p>Weight (kg): <input type="text" id="PledgeWeight" placeholder="Weight"></p>
                             <p>Height (cm): <input type="text" id="PledgeHeight" placeholder="Height"></p>
 
-                            <div class="button-center">
-                                <button type="submit" class="btn btn-primary" onclick="App.register('Pledge')">Pledge</button>
-                            </div>                            
-                        </div> <!-- end of text-container -->
-                        <div class="alert warning">
-                            <span class="closebtn" onclick="App.closeAlert();">&times;</span>
-                            <p id="PledgeInputCheck"></p> <!-- warning -->                            
-                        </div>
+                            <div id="register">
+                                <button type="submit" class="btn btn-primary register" onclick="App.register('Pledge')">Pledge</button>
+                            </div>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
-        </div> <!-- end of header-content -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
+
+            <div class="container">
+                <div class="row center-btn">
+                    <div class="col-md-5">
+                        <div class="alert warning">
+                            <span id="PledgeInputCheck"></span> <!-- warning -->
+                            <span class="closebtn" onclick="App.closeAlert();">&times;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
     </body>
 </html>

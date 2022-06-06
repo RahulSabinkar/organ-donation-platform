@@ -238,6 +238,26 @@ img.nav-logo{
 /*   04. Forms       */
 /*********************/
 
+.col-md-4.form-bg{
+  color: #fff;
+  background-color: #005f82;
+  border-radius: 8px;
+  padding: 15px 29px;
+}
+
+.col-md-4 p{
+  font-weight: 600;
+}
+
+.row h3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #005f82;
+  font-weight: 700;
+  padding: 10px;
+}
+
 input[type="text"],
 select {
   width: 100%;
@@ -275,8 +295,26 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
+.checkbox-flex{
+  display: flex;
+}
 
-.btn-warning.btn-1{
+.btn-primary.register{
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+
+#register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+/* .btn-warning.btn-1{
   font-size: 24px;
   color: #fff;
   background-color: #0079a8;
@@ -298,10 +336,10 @@ input[type="submit"]:hover {
   color: #212529;
   text-decoration: none;
 }
-
-.custom-control-input:disabled ~ .custom-control-label {
+ */
+/* .custom-control-input:disabled ~ .custom-control-label {
   color: #ffffff;
-}
+} */
 
 /*********************/
 /*  05. Table view   */
@@ -348,28 +386,47 @@ tr:hover {
 /*    06. Alerts     */
 /*********************/
 
+#DonorInputCheck{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#PatientInputCheck{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#PledgeInputCheck{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .alert {
-  width: 50%;
-  
-  color: white;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
   opacity: 1;
   transition: opacity 0.6s;
 }
 
 .alert.warning {
   /* padding: 1px; */
-  background: #ff9800;
+  font-weight: 600;
+  background: #e69100;
   display: none;
-  padding: 20px 0px 0px 0px;
 }
 
 .closebtn {
-  padding: 12px;
   color: white;
-  font-weight: bold;
   float: right;
-  font-size: 22px;
-  line-height: 0px;
+  transform: translateY(-100%);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -377,17 +434,15 @@ tr:hover {
 .closebtn:hover {
   color: black;
 }
-
 /*************************/
 /*     07. Preloader     */
 /*************************/
 
-/* .spinner {
-  align-content: -webkit-right;
+.spinner {
   position: fixed;
-} */
+}
 
-/* .spinner > div {
+.spinner > div {
 	display: inline-block;
 	width: 1rem;
 	height: 1rem;
@@ -424,4 +479,3 @@ tr:hover {
 		transform: scale(1.0);
 	}
 }
- */

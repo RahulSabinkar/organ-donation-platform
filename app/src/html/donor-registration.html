@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
         <link href="../css/styles.css" rel="stylesheet">
         <link href="../css/bootstrap.css" rel="stylesheet">
@@ -16,102 +16,115 @@
         <title>Donor Registration</title>
     </head>
 
+    <body>
     <!-- start of navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <a id="nav" class="navbar-brand logo-image" href="index.html"><img src="../images/logo-final-1.svg" alt="Organ Donation prototype"></a>
-    </nav>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <a href="index.html"><img class="nav-logo"  src="../images/logo-final-1.svg" alt="Organ Donation platform"></a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
     <!-- end of navigation-->
 
 
-    <body data-spy="scroll" data-target=".fixed-top">
-    <!-- Header -->
-    <header id="header" class="header">
-        <div class="header-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-12">
+           
+            <main>
+                <div class="container">
+                    <div class="row center-btn">
                         <h3>Register an organ donor</h3>
-                        <div id="center-form" class="text-container">
-                            
-                            <p>Full Name: <input type="text" id="DonorFullName" placeholder="Full name"></p>
-                            <p>Age: <input type="text" id="DonorAge" placeholder="Age"></p>
-                            <form>
-                                <label>Gender:</label>
-                                <select name="gender" id="DonorGender">
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Others">Others</option>
-                                </select>
-                            </form><br>
+                        <div class="col-md-4 form-bg">
 
-                            <p>Medical ID: <input type="text" id="DonorMedicalID" placeholder="Donor Medical ID"></p>
-                            <form>
-                                <label>Blood Type:</label>
-                                    <select name="bloodtype" id="DonorBloodType">
-                                    <option value="A-">A-</option>
-                                    <option value="A+">A+</option>
-                                    <option value="B-">B-</option>
-                                    <option value="B+">B+</option>
-                                    <option value="AB-">AB-</option>
-                                    <option value="AB+">AB+</option>
-                                    <option value="O-">O-</option>
-                                    <option value="O+">O+</option>
+                                <p>Full Name: <input type="text" id="DonorFullName" placeholder="Full name"></p>
+                                <p>Age: <input type="text" id="DonorAge" placeholder="Age"></p>
+                                
+                                <form>
+                                    <label><p>Gender:</p></label>
+                                    <select name="gender" id="DonorGender">
+                                        <option value="Male"><p>Male</p></option>
+                                        <option value="Female"><p>Female</p></option>
+                                        <option value="Others"><p>Others</p></option>
                                     </select>
-                            </form><br>
-                            <form>
-                                <div id="checkbox">
-                                    <label>Organ(s):</label>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Left Kidney">
-                                        <label for="">Left Kidney</label>
-                                    </div>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Right Kidney">
-                                        <label for="">Right Kidney</label>
-                                    </div>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Left Lung">
-                                        <label for="">Left Lung</label>
-                                    </div>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Right Lung">
-                                        <label for="">Right Lung</label>
-                                    </div>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Liver">
-                                        <label for="">Liver</label>
-                                    </div>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Heart">
-                                        <label for="">Heart</label>
-                                    </div>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Pancreas">
-                                        <label for="">Pancreas</label>
-                                    </div>
-                                    <div id="group">
-                                        <input type="checkbox" name="Organ" value="Intestine">
-                                        <label for="">Intestine</label>
-                                    </div>
+                                </form>
+                                <p>Medical ID: <input type="text" id="DonorMedicalID" placeholder="Donor Medical ID"></p>
+                                <form>
+                                    <label><p>Blood Type:</p></label>
+                                        <select name="bloodtype" id="DonorBloodType">
+                                        <option value="A-">A-</option>
+                                        <option value="A+">A+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="O-">O-</option>
+                                        <option value="O+">O+</option>
+                                        </select>
+                                </form>
+                                <div class="checkbox-flex">
+                                    <form>
+                                        <div id="checkbox">
+                                            <label><p>Organ(s):</p></label>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Left Kidney">
+                                                <label for="">Left Kidney</label>
+                                            </div>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Right Kidney">
+                                                <label for="">Right Kidney</label>
+                                            </div>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Left Lung">
+                                                <label for="">Left Lung</label>
+                                            </div>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Right Lung">
+                                                <label for="">Right Lung</label>
+                                            </div>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Liver">
+                                                <label for="">Liver</label>
+                                            </div>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Heart">
+                                                <label for="">Heart</label>
+                                            </div>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Pancreas">
+                                                <label for="">Pancreas</label>
+                                            </div>
+                                            <div id="group">
+                                                <input type="checkbox" name="Organ" value="Intestine">
+                                                <label for="">Intestine</label>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
-                            <br>
-                            <p>Weight (kg): <input type="text" id="DonorWeight" placeholder="Weight"></p>
-                            <p>Height (cm): <input type="text" id="DonorHeight" placeholder="Height"></p>
+                                
+                                <p>Weight (kg): <input type="text" id="DonorWeight" placeholder="Weight"></p>
+                                <p>Height (cm): <input type="text" id="DonorHeight" placeholder="Height"></p>
+                                
+                                <div id="register">
+                                    <button type="submit" class="btn btn-primary register" onclick="App.register('Donor')">Register
+                                    </button>
+                                </div>
 
-                            <div class="button-center">
-                                <button type="submit" class="btn btn-primary" onclick="App.register('Donor')">Register</button>
-                            </div>                            
-                        </div> <!-- end of text-container -->
-                        <div class="alert warning">
-                            <span class="closebtn" onclick="App.closeAlert();">&times;</span>
-                            <p id="DonorInputCheck"></p> <!-- warning -->                            
+                        </div> <!-- end of col -->
+                    </div> <!-- end of row -->
+                </div> <!-- end of container -->
+                <div class="container">
+                    <div class="row center-btn">
+                        <div class="col-md-5">
+                            <div class="alert warning">
+                                <span id="DonorInputCheck"></span> <!-- warning -->
+                                <span class="closebtn" onclick="App.closeAlert();">&times;</span>
+                            </div>
                         </div>
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of header-content -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
+                    </div>
+                </div>
+            </main>
     </body>
 </html>
