@@ -373,7 +373,7 @@ const App = {
             await this.contractInstance.methods.getDonor(DonorIDs[i]).call().then(function(result) {
                 console.log(result);
                 Donor = [
-                    { Index: i+1, "Full Name": result[0], Age: result[1], Gender: result[2], "Medical ID": DonorIDs[i], "Blood-Type": result[3], Organ: result[4], Weight: result[5], Height: result[6]},
+                    { Index: i+1, "Full Name": result[0], Age: result[1], Gender: result[2], "Medical ID": DonorIDs[i], "Blood Type": result[3], "Organ(s)": result[4], "Weight(kg)": result[5], "Height(cm)": result[6]},
                 ];
 
                 let data = Object.keys(Donor[0]);
@@ -400,7 +400,7 @@ const App = {
             await this.contractInstance.methods.getPatient(patientIDs[i]).call().then(function(result) {
                 console.log(result);
                 patient = [
-                    { Index: i+1, FullName: result[0], Age: result[1], Gender: result[2], MedicalID: patientIDs[i], BloodType: result[3], Organ: result[4], Weight: result[5], Height: result[6]},
+                    { Index: i+1, "Full Name": result[0], Age: result[1], Gender: result[2], "Medical ID": patientIDs[i], "Blood Type": result[3], "Organ(s)": result[4], "Weight(kg)": result[5], "Height(cm)": result[6]},
                 ];
 
                 let data = Object.keys(patient[0]);
@@ -472,7 +472,7 @@ const App = {
                             matchedOrgan = true;
                             console.log("Matched: "+patientname+" "+patientorgans[poi]+"<->"+donor[j].name+" "+donor[j].organs[doi]);
                             match = [
-                                { "Patient Name": patientname, "Patient Organ": patientorgans[poi], "Patient ID": patientIDs[i],"": "↔️", "Donor ID": donorIDs[j], "Donor Organ": donor[j].organs[doi], "Donor Name": donor[j].name},
+                                { "Patient Name": patientname, "Patient Organ": patientorgans[poi], "Patient Medical ID": patientIDs[i],"": "↔️", "Donor Medical ID": donorIDs[j], "Donor Organ": donor[j].organs[doi], "Donor Name": donor[j].name},
                             ];
         
                             let data = Object.keys(match[0]);
