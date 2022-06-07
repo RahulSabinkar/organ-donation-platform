@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
         <link href="../css/styles.css" rel="stylesheet">
         <link href="../css/bootstrap.css" rel="stylesheet">
@@ -17,51 +17,78 @@
         <title>Pending Pledges</title>    
     </head>
 
-    <!-- start of navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <a id="nav"class="navbar-brand logo-image" href="index.html"><img src="../images/logo-final-1.svg" alt="Organ Donation prototype"></a>
-    </nav>
-    <!-- end of navigation-->
+    <body>
+                <!-- start of navigation-->
+                <header>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav>
+                                    <a href="index.html"><img class="nav-logo"  src="../images/logo-final-1.svg" alt="Organ Donation platform"></a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- end of navigation-->
 
-    <body data-spy="scroll" data-target=".fixed-top">
-        <header id="header" class="header">
-            <div class="header-content">
-                <div class="container">
-                    <div class="spinner">
-                        <div class="bounce1"></div>
-                        <div class="bounce2"></div>
-                        <div class="bounce3"></div>
-                    </div> 
-                    <div class="row">                                                           
-                        <div class="col-sm-12 col-md-12">   
+                <main>
+                    <div class="container">
+                        <div class="row center-btn">
+                            <div class="col-md-1">
+                                <div class="spinner">
+                                    <div class="bounce1"></div>
+                                    <div class="bounce2"></div>
+                                    <div class="bounce3"></div>
+                                </div><br>
+                            </div>
+                        </div>  <!-- end of row -->                      
+                    </div> <!-- end of container -->
+                    
+                    <div class="container">
+                        <div class="row center-btn">
                             <h3>Details of Pending Pledged Donors</h3>
-                            <div class="table-responsive" id="pending-table">
-                                <table>
-                                    <!-- here goes table generated data! -->
-                                </table>
-                                <p id="pending-table-message"></p>
+                            <div class="col-md-12">
+                                <div class="table-responsive" id="pending-table">
+                                    <table class="table-content">
+                                        <!-- here goes table generated data! -->
+                                    </table>
+                                    <p id="pending-table-message"></p>
+                                </div>
+                            </div> <!-- end of row -->
+                        </div> <!-- end of container -->
+                    </div>
+                        
+                    <div class="container">
+                        <div class="row center-btn">
+                            <div class="col-md-4">
+                                <div class="verification hidden" id="text-hidden">
+                                    <h2>Verify Pledge</h2>                                
+                                    <p id="getPledgeFullName"></p>
+                                    <p id="getPledgeAge"></p>
+                                    <p id="getPledgeGender"></p>
+                                    <p id="getPledgeMedicalID"></p>
+                                    <p id="getPledgeBloodType"></p>
+                                    <p id="getPledgeOrgan"></p>
+                                    <p id="getPledgeWeight"></p>
+                                    <p id="getPledgeHeight"></p>
+                                    <div>
+                                        <p id="PledgeMessage"></p>
+                                        <div id="register">
+                                            <button type="submit" class="btn btn-primary register" onclick="App.forwardPledge()">Deceased</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="text-container-search hidden" id="text-hidden">
-                            <h2>Verify Pledge</h2>
-                            <p id="getPledgeFullName"></p>
-                            <p id="getPledgeAge"></p>
-                            <p id="getPledgeGender"></p>
-                            <p id="getPledgeMedicalID"></p>
-                            <p id="getPledgeBloodType"></p>
-                            <p id="getPledgeOrgan"></p>
-                            <p id="getPledgeWeight"></p>
-                            <p id="getPledgeHeight"></p>
-                            <div class="button-center">
-                                <p id="PledgeMessage"></p>
-                                <button type="submit" class="btn btn-primary" onclick="App.forwardPledge()">Deceased</button>
-                            </div>
-                        </div>
-                    </div> <!-- end of row -->
-                </div> <!-- end of container -->
-            </div> <!-- end of header-content -->
-        </header> <!-- end of header -->
-        <!-- end of header -->
+                    </div>
+                            
+                        
+                       
+                </main>
+          
+       
+    
     </body>
     <script src="../main.js"></script>
     <script>

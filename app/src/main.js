@@ -74,7 +74,7 @@ function selectRow() {
             document.getElementById("PledgeMessage").innerHTML = null;
         
             var textcontainer = document.getElementById("text-hidden");
-            textcontainer.className = 'text-container-search';
+            textcontainer.className = 'verification';
         }
     }
 }

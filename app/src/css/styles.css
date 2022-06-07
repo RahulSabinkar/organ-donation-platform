@@ -65,7 +65,10 @@ h3 {
   color: #005f82;
 }
 
-
+/* .container.visibility{
+  visibility: hidden;
+}
+ */
 /**************************/
 /*     02. Navigation     */
 /**************************/
@@ -345,25 +348,28 @@ input[type="submit"]:hover {
 /*  05. Table view   */
 /*********************/
 
-table {
-    border-collapse: collapse;
-    width: 100%;
+.content-table{
+  border: 1px solid black;
+}
+
+table {  
+  border-collapse: collapse;
+  width: 100%;
 }
 
 td {
-/*     border: 1px solid #1b0c0c; */
-    border: 1px solid #00000069;
-    text-align: center;
-    padding: 15px;
+  text-align: center;
+  border: 1px solid #00000069;
+  padding: 15px;
+  font-weight: 500;
 }
 
 th {
     background-color: #005f82;
     color: #ffffff;
-    border: 1px solid #00000069;
     text-align: center;
     padding: 15px;
-    font-weight: bold;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -379,7 +385,20 @@ tr:hover {
 }
 
 .table-responsive {
+  border-radius: 8px;
   overflow-x: auto;
+}
+
+.verification{
+  width: 100%;
+  background-color: #005f82;
+  border-radius: 8.5px;
+  padding: 25px;
+  margin: 10px 0px;
+}
+
+.verification.hidden{
+  visibility: hidden;
 }
 
 /*********************/
