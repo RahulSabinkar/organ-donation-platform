@@ -152,13 +152,23 @@ img.nav-logo{
 
 .search{
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 310px;
   background: #005f82;
   padding: 20px;
   border-radius: 12px;
   color: #fff;
+}
+
+.search .details{
+  display: flex;
+  align-items: stretch;
   flex-direction: column;
-  align-items: center;
+  align-content: stretch;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 225px;
 }
 
 #searchDonorCheck{
@@ -389,12 +399,21 @@ tr:hover {
   overflow-x: auto;
 }
 
+#pending-table-message{
+  text-align: center;
+}
+
 .verification{
   width: 100%;
   background-color: #005f82;
   border-radius: 8.5px;
   padding: 25px;
   margin: 10px 0px;
+}
+
+.verification h2{
+  text-align: center;
+  font-weight: 600;
 }
 
 .verification.hidden{

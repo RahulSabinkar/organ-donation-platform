@@ -114,7 +114,7 @@ function checkInputValues(user, fullname, age, medical_id, organ, weight, height
 }
 
 function assignSearchValues(result, user){
-    document.getElementById("get"+user+"FullName").innerHTML = "First Name: " + result[0];
+    document.getElementById("get"+user+"FullName").innerHTML = "Full Name: " + result[0];
     document.getElementById("get"+user+"Age").innerHTML = "Age: " + result[1];
     document.getElementById("get"+user+"Gender").innerHTML = "Gender: " + result[2];
     document.getElementById("get"+user+"BloodType").innerHTML = "Blood Type: " + result[3];

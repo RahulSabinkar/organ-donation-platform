@@ -91,34 +91,38 @@
                     
                 <div class="container">
                     <div class="row center-btn">
-                        <div class="col-md-4 container-1">
-                            <div class="search">
-                                <h2>Search Donor</h2>
-                                <p><input type="text-home" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p>
-                                <p id="getDonorFullName"></p>
-                                <p id="getDonorAge"></p>
-                                <p id="getDonorGender"></p>
-                                <p id="getDonorBloodType"></p>
-                                <p id="getDonorOrgan"></p>
-                                <p id="getDonorWeight"></p>
-                                <p id="getDonorHeight"></p>
-                                <p id="searchDonorCheck"></p>
-                                <button type="submit" class="btn btn-primary search" onclick="App.search('Donor')">Search</button>
-                                    
-                            </div> <!-- end of image-container -->
+                        <div class="col-md-4 container-1">                            
+                                <div class="search">
+                                    <h2>Search Donor</h2>
+                                    <p><input type="text-home" id="inputDonorMedicalID" placeholder="Donor Medical ID"></p>
+                                    <div class="details">
+                                        <p id="getDonorFullName"></p>
+                                        <p id="getDonorAge"></p>
+                                        <p id="getDonorGender"></p>
+                                        <p id="getDonorBloodType"></p>
+                                        <p id="getDonorOrgan"></p>
+                                        <p id="getDonorWeight"></p>
+                                        <p id="getDonorHeight"></p>
+                                        <p id="searchDonorCheck"></p>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary search" onclick="App.search('Donor')">Search</button>
+                                </div>
+                           
                         </div>
                             <div class="col-md-4 container-2">
                                 <div class="search">
                                     <h2>Search Patient</h2>
                                     <p><input type="text" id="inputPatientMedicalID" placeholder="Patient Medical ID"></p>
-                                    <p id="getPatientFullName"></p>
-                                    <p id="getPatientAge"></p>
-                                    <p id="getPatientGender"></p>
-                                    <p id="getPatientBloodType"></p>
-                                    <p id="getPatientOrgan"></p>
-                                    <p id="getPatientWeight"></p>
-                                    <p id="getPatientHeight"></p>                                        
-                                    <p id="searchPatientCheck"></p>
+                                    <div class="details">
+                                        <p id="getPatientFullName"></p>
+                                        <p id="getPatientAge"></p>
+                                        <p id="getPatientGender"></p>
+                                        <p id="getPatientBloodType"></p>
+                                        <p id="getPatientOrgan"></p>
+                                        <p id="getPatientWeight"></p>
+                                        <p id="getPatientHeight"></p>
+                                        <p id="searchPatientCheck"></p>
+                                    </div>
                                     <button type="submit" class="btn btn-primary search" onclick="App.search('Patient')">Search</button>
                                 </div>
                             </div> 
