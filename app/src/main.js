@@ -161,7 +161,7 @@ const App = {
         console.log(user);
         const fullname = document.getElementById(user+'FullName').value;
         const age = document.getElementById(user+'Age').value;
-        const gender = document.getElementById(user+'Gender').value;
+        const gender = document.querySelector("input[name='gender']:checked").value;
         const medical_id = document.getElementById(user+'MedicalID').value;
         const blood_type = document.getElementById(user+'BloodType').value;
         let checkboxes = document.querySelectorAll("input[name='Organ']:checked");
