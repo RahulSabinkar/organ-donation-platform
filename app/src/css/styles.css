@@ -410,9 +410,9 @@ table {
 
 td {
   text-align: center;
-  border: 1px solid #00000069;
+  /* border: 1px solid #00000069; */
   padding: 15px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 th {
