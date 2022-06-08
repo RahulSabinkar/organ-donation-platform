@@ -44,12 +44,22 @@
                                 
                                 <form>
                                     <label><p>Gender:</p></label>
-                                    <select name="gender" id="DonorGender">
-                                        <option value="Male"><p>Male</p></option>
-                                        <option value="Female"><p>Female</p></option>
-                                        <option value="Others"><p>Others</p></option>
-                                    </select>
+                                    <div id="group"> <!-- Gender Radio buttons -->
+                                        <label>
+                                            <input type="radio" name="gender" value="Male">
+                                            <span>Male</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="gender" value="Female">
+                                            <span>Female</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="gender" value="Others">
+                                            <span>Others</span>
+                                        </label>
+                                    </div>
                                 </form>
+                                
                                 <p>Medical ID: <input type="text" id="DonorMedicalID" placeholder="Donor Medical ID"></p>
                                 <form>
                                     <label><p>Blood Type:</p></label>

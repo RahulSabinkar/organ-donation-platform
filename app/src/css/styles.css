@@ -310,10 +310,6 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.checkbox-flex{
-  display: flex;
-}
-
 .btn-primary.register{
   font-weight: 600;
   display: flex;
@@ -329,10 +325,7 @@ input[type="submit"]:hover {
   padding: 8px;
 }
 
-#group input[type="checkbox"]
-{
-  display: none;
-}
+
 
 #group label{ 
   cursor: pointer;
@@ -363,7 +356,22 @@ input[type="submit"]:hover {
   background: rgba(255, 255, 255, );
 }
 
+#group input[type="checkbox"]
+{
+  display: none;
+}
+
 #group input[type="checkbox"]:checked ~ span{
+  color: #005f82;
+  background: #fff;
+}
+
+#group input[type="radio"]
+{
+  display: none;
+}
+
+#group input[type="radio"]:checked ~ span{
   color: #005f82;
   background: #fff;
 }

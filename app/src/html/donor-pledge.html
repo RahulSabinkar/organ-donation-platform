@@ -40,12 +40,21 @@
                             <p>Age: <input type="text" id="PledgeAge" placeholder="Age"></p>
                             <form>
                                 <label><p>Gender:</p></label>
-                                <select name="gender" id="PledgeGender">
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Others">Others</option>
-                                </select>
-                            </form><br>
+                                <div id="group"> <!-- Gender Radio buttons -->
+                                    <label>
+                                        <input type="radio" name="gender" value="Male">
+                                        <span>Male</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gender" value="Female">
+                                        <span>Female</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gender" value="Others">
+                                        <span>Others</span>
+                                    </label>
+                                </div>
+                            </form>
                             <p>Medical ID: <input type="text" id="PledgeMedicalID" placeholder="Donor Medical ID"></p>
                             <form>
                                 <label><p>Blood Type:</p></label>
@@ -61,7 +70,7 @@
                                     </select>
                             </form><br>
                             <form>
-                                <div id="checkbox">
+                                <div>
                                     <label><p>Organ(s):</p></label>
                                     <div id="group">
                                         <label>

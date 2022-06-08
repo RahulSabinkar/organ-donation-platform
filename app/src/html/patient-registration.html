@@ -41,14 +41,25 @@
                         <div>
                             <p>Full Name: <input type="text" id="PatientFullName" placeholder="Full name"></p>
                             <p>Age: <input type="text" id="PatientAge" placeholder="Age"></p>
-                                <form>
-                                    <label><p>Gender:</p></label>
-                                    <select name="gender" id="PatientGender">
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Others">Others</option>
-                                    </select>
-                                </form>
+
+                            <form>
+                                <label><p>Gender:</p></label>
+                                <div id="group"> <!-- Gender Radio buttons -->
+                                    <label>
+                                        <input type="radio" name="gender" value="Male">
+                                        <span>Male</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gender" value="Female">
+                                        <span>Female</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="gender" value="Others">
+                                        <span>Others</span>
+                                    </label>
+                                </div>
+                            </form>
+                            
                             <br>
                             <p>Medical ID: <input type="text" id="PatientMedicalID" placeholder="Patient Medical ID"></p>
                                 <form>
