@@ -88,14 +88,16 @@ function showWarning(user, message, color) {
     warning.style.display = "block";
 }
 
-function checkInputValues(user, fullname, age, medical_id, organ, weight, height){
+function checkInputValues(user, fullname, age, gender, medical_id, organ, weight, height){
     var color = "#ff9800"
     if (fullname=="")
         showWarning(user, "Enter your name", color);
     else if (age.length==0)
         showWarning(user, "Enter your age", color);
-    else if (age<18)
-        showWarning(user, "You must be over 18 to register", color);
+    else if (user=="Pledge" && age<18)
+        showWarning(user, "You must be over 18 to pledge", color);
+    else if (gender==null)
+        showWarning(user, "Enter your gender", color);
     else if (medical_id.length == 0)
          showWarning(user, "Enter your Medical ID", color);
     else if (organ.length == 0)
@@ -161,7 +163,8 @@ const App = {
         console.log(user);
         const fullname = document.getElementById(user+'FullName').value;
         const age = document.getElementById(user+'Age').value;
-        const gender = document.querySelector("input[name='gender']:checked").value;
+        const selectedGender = document.querySelector("input[name='gender']:checked");
+        const gender = (selectedGender) ? selectedGender.value : null;
         const medical_id = document.getElementById(user+'MedicalID').value;
         const blood_type = document.getElementById(user+'BloodType').value;
         let checkboxes = document.querySelectorAll("input[name='Organ']:checked");
@@ -173,7 +176,7 @@ const App = {
         const height = document.getElementById(user+'Height').value;
 
         let checkedValues = false;
-        checkedValues = checkInputValues(user, fullname, age, medical_id, organ, weight, height);
+        checkedValues = checkInputValues(user, fullname, age, gender, medical_id, organ, weight, height);
         console.log("Values Checked");
         var warning = document.querySelector(".alert.warning");
         if (checkedValues) {
