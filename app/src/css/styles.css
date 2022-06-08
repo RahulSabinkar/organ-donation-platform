@@ -329,6 +329,45 @@ input[type="submit"]:hover {
   padding: 8px;
 }
 
+#group input[type="checkbox"]
+{
+  display: none;
+}
+
+#group label{ 
+  cursor: pointer;
+}
+
+#group label span{
+  position: relative;
+  display: inline-block;
+  background-color: #004964;
+  color: #fff;
+  margin: 5px 2px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
+  user-select: none;
+  overflow: hidden;
+}
+
+#group label span::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(255, 255, 255, );
+}
+
+#group input[type="checkbox"]:checked ~ span{
+  color: #005f82;
+  background: #fff;
+}
+
 /* .btn-warning.btn-1{
   font-size: 24px;
   color: #fff;
