@@ -29,10 +29,7 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/images/logo-new-final.svg", to: "images/logo-new-final.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/logo-final-1.svg", to: "images/logo-final-1.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/logo-final-2.svg", to: "images/logo-final-2.svg" }]),
-    new CopyWebpackPlugin([{ from: "./src/images/home-slider-image.jpg", to: "images/home-slider-image.jpg" }]),
-    new CopyWebpackPlugin([{ from: "./src/images/home-slider-image-1.jpg", to: "images/home-slider-image-1.jpg" }]),
-    new CopyWebpackPlugin([{ from: "./src/images/home-slider-image-2.jpg", to: "images/home-slider-image-2.jpg" }]),
-    new CopyWebpackPlugin([{ from: "./src/images/home-slider-image-3.jpg", to: "images/home-slider-image-3.jpg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/header-image-new.png", to: "images/header-image-new.png" }]),
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
 };
