@@ -40,8 +40,8 @@ header{
 }
 
 img#logo{
-    height: 5rem;
-    padding: 28px 50px 0px 50px;
+    width: 25%;
+    padding: 30px 20px;
 }
 
 img#logo:hover{
@@ -270,7 +270,8 @@ footer{
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 80px 20px;
+    width: 90%;
+    padding: 55px 20px;
 }
 
 .footer-text{

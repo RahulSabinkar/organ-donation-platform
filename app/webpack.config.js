@@ -30,6 +30,9 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/images/logo-final-1.svg", to: "images/logo-final-1.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/logo-final-2.svg", to: "images/logo-final-2.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/header-image-new.png", to: "images/header-image-new.png" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/organ-donation-platform-logo.svg", to: "images/organ-donation-platform-logo.svg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/organ-donation-platform-logo-1.svg", to: "images/organ-donation-platform-logo-1.svg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/organ-donation-platform-logo-white.svg", to: "images/organ-donation-platform-logo-white.svg"}]),
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
 };
