@@ -1,13 +1,13 @@
 {
-  "name": "app",
+  "name": "organ-donation-platform",
   "version": "1.0.0",
-  "description": "Test webapp with web3",
+  "description": "A platform connecting organ donor and acceptor via ethereum blockchain",
   "main": "src/index.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server"
   },
-  "author": "Selva",
+  "author": "Rahul Sabinkar, Bongurala Sai Manikanta Teja, Boini Sai Kumar, Gummadi Sai Kumar",
   "license": "MIT",
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.5",
