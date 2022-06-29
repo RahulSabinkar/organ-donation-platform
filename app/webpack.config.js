@@ -20,7 +20,6 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/html/view-patients.html", to: "view-patients.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/transplant-matching.html", to: "transplant-matching.html" }]),
     new CopyWebpackPlugin([{ from: "./src/css/bootstrap.css", to: "css/bootstrap.css" }]),
-    new CopyWebpackPlugin([{ from: "./src/css/bootstrap-home.css", to: "bootstrap-home.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/styles.css", to: "css/styles.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/style-home.css", to: "css/style-home.css" }]),
     new CopyWebpackPlugin([{ from: "./src/css/fontawesome-all.css", to: "css/fontawesome-all.css" }]),
@@ -33,6 +32,9 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/images/organ-donation-platform-logo.svg", to: "images/organ-donation-platform-logo.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/organ-donation-platform-logo-1.svg", to: "images/organ-donation-platform-logo-1.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/organ-donation-platform-logo-white.svg", to: "images/organ-donation-platform-logo-white.svg"}]),
+    new CopyWebpackPlugin([{ from: "./src/images/donation-icon.svg", to: "images/donation-icon.svg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/transplant-icon.svg", to: "images/transplant-icon.svg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/waiting-list-icon.svg", to: "images/waiting-list-icon.svg" }]),
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
 };
