@@ -11,6 +11,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([{ from: "./src/index.html", to: "index.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/homepage.html", to: "homepage.html" }]),
+    new CopyWebpackPlugin([{ from: "./src/html/about-us.html", to: "about-us.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/donor-registration.html", to: "donor-registration.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/donor-pledge.html", to: "donor-pledge.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/patient-registration.html", to: "patient-registration.html" }]),
@@ -35,6 +36,10 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/images/donation-icon.svg", to: "images/donation-icon.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/transplant-icon.svg", to: "images/transplant-icon.svg" }]),
     new CopyWebpackPlugin([{ from: "./src/images/waiting-list-icon.svg", to: "images/waiting-list-icon.svg" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/Gummadi.png", to: "images/Gummadi.png" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/Boini.png", to: "images/Boini.png" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/Rahul Sabinkar.png", to: "images/Rahul Sabinkar.png" }]),
+    new CopyWebpackPlugin([{ from: "./src/images/Sai Manikanta.png", to: "images/Sai Manikanta.png" }]),    
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
 };

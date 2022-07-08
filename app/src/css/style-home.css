@@ -204,6 +204,14 @@ a.hover:hover{
     padding: 25px 0px;
 }
 
+.content-box.profile{
+    height: 450px;
+}
+
+.content-box.profile img{
+    width: 60%;
+}
+
 .accordian{
     max-width: 1440px;
     border-radius: 8px;
