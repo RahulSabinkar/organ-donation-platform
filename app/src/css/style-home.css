@@ -212,6 +212,29 @@ a.hover:hover{
     width: 60%;
 }
 
+/* Awareness content */
+
+.content-aware{
+    margin: 20px;
+}
+
+.content-aware p{    
+}
+
+.content-aware h1{
+    color: #005f82;
+    font-weight: 800;
+}
+
+.content-aware h2, h4{
+    color: #0079a8;
+    font-weight: 600;
+}
+
+.content-aware h6{
+    font-weight: 600;
+}
+
 .accordian{
     max-width: 1440px;
     border-radius: 8px;

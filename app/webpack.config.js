@@ -12,6 +12,7 @@ module.exports = {
     new CopyWebpackPlugin([{ from: "./src/index.html", to: "index.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/homepage.html", to: "homepage.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/about-us.html", to: "about-us.html" }]),
+    new CopyWebpackPlugin([{ from: "./src/html/awareness.html", to: "awareness.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/donor-registration.html", to: "donor-registration.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/donor-pledge.html", to: "donor-pledge.html" }]),
     new CopyWebpackPlugin([{ from: "./src/html/patient-registration.html", to: "patient-registration.html" }]),
