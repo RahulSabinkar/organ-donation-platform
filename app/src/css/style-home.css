@@ -79,7 +79,8 @@ nav ul li a{
 }
 
 a.active,a:hover{
-    background: #fff;
+    color: #fff;
+    background: #005f82;
     transition: .5s;
     text-decoration: none;
 }
@@ -233,6 +234,12 @@ a.hover:hover{
 
 .content-aware h6{
     font-weight: 600;
+}
+
+/* Contact content */
+
+.content-box.contact{
+    margin: 100px 0px;
 }
 
 .accordian{
