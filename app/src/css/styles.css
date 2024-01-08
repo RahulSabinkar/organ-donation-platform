@@ -38,7 +38,7 @@ html{
 }
 
 body{
-  background: #94e1ff !important;
+  background: rgb(198, 106, 159) !important;
   font-family: "Montserrat", sans-serif !important;
 }
 
@@ -62,7 +62,7 @@ h2 {
 }
 
 h3 {
-  color: #005f82;
+  color: #82005f;
 }
 
 /* .container.visibility{
@@ -83,7 +83,7 @@ h3 {
 }
 
 nav{
-  background-color: #94e1ff;
+  background-color: rgb(92, 60, 96);
   height: 100px;
   width: 100%;
 }
@@ -100,7 +100,7 @@ nav ul li{
 }
 
 nav ul li a{
-  color: #005f82;
+  color: #82005f;
   font-size: 18px;
   font-weight: 600;
   padding: 7px 12px;
@@ -155,7 +155,7 @@ img.nav-logo{
   flex-direction: column;
   align-items: center;
   width: 310px;
-  background: #005f82;
+  background: #82005f;
   padding: 20px;
   border-radius: 12px;
   color: #fff;
@@ -215,7 +215,7 @@ img.nav-logo{
 .btn-primary.custom{
   display: block;
   width: 100%;
-  background-color: #005f82;
+  background-color: #82005f;
   border: none;
   font-size: 1.5em;
   font-weight: 600;
@@ -229,7 +229,7 @@ img.nav-logo{
 }
 
 .btn-primary.custom:hover{
-  background-color: #004964;
+  background-color: #DB7093;
 }
 
 .btn-primary.search{
@@ -241,12 +241,12 @@ img.nav-logo{
 }
 
 .btn-primary.homepage{
-  background-color: #005f82;
+  background-color: #82005f;
   border: none;
 }
 
 .btn-primary.homepage:hover{
-  background-color: #004964;
+  background-color: #DB7093;
 }
 
 /*********************/
@@ -255,7 +255,7 @@ img.nav-logo{
 
 .col-md-4.form-bg{
   color: #fff;
-  background-color: #005f82;
+  background-color: #82005f;
   border-radius: 8px;
   padding: 15px 29px;
 }
@@ -268,7 +268,7 @@ img.nav-logo{
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #005f82;
+  color: #82005f;
   font-weight: 700;
   padding: 10px;
 }
@@ -334,7 +334,7 @@ input[type="submit"]:hover {
 #group label span{
   position: relative;
   display: inline-block;
-  background-color: #004964;
+  background-color: #DB7093;
   color: #fff;
   margin: 5px 2px;
   padding: 10px 20px;
@@ -362,7 +362,7 @@ input[type="submit"]:hover {
 }
 
 #group input[type="checkbox"]:checked ~ span{
-  color: #005f82;
+  color: #82005f;
   background: #fff;
 }
 
@@ -372,7 +372,7 @@ input[type="submit"]:hover {
 }
 
 #group input[type="radio"]:checked ~ span{
-  color: #005f82;
+  color: #82005f;
   background: #fff;
 }
 
@@ -390,7 +390,7 @@ input[type="submit"]:hover {
 
 .btn-warning.btn-1:hover{
   color: #fff;
-  background-color: #005f82;
+  background-color: #82005f;
 }
 
 
@@ -424,7 +424,7 @@ td {
 }
 
 th {
-    background-color: #005f82;
+    background-color: #82005f;
     color: #ffffff;
     text-align: center;
     padding: 15px;
@@ -458,7 +458,7 @@ tr:hover {
 
 .verification{
   width: 100%;
-  background-color: #005f82;
+  background-color: #82005f;
   border-radius: 8.5px;
   padding: 25px;
   margin: 10px 0px;
