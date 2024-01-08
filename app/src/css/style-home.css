@@ -70,7 +70,7 @@ nav ul li{
 }
 
 nav ul li a{
-    color: #005f82;
+    color: #82005f;
     font-size: 15px;
     font-weight: 700;
     padding: 7px 12px;
@@ -80,7 +80,7 @@ nav ul li a{
 
 a.active,a:hover{
     color: #fff;
-    background: #005f82;
+    background: #82005f;
     transition: .5s;
     text-decoration: none;
 }
@@ -133,14 +133,14 @@ a.hover:hover{
 }
 
 .col-md-7.banner h1{
-    color: #005f82;
+    color: #82005f;
     font-size: 2.85rem;
     font-weight: 700;
     padding: 20px;
 }
 
 .col-md-7.banner h3{
-    color: #005f82;
+    color: #82005f;
     font-weight: 500;
     padding: 20px;
 }
@@ -154,7 +154,7 @@ a.hover:hover{
     font-weight: 600;
     color: #fff;
     padding: 5px 10px 5px 10px;
-    background-color: #005f82;
+    background-color: #82005f;
 }
 
 .btn.btn-pledge:hover{
@@ -223,7 +223,7 @@ a.hover:hover{
 }
 
 .content-aware h1{
-    color: #005f82;
+    color: #82005f;
     font-weight: 800;
 }
 
@@ -246,7 +246,7 @@ a.hover:hover{
     max-width: 1440px;
     border-radius: 8px;
     overflow: hidden;
-    background-color: #005f82;
+    background-color: #82005f;
 }
 
 .accordian_label,
@@ -282,7 +282,7 @@ a.hover:hover{
 
 .accordian_content{
     background: #d5ecf5;
-    color: #005f82;
+    color: #82005f;
     padding: 15px 65px 15px 65px;
     line-height: 1.6;
     font-size: 1em;
@@ -304,7 +304,7 @@ a.hover:hover{
 }
 
 footer{
-    background-color: #005f82;
+    background-color: #82005f;
     margin-top: 10px;
 }
 

@@ -4,14 +4,13 @@
   "description": "A platform connecting organ donor and acceptor via ethereum blockchain",
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack--openssl-legacy-provider build",
     "dev": "webpack-dev-server"
   },
-  "author": "Rahul Sabinkar, Bongurala Sai Manikanta Teja, Boini Sai Kumar, Gummadi Sai Kumar",
   "license": "MIT",
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.5",
-    "webpack": "4.41.2",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
