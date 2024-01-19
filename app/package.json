@@ -11,12 +11,11 @@
   "license": "MIT",
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.5",
-    "webpack": "4.41.2",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "truffle": "^5.11.5",
     "web3": "^1.6.1"
   }
 }
